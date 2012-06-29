@@ -17,8 +17,8 @@ using Microsoft.Win32;
 
 using TAlex.GameOfLife.Engine;
 using TAlex.GameOfLife.FileFormats;
-using TAlex.GameOfLife.Controls;
 using TAlex.GameOfLife.Helpers;
+using TAlex.GameOfLife.Controls;
 
 
 namespace TAlex.GameOfLife
