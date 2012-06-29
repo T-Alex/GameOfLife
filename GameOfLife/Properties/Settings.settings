@@ -1,0 +1,56 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TAlex.GameOfLife.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ShowGrid" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SpeedValue" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="GridlinesColor" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#FFD3D3D3</Value>
+    </Setting>
+    <Setting Name="AlternatingGridlinesColor" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#FFA9A9A9</Value>
+    </Setting>
+    <Setting Name="SelectionColor" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#801E90FF</Value>
+    </Setting>
+    <Setting Name="BackColor" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#FFF5F5F5</Value>
+    </Setting>
+    <Setting Name="StatesCellColors" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;#FF0000FF&lt;/string&gt;
+  &lt;string&gt;#FF64FE00&lt;/string&gt;
+  &lt;string&gt;#FF22F000&lt;/string&gt;
+  &lt;string&gt;#FF00D200&lt;/string&gt;
+  &lt;string&gt;#FF00B400&lt;/string&gt;
+  &lt;string&gt;#FF009600&lt;/string&gt;
+  &lt;string&gt;#FF007800&lt;/string&gt;
+  &lt;string&gt;#FF006400&lt;/string&gt;
+  &lt;string&gt;#FF004600&lt;/string&gt;
+  &lt;string&gt;#FF73B2FF&lt;/string&gt;
+  &lt;string&gt;#FF509EFE&lt;/string&gt;
+  &lt;string&gt;#FF2B89FE&lt;/string&gt;
+  &lt;string&gt;#FF0070F8&lt;/string&gt;
+  &lt;string&gt;#FF0064E1&lt;/string&gt;
+  &lt;string&gt;#FF005ECE&lt;/string&gt;
+  &lt;string&gt;#FF004DAC&lt;/string&gt;
+  &lt;string&gt;#FF003F8C&lt;/string&gt;
+  &lt;string&gt;#FF00295C&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="PasteMode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Or</Value>
+    </Setting>
+    <Setting Name="WindowBounds" Type="System.Windows.Rect" Scope="User">
+      <Value Profile="(Default)">0,0,0,0</Value>
+    </Setting>
+    <Setting Name="WindowState" Type="System.Windows.WindowState" Scope="User">
+      <Value Profile="(Default)">Normal</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

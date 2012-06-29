@@ -1,0 +1,65 @@
+﻿<Window x:Class="TAlex.GameOfLife.AboutWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="About" Height="270" Width="400" ResizeMode="NoResize"
+    WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+    Background="{DynamicResource AboutWindowBackground}">
+        
+    <Grid DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Mode=OneTime}">
+        <Canvas Margin="16,13,16,36" Opacity="1">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Resources/Images/aboutLogo.png" />
+            </Canvas.Background>
+        </Canvas>
+                
+        <!-- Version -->
+        <Label Margin="0,20,45,0" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="11" FontFamily="Arial Black" Foreground="DarkBlue" Content="{Binding Mode=OneTime, Path=Version}" />
+        
+        <!-- About Logo text -->
+        <Image Margin="0,35,0,0" SnapsToDevicePixels="True" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Center" Source="Resources/Images/aboutLogoText.png"></Image>
+        
+        
+        <Label Name="licTextLabel" Margin="60,110,0,0" Padding="0" VerticalAlignment="Top" HorizontalAlignment="Left"
+               Visibility="{Binding Mode=OneTime, Path=LicenseInfoVisibility}">
+            This product is distributed as freeware
+        </Label>
+        
+        <!-- E-Mail link -->
+        <Label Margin="60,96,0,70" HorizontalAlignment="Left" VerticalAlignment="Bottom">E-Mail:</Label>
+        
+        <Label Margin="150,96,60,70" VerticalAlignment="Bottom">
+            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="{Binding Mode=OneTime, Path=EmailAddress}">
+                <TextBlock Text="{Binding Mode=OneTime, Path=EmailTitle}" />
+            </Hyperlink>
+        </Label>
+        
+        <!-- Web link -->
+        <Label Margin="60,0,0,50" VerticalAlignment="Bottom" HorizontalAlignment="Left">Web:</Label>
+        
+        <Label Margin="150,0,60,50" VerticalAlignment="Bottom">
+            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="{Binding Mode=OneTime, Path=HomepageUrl}">
+                <TextBlock Text="{Binding Mode=OneTime, Path=HomepageTitle}" />
+            </Hyperlink>
+        </Label>
+        
+        <!-- Copyright -->
+        <Label Margin="0,0,0,10" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Foreground="DarkBlue"
+               Content="{Binding Mode=OneTime, Path=Copyright}">
+        </Label>
+        
+        
+        <!-- Easter egg. -->
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Name="dedicatedLabel" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0">
+                This product is dedicated to the best lass in the world!
+            </Label>
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Name="ILabel" Padding="2" Opacity="0">I</Label>
+                <Label Name="LoveLabel" Padding="2" Opacity="0">Love</Label>
+                <Label Name="YouLabel" Padding="2" Opacity="0">You</Label>
+                <Label Name="KseniaLabel" Padding="2" Opacity="0">Ksenia</Label>
+                <Label Name="SavitskayaLabel" Padding="2" Opacity="0">Savitskaya</Label>
+            </WrapPanel>
+        </Grid>
+    </Grid>
+</Window>

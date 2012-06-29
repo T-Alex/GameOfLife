@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="TAlex.GameOfLife.Controls.GameField"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:talex="clr-namespace:TAlex.GameOfLife.Controls"
+    Focusable="True" FocusVisualStyle="{x:Null}">
+    
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{x:Static talex:GameField.DrawCommand}" Executed="drawCommandBinding_Executed" />
+        <CommandBinding Command="{x:Static talex:GameField.MoveCommand}" Executed="moveCommandBinding_Executed" />
+        <CommandBinding Command="{x:Static talex:GameField.SelectCommand}" Executed="selectCommandBinding_Executed" />
+        
+        <CommandBinding Command="{x:Static talex:GameField.StartCommand}" Executed="startCommandBinding_Executed" CanExecute="aliveCellsNeededCommandBinding_CanExecute" />
+        <CommandBinding Command="{x:Static talex:GameField.StopCommand}" Executed="stopCommandBinding_Executed" CanExecute="stopCommandBinding_CanExecute" />
+        <CommandBinding Command="{x:Static talex:GameField.NextGenerationCommand}" Executed="nextGenerationCommandBinding_Executed" CanExecute="aliveCellsNeededCommandBinding_CanExecute" />
+        <CommandBinding Command="{x:Static talex:GameField.ResetCommand}" Executed="resetCommandBinding_Executed" CanExecute="resetCommandBinding_CanExecute" />
+        
+        <CommandBinding Command="ApplicationCommands.Undo" Executed="undoCommandBinding_Executed" CanExecute="undoCommandBinding_CanExecute" />
+        <CommandBinding Command="ApplicationCommands.Redo" Executed="redoCommandBinding_Executed" CanExecute="redoCommandBinding_CanExecute" />
+        
+        <CommandBinding Command="ApplicationCommands.Cut" Executed="cutCommandBinding_Executed" CanExecute="selectionNeededCommandBinding_CanExecute" />
+        <CommandBinding Command="ApplicationCommands.Copy" Executed="copyCommandBinding_Executed" CanExecute="selectionNeededCommandBinding_CanExecute" />
+        <CommandBinding Command="ApplicationCommands.Paste" Executed="pasteCommandBinding_Executed" CanExecute="pasteCommandBinding_CanExecute" />
+        <CommandBinding Command="ApplicationCommands.Delete" Executed="deleteCommandBinding_Executed" CanExecute="selectionNeededCommandBinding_CanExecute" />
+        
+        <CommandBinding Command="ApplicationCommands.SelectAll" Executed="selectAllCommandBinding_Executed" CanExecute="aliveCellsNeededCommandBinding_CanExecute" />
+        <CommandBinding Command="{x:Static talex:GameField.DeselectAllCommand}" Executed="deselectAllCommandBinding_Executed" CanExecute="selectionNeededCommandBinding_CanExecute" />
+        
+        <CommandBinding Command="{x:Static talex:GameField.Rotate180Command}" Executed="rotate180CommandBinding_Executed" CanExecute="selectionNeededCommandBinding_CanExecute" />
+        <CommandBinding Command="{x:Static talex:GameField.Rotate90CWCommand}" Executed="rotate90CWCommandBinding_Executed" CanExecute="selectionNeededCommandBinding_CanExecute" />
+        <CommandBinding Command="{x:Static talex:GameField.Rotate90CCWCommand}" Executed="rotate90CCWCommandBinding_Executed" CanExecute="selectionNeededCommandBinding_CanExecute" />
+        <CommandBinding Command="{x:Static talex:GameField.FlipHorizontalCommand}" Executed="flipHorizontalCommandBinding_Executed" CanExecute="selectionNeededCommandBinding_CanExecute" />
+        <CommandBinding Command="{x:Static talex:GameField.FlipVerticalCommand}" Executed="flipVerticalCommandBinding_Executed" CanExecute="selectionNeededCommandBinding_CanExecute" />
+        
+        <CommandBinding Command="{x:Static talex:GameField.FitPatternCommand}" Executed="fitPatternCommandBinding_Executed" />
+        <CommandBinding Command="{x:Static talex:GameField.FitSelectionCommand}" Executed="fitSelectionCommandBinding_Executed" CanExecute="selectionNeededCommandBinding_CanExecute" />
+        <CommandBinding Command="{x:Static talex:GameField.CenteringPatternCommand}" Executed="centeringPatternCommandBinding_Executed" />
+    </UserControl.CommandBindings>
+    
+    <Grid SnapsToDevicePixels="True">
+        <Image Name="gameFieldImage" Stretch="Fill" SnapsToDevicePixels="True" />
+    </Grid>
+</UserControl>

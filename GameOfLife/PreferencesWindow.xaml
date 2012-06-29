@@ -1,0 +1,77 @@
+﻿<Window x:Class="TAlex.GameOfLife.PreferencesWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:talex="http://schemas.talex-soft.com/2010/xaml/presentation"
+    Title="Preferences" Height="300" Width="400" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" ShowInTaskbar="False">
+    <Grid Margin="12">        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="32" />
+        </Grid.RowDefinitions>
+        
+        <TabControl>
+            <TabControl.Items>                
+                <TabItem Header="Colors">
+                    <Grid Margin="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        
+                        <UniformGrid Grid.Row="0">
+                            <talex:ColorChip x:Name="gridlinesColorChip">Gridlines</talex:ColorChip>
+                            <talex:ColorChip x:Name="alternatingGridlinesColorChip">Alternating gridlines</talex:ColorChip>
+                            <talex:ColorChip x:Name="backColorChip">Background</talex:ColorChip>
+                            <talex:ColorChip x:Name="selectionColorChip">Selection</talex:ColorChip>
+                        </UniformGrid>
+                        
+                        <GroupBox Grid.Row="1" Header="States">
+                            <StackPanel>
+                                <StackPanel.Resources>
+                                    <ItemsPanelTemplate x:Key="itemsPanel">
+                                        <WrapPanel />
+                                    </ItemsPanelTemplate>
+                                </StackPanel.Resources>
+                                
+                                <Expander Header="Birth" IsExpanded="True">
+                                    <ListView Name="birthStatesListView" ItemsPanel="{StaticResource itemsPanel}" BorderThickness="0">
+                                        <ListView.Items>
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 1: Drawing mode" />
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 2" />
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 3" />
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 4" />
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 5" />
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 6" />
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 7" />
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 8" />
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 9" />
+                                        </ListView.Items>
+                                    </ListView>
+                                </Expander>
+                                
+                                <Expander Header="Survival" IsExpanded="True">
+                                    <ListView Name="survivalStatesListView" ItemsPanel="{StaticResource itemsPanel}" BorderThickness="0">
+                                        <ListView.Items>
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 10" />
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 11" />
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 12" />
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 13" />
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 14" />
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 15" />
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 16" />
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 17" />
+                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 18" />
+                                        </ListView.Items>
+                                    </ListView>
+                                </Expander>
+                            </StackPanel>
+                        </GroupBox>
+                    </Grid>
+                </TabItem>
+            </TabControl.Items>
+        </TabControl>
+        
+        <Button Name="okButton" Grid.Row="1" Margin="0,0,90,0" Width="80" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="okButton_Click">_OK</Button>
+        <Button Name="cancelButton" Grid.Row="1" Width="80" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="cancelButton_Click">_Cancel</Button>
+    </Grid>
+</Window>
