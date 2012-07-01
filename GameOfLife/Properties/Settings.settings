@@ -20,29 +20,6 @@
     <Setting Name="BackColor" Type="System.Windows.Media.Color" Scope="User">
       <Value Profile="(Default)">#FFF5F5F5</Value>
     </Setting>
-    <Setting Name="StatesCellColors" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;#FF0000FF&lt;/string&gt;
-  &lt;string&gt;#FF64FE00&lt;/string&gt;
-  &lt;string&gt;#FF22F000&lt;/string&gt;
-  &lt;string&gt;#FF00D200&lt;/string&gt;
-  &lt;string&gt;#FF00B400&lt;/string&gt;
-  &lt;string&gt;#FF009600&lt;/string&gt;
-  &lt;string&gt;#FF007800&lt;/string&gt;
-  &lt;string&gt;#FF006400&lt;/string&gt;
-  &lt;string&gt;#FF004600&lt;/string&gt;
-  &lt;string&gt;#FF73B2FF&lt;/string&gt;
-  &lt;string&gt;#FF509EFE&lt;/string&gt;
-  &lt;string&gt;#FF2B89FE&lt;/string&gt;
-  &lt;string&gt;#FF0070F8&lt;/string&gt;
-  &lt;string&gt;#FF0064E1&lt;/string&gt;
-  &lt;string&gt;#FF005ECE&lt;/string&gt;
-  &lt;string&gt;#FF004DAC&lt;/string&gt;
-  &lt;string&gt;#FF003F8C&lt;/string&gt;
-  &lt;string&gt;#FF00295C&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
     <Setting Name="PasteMode" Type="System.String" Scope="User">
       <Value Profile="(Default)">Or</Value>
     </Setting>
@@ -51,6 +28,120 @@
     </Setting>
     <Setting Name="WindowState" Type="System.Windows.WindowState" Scope="User">
       <Value Profile="(Default)">Normal</Value>
+    </Setting>
+    <Setting Name="StatesCellColors" Type="System.Collections.Generic.List&lt;System.Windows.Media.Color&gt;" Scope="User">
+      <Value Profile="(Default)">
+                  &lt;ArrayOfColor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;0&lt;/R&gt;
+                      &lt;G&gt;0&lt;/G&gt;
+                      &lt;B&gt;255&lt;/B&gt;
+                    &lt;/Color&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;100&lt;/R&gt;
+                      &lt;G&gt;254&lt;/G&gt;
+                      &lt;B&gt;0&lt;/B&gt;
+                    &lt;/Color&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;34&lt;/R&gt;
+                      &lt;G&gt;240&lt;/G&gt;
+                      &lt;B&gt;0&lt;/B&gt;
+                    &lt;/Color&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;0&lt;/R&gt;
+                      &lt;G&gt;210&lt;/G&gt;
+                      &lt;B&gt;0&lt;/B&gt;
+                    &lt;/Color&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;0&lt;/R&gt;
+                      &lt;G&gt;180&lt;/G&gt;
+                      &lt;B&gt;0&lt;/B&gt;
+                    &lt;/Color&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;0&lt;/R&gt;
+                      &lt;G&gt;150&lt;/G&gt;
+                      &lt;B&gt;0&lt;/B&gt;
+                    &lt;/Color&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;0&lt;/R&gt;
+                      &lt;G&gt;120&lt;/G&gt;
+                      &lt;B&gt;0&lt;/B&gt;
+                    &lt;/Color&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;0&lt;/R&gt;
+                      &lt;G&gt;100&lt;/G&gt;
+                      &lt;B&gt;0&lt;/B&gt;
+                    &lt;/Color&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;0&lt;/R&gt;
+                      &lt;G&gt;70&lt;/G&gt;
+                      &lt;B&gt;0&lt;/B&gt;
+                    &lt;/Color&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;115&lt;/R&gt;
+                      &lt;G&gt;178&lt;/G&gt;
+                      &lt;B&gt;255&lt;/B&gt;
+                    &lt;/Color&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;80&lt;/R&gt;
+                      &lt;G&gt;158&lt;/G&gt;
+                      &lt;B&gt;254&lt;/B&gt;
+                    &lt;/Color&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;43&lt;/R&gt;
+                      &lt;G&gt;137&lt;/G&gt;
+                      &lt;B&gt;254&lt;/B&gt;
+                    &lt;/Color&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;0&lt;/R&gt;
+                      &lt;G&gt;112&lt;/G&gt;
+                      &lt;B&gt;248&lt;/B&gt;
+                    &lt;/Color&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;0&lt;/R&gt;
+                      &lt;G&gt;100&lt;/G&gt;
+                      &lt;B&gt;225&lt;/B&gt;
+                    &lt;/Color&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;0&lt;/R&gt;
+                      &lt;G&gt;94&lt;/G&gt;
+                      &lt;B&gt;206&lt;/B&gt;
+                    &lt;/Color&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;0&lt;/R&gt;
+                      &lt;G&gt;77&lt;/G&gt;
+                      &lt;B&gt;172&lt;/B&gt;
+                    &lt;/Color&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;0&lt;/R&gt;
+                      &lt;G&gt;63&lt;/G&gt;
+                      &lt;B&gt;140&lt;/B&gt;
+                    &lt;/Color&gt;
+                    &lt;Color&gt;
+                      &lt;A&gt;255&lt;/A&gt;
+                      &lt;R&gt;0&lt;/R&gt;
+                      &lt;G&gt;41&lt;/G&gt;
+                      &lt;B&gt;92&lt;/B&gt;
+                    &lt;/Color&gt;
+                  &lt;/ArrayOfColor&gt;
+                </Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -176,7 +176,6 @@
     <Compile Include="FileFormats\PlaintextLifePatternFileFormat.cs" />
     <Compile Include="FileFormats\RLELifePatternFileFormat.cs" />
     <Compile Include="FileFormats\TextLifePatternFileFormat.cs" />
-    <Compile Include="Helpers\ColorUtils.cs" />
     <Compile Include="Helpers\LifeHelpers.cs" />
     <Compile Include="Helpers\StringUtils.cs" />
     <Compile Include="PreferencesWindow.xaml.cs">
@@ -238,6 +237,7 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>

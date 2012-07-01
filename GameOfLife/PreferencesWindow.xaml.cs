@@ -46,22 +46,12 @@ namespace TAlex.GameOfLife
             {
                 for (int i = 0; i < 9; i++)
                 {
-                    Color? c = ColorUtils.Parse(settings.StatesCellColors[i] as String);
-
-                    if (c != null)
-                    {
-                        ((ColorChip)birthStatesListView.Items[i]).SelectedColor = (Color)c;
-                    }
+                    ((ColorChip)birthStatesListView.Items[i]).SelectedColor = settings.StatesCellColors[i];
                 }
 
                 for (int i = 0; i < 9; i++)
                 {
-                    Color? c = ColorUtils.Parse(settings.StatesCellColors[i + 9] as String);
-
-                    if (c != null)
-                    {
-                        ((ColorChip)survivalStatesListView.Items[i]).SelectedColor = (Color)c;
-                    }
+                    ((ColorChip)survivalStatesListView.Items[i]).SelectedColor = settings.StatesCellColors[i + 9];
                 }
             }
         }
@@ -79,12 +69,12 @@ namespace TAlex.GameOfLife
 
             foreach (ColorChip chip in birthStatesListView.Items)
             {
-                settings.StatesCellColors.Add(chip.SelectedColor.ToString());
+                settings.StatesCellColors.Add(chip.SelectedColor);
             }
 
             foreach (ColorChip chip in survivalStatesListView.Items)
             {
-                settings.StatesCellColors.Add(chip.SelectedColor.ToString());
+                settings.StatesCellColors.Add(chip.SelectedColor);
             }
 
             settings.Save();

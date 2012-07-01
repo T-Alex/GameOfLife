@@ -82,7 +82,7 @@ namespace TAlex.GameOfLife
             gameField.BackColor = settings.BackColor;
             gameField.SelectionColor = settings.SelectionColor;
             gameField.ShowGridlines = settings.ShowGrid;
-            gameField.SetStatesCellColors(ColorUtils.Parse(settings.StatesCellColors));
+            gameField.SetStatesCellColors(settings.StatesCellColors);
             gameField.PasteMode = (PasteMode)Enum.Parse(typeof(PasteMode), settings.PasteMode, true);
 
             speedSlider.Value = settings.SpeedValue;

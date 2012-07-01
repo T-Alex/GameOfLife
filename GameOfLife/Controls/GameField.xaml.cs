@@ -1055,13 +1055,14 @@ namespace TAlex.GameOfLife.Controls
             Render();
         }
 
-        public void SetStatesCellColors(Color[] colors)
+        public void SetStatesCellColors(IEnumerable<Color> colors)
         {
             if (colors != null)
             {
-                for (int state = 0; state < colors.Length; state++)
+                int state = 1;
+                foreach (Color color in colors)
                 {
-                    _statesCellColors[state + 1] = ColorToBgra32(colors[state]);
+                    _statesCellColors[state++] = ColorToBgra32(color);
                 }
 
                 Render();

@@ -117,12 +117,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_72AF60C6C21A6C97D89CFC6A783E876C"
-        "OwnerKey" = "8:_4E68F540890C42FD8E32313B3E7C9F3E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_76D891321C774EF19DBE2496D078619A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -203,6 +197,12 @@
         {
         "MsmKey" = "8:_AD8A46D70F7C4894A0172F751234835C"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_AFCD4DFD9BF82F21353C801DEF302B68"
+        "OwnerKey" = "8:_4E68F540890C42FD8E32313B3E7C9F3E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -310,7 +310,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_72AF60C6C21A6C97D89CFC6A783E876C"
+        "OwnerKey" = "8:_AFCD4DFD9BF82F21353C801DEF302B68"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -410,7 +410,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:3.5.30729       "
+                "FrameworkVersion" = "8:3.5.30729        "
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=76617"
                 }
@@ -738,37 +738,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_72AF60C6C21A6C97D89CFC6A783E876C"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:TAlex.WPF.Controls, Version=1.2.5.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_72AF60C6C21A6C97D89CFC6A783E876C"
-                    {
-                    "Name" = "8:TAlex.WPF.Controls.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:TAlex.WPF.Controls.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_CBC1CB516FFC4A3EA0F7A6915E9A2721"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_76D891321C774EF19DBE2496D078619A"
             {
             "SourcePath" = "8:Patterns\\Simple\\Port.rle"
@@ -1047,6 +1016,37 @@
             "Register" = "3:1"
             "Exclude" = "11:TRUE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AFCD4DFD9BF82F21353C801DEF302B68"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:TAlex.WPF.Controls, Version=1.2.5.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_AFCD4DFD9BF82F21353C801DEF302B68"
+                    {
+                    "Name" = "8:TAlex.WPF.Controls.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:TAlex.WPF.Controls.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_CBC1CB516FFC4A3EA0F7A6915E9A2721"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C2F7F29504E14C7D8048EDCC470BDCED"
@@ -1649,15 +1649,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Game of Life"
-        "ProductCode" = "8:{E9AD0DBE-CCB9-4245-98D5-F16BFA91F55B}"
-        "PackageCode" = "8:{8551F02B-58CA-4038-A3B5-2F4FCE631FCD}"
+        "ProductCode" = "8:{C06BCA66-8660-4493-9BD4-772B7808AA6C}"
+        "PackageCode" = "8:{1D246D18-5070-4E00-B343-0E4EE2F0207A}"
         "UpgradeCode" = "8:{112213BC-6AAA-4973-99B3-6A704C903621}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:2.0.2"
+        "ProductVersion" = "8:2.1.0"
         "Manufacturer" = "8:T-Alex Software"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
