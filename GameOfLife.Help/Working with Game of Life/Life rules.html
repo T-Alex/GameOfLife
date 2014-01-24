@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Life rules</title>
+		<link href="../style.css" rel="stylesheet" type="text/css" />
+	</head>
+	
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<div id="logo"></div>
+				<div><h2>Game of Life</h2></div>
+			</div>
+			
+			<div id="content">
+				<h3>Life rules</h3>
+				<hr noshade />
+
+				<p>The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, alive or dead. Every cell interacts with its eight neighbours, which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:</p>
+				<ul>
+					<li>Any live cell with fewer than two live neighbours dies, as if caused by under-population.</li>
+					<li>Any live cell with two or three live neighbours lives on to the next generation.</li>
+					<li>Any live cell with more than three live neighbours dies, as if by overcrowding.</li>
+					<li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
+				</ul>
+				
+				<p>
+					The initial pattern constitutes the seed of the system. The first generation is created by applying the above rules simultaneously to every cell in the seed—births and deaths occur simultaneously, and the discrete moment at which this happens is sometimes called a tick (in other words, each generation is a pure function of the preceding one). The rules continue to be applied repeatedly to create further generations.
+				</p>
+				
+				<h4>Variations on Life</h4>
+				<p>Since Life's inception, new similar cellular automata have been developed. The standard Game of Life, in which a cell is "born" if it has exactly 3 neighbours, stays alive if it has 2 or 3 living neighbours, and dies otherwise, is symbolised as "B3/S23". The first number, or list of numbers, is what is required for a dead cell to be born. The second set is the requirement for a live cell to survive to the next generation. Hence "B6/S16" means "a cell is born if there are 6 neighbours, and lives on if there are either 1 or 6 neighbours". Cellular automata on a two-dimensional grid that can be described in this way are known as Life-like cellular automata. Another common Life-like automaton, HighLife, is described by the rule B36/S23, because having 6 neighbours, in addition to the original game's B3/S23 rule, causes a birth. HighLife is best known for its frequently occurring replicators. Additional Life-like cellular automata exist, although the vast majority of them produce universes that are either too chaotic or too desolate to be of interest.</p>
+				
+				<h4>Life-like cellular automaton</h4>
+				<p>A cellular automaton (CA) is Life-like (in the sense of being similar to Conway's Game of Life) if it meets the following criteria:</p>
+				<ul>
+					<li>The array of cells of the automaton has two dimensions.</li>
+					<li>Each cell of the automaton has two states (conventionally referred to as "alive" and "dead", or alternatively "on" and "off").</li>
+					<li>The neighborhood of each cell is the Moore neighborhood; it consists of the eight adjacent cells to the one under consideration and (possibly) the cell itself.</li>
+					<li>In each time step of the automaton, the new state of a cell can be expressed as a function of the number of adjacent cells that are in the alive state and of the cell's own state; that is, the rule is outer totalistic (sometimes called semitotalistic).</li>
+				</ul>
+				
+				<p>This class of cellular automata is named for the Game of Life (B3/S23), the most famous cellular automaton, which meets all of these criteria. Many different terms are used to describe this class. It is common to refer to it as the "Life family" or to simply use phrases like "similar to Life".</p>
+				
+				<table>
+					<thead>
+						<tr>
+							<th>Rule</th>
+							<th>Name</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<tr class="odd-row">
+							<td>B1357/S1357</td>
+							<td>Replicator</td>
+							<td>Edward Fredkin's replicating automaton: every pattern is eventually replaced by multiple copies of itself.</td>
+						</tr>
+						<tr class="even-row">
+							<td>B2</td>
+							<td>Seeds</td>
+							<td>All patterns are phoenixes, meaning that every live cell immediately dies, and many patterns lead to explosive chaotic growth. However, some engineered patterns with complex behavior are known.</td>
+						</tr>
+						<tr class="odd-row">
+							<td>B234</td>
+							<td>Persian Rug</td>
+							<td>An exploding rule in which every cell dies every generation (like seeds). This rule is of interest because of the fabric-like beauty of the patterns that it produces.</td>
+						</tr>
+						<tr class="even-row">
+							<td>B3/S012345678</td>
+							<td>Life without death</td>
+							<td>An expanding rule that produces complex flakes. It also has important ladder patterns.</td>
+						</tr>
+						<tr class="odd-row">
+							<td>B3/S12345</td>
+							<td>Maze</td>
+							<td>An expanding rule that crystalizes to form maze-like designs.</td>
+						</tr>
+						<tr class="even-row">
+							<td>B3/S23</td>
+							<td>Life</td>
+							<td>Highly complex behavior.</td>
+						</tr>
+						<tr class="odd-row">
+							<td>B3/S45678</td>
+							<td>Coral</td>
+							<td>An exploding rule in which patterns grow slowly and form coral-like textures.</td>
+						</tr>
+						<tr class="even-row">
+							<td>B34/S34</td>
+							<td>34 Life</td>
+							<td>Was initially thought to be a stable alternative to Life, until computer simulation found that larger patterns tend to explode. Has many small oscillators and spaceships.</td>
+						</tr>
+						<tr class="odd-row">
+							<td>B345/S4567</td>
+							<td>Assimilation</td>
+							<td>A very stable rule that forms permanent diamond-shaped patterns with partially filled interiors.</td>
+						</tr>
+						<tr class="even-row">
+							<td>B345/S5</td>
+							<td>Long Life</td>
+							<td>A stable rule that gets its name from the fact that it has many simple extremely high period oscillators.</td>
+						</tr>
+						<tr class="odd-row">
+							<td>B35678/S5678</td>
+							<td>Diamoeba</td>
+							<td>A chaotic pattern that forms large diamonds with chaotically oscillating boundaries. Known to have quadratically-growing patterns.</td>
+						</tr>
+						<tr class="even-row">
+							<td>B357/S1358</td>
+							<td>Amoeba</td>
+							<td>A chaotic rule that is well balanced between life and death; it forms patterns with chaotic interiors and wildly moving boundaries.</td>
+						</tr>
+						<tr class="odd-row">
+							<td>B357/S238</td>
+							<td>Pseudo Life</td>
+							<td>A chaotic rule with evolution that resembles Conway's Life, but few patterns from Life work in this rule because the glider is unstable.</td>
+						</tr>
+						<tr class="even-row">
+							<td>B36/S125</td>
+							<td>2x2</td>
+							<td>A chaotic rule with many simple still lifes, oscillators and spaceships. Its name comes from the fact that it sends patterns made up of 2x2 blocks to patterns made up of 2x2 blocks.</td>
+						</tr>
+						<tr class="odd-row">
+							<td>B36/S23</td>
+							<td>HighLife</td>
+							<td>A chaotic rule very similar to Conway's Life that is of interest because it has a simple replicator.</td>
+						</tr>
+						<tr class="even-row">
+							<td>B3678/S235678</td>
+							<td>Stains</td>
+							<td>A stable rule in which most patterns tend to "fill in" bounded regions. Most nearby rules (such as coagulations) tend to explode.</td>
+						</tr>
+						<tr class="odd-row">
+							<td>B3678/S34678</td>
+							<td>Day & Night</td>
+							<td>Symmetric under on-off reversal. Has engineered patterns with highly complex behavior.</td>
+						</tr>
+						<tr class="even-row">
+							<td>B368/S245</td>
+							<td>Move</td>
+							<td>A rule in which random patterns tend to stabilize extremely quickly. Has a very common slow-moving spaceship and slow-moving puffer.</td>
+						</tr>
+						<tr class="odd-row">
+							<td>B378/S235678</td>
+							<td>Coagulations</td>
+							<td>An exploding rule in which patterns tend to expand forever, producing a thick "goo" as it does so.</td>
+						</tr>
+						<tr class="even-row">
+							<td>B45678/S2345</td>
+							<td>Walled cities</td>
+							<td>A stable rule that forms centers of pseudo-random activity separated by walls.</td>
+						</tr>
+					<tbody>
+				</table>
+			</div>
+		
+		<div id="footer">
+			<p>Copyright &copy; 2011-2012 <a href="http://www.talex-soft.com" target="_blank">T-Alex Software</a>. All Rights Reserved.</p>
+		</div>
+	</body>
+</html>

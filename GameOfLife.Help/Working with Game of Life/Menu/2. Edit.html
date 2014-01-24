@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Edit</title>
+		<link href="../../style.css" rel="stylesheet" type="text/css" />
+	</head>
+	
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<div id="logo"></div>
+				<div><h2>Game of Life</h2></div>
+			</div>
+			
+			<div id="content">
+				<h3>Menu: Edit</h3>
+				<hr noshade />
+				
+				<ul>
+					<li><strong>Undo</strong> (Ctrl+Z)<br />
+						Undoes the most recent undo command.
+					</li>
+					<li><strong>Redo</strong> (Ctrl+Y)<br />
+						Redoes the most recent undo command.
+					</li>
+					<li><strong>Cut</strong> (Ctrl+X)<br />
+						Copies to clipboard the selected pattern (in RLE format) and removes it from the field.
+					</li>
+					<li><strong>Copy</strong> (Ctrl+C)<br />
+						Copies to clipboard the selected pattern. The clipboard data is in RLE format.
+					</li>
+					<li><strong>Paste</strong> (Ctrl+V)<br />
+						Pastes pattern stored in the clipboard at one of the supported formats. To paste pattern in the desired location, click the desired area.
+					</li>
+					<li><strong>Delete</strong> (Del)<br />
+						Removes the selected pattern.
+					</li>
+					<li><strong>Select All</strong> (Ctrl+A)<br />
+						Selects the entire pattern, if there is at least one living cell.
+					</li>
+					<li><strong>Deselect All</strong> (Ctrl+D)<br />
+						Removes the current selection, if there is one.
+					</li>
+					<li><strong>Transform</strong><br />
+						Different transformations of the selected area.
+						<ul>
+							<li><strong>Rotate 180°</strong><br />
+								Rotation of the selected pattern by 180 degrees.
+							</li>
+							<li><strong>Rotate 90° CW</strong><br />
+								Rotation of the selected pattern by 90 degrees clockwise.
+							</li>
+							<li><strong>Rotate 90° CCW</strong><br />
+								Rotation of the selected pattern by 90 degrees counterclockwise.
+							</li>
+							<li><strong>Flip Horizontal</strong><br />
+								Flip Horizontal of the selected pattern.
+							</li>
+							<li><strong>Flip Vertical</strong><br />
+								Flip Vertical of the selected pattern.
+							</li>
+						</ul>
+					</li>
+					<li><strong>Paste mode</strong><br />
+						Different modes of paste the copied patterns in the desired area.
+						<ul>
+							<li><strong>Copy</strong><br />
+								Logical function "OR" to paste pattern from clipboard into a previously cleaned area.
+							</li>
+							<li><strong>And</strong><br />
+								Logical function "AND" to paste pattern from clipboard.
+							</li>
+							<li><strong>Or</strong><br />
+								Logical function "OR" to paste pattern from clipboard.
+							</li>
+							<li><strong>Xor</strong><br />
+								Logical function "XOR" to paste pattern from clipboard.
+							</li>
+						</ul>
+					</li>
+					<li><strong>Cursor mode</strong><br />
+						Three cursor mode for various editing operations.
+						<ul>
+							<li><strong>Draw</strong> (F2)<br />
+								Mode drawing of pattern.
+							</li>
+							<li><strong>Move</strong> (F3)<br />
+								Mode moving on the plot.
+							</li>
+							<li><strong>Select</strong> (F4)<br />
+								Mode selecting of the pattern.
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		
+		<div id="footer">
+			<p>Copyright &copy; 2011-2012 <a href="http://www.talex-soft.com" target="_blank">T-Alex Software</a>. All Rights Reserved.</p>
+		</div>
+	</body>
+</html>

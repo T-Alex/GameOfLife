@@ -1,0 +1,39 @@
+html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
+body { position: relative; min-height: 100%; height: auto !important; height: 100%; font: 12px verdana; line-height: 1.3; color: #707070; }
+
+table { margin: auto; border-collapse: collapse; text-align: left; }
+table, table td, table th { border: 1px solid #71b3e2; }
+table tr, table td { padding: 2px; margin: 2px; }
+table th { color: White; height: 24px; background: url("images/table-header.png") repeat-x; padding: 0px; text-align: center; }
+tr.odd-row { background-color: #eef6fe; }
+tr.even-row { background-color: #e0eefc; }
+
+h3 { margin: 0px; padding: 0px; font-size: 14px; color: #51a2f4; }
+h4 { font-size: 12px; color: #51a2f4; font-style: italic; }
+
+hr { margin: 0px; padding: 0px; height: 1px; color: #dedede; }
+
+img { border-style: none; }
+
+a, a:visited { color: #3d8aeb; }
+a:hover { color: Black; }
+
+#wrapper { }
+
+#header { height: 60px; width: 100%; border-bottom: solid 1px #84bdf7; background: Blue url("images/header-bg.png") repeat-x; }
+#header #logo { float: left; margin-left: 20px; background: url("images/logo.png") no-repeat; width: 140px; height: 60px; }
+#header h2 { color: Azure; text-align: right; padding-top: 20px; margin: 0px; margin-right: 20px; font-size: 18px; }
+
+#content { padding: 15px; padding-bottom: 50px; text-align: justify; }
+
+#footer { height: 40px; width: 100%; position: absolute; left: 0; bottom: 0; border-top: solid 1px #dedede; background: Silver url("images/footer-bg.png") repeat-x; }
+#footer p { text-align: right; margin-top: 15px; margin-right: 20px; font-size: 10px; color: #303030; }
+#footer a { text-decoration: none; color: #303030; }
+#footer a:hover { color: Gray; }
+
+.changelog, .features { padding-left: 0px; margin-left: 0px; list-style-type: none; }
+.changelog li, .features li { margin: 15px 0 15px 0; }
+.changelog ul { padding-left: 15px; margin-left: 15px; margin-top: 5px; list-style-type: square; }
+.features ul { list-style-type: square; padding-left: 15px; margin-left: 0px; margin-top: 5px; }
+.features h4 { padding: 0px; margin: 0px; font-style: italic; }
+.changelog ul li, .features ul li { margin: 0; }
