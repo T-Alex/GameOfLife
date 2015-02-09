@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("T-Alex Software")]
 [assembly: AssemblyProduct("Game of Life")]
-[assembly: AssemblyCopyright("Copyright © 2012 T-Alex Software")]
+[assembly: AssemblyCopyright("Copyright © 2015 T-Alex Software")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

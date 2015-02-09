@@ -598,8 +598,8 @@ namespace TAlex.GameOfLife.Controls
             unsafe
             {
                 // Get a pointer to the back buffer.
-                int pBackBufferOrigin = (int)_wb.BackBuffer;
-                int pBackBuffer = pBackBufferOrigin;
+                var pBackBufferOrigin = (long)_wb.BackBuffer;
+                var pBackBuffer = pBackBufferOrigin;
 
                 // Draw background
                 for (int i = 0; i < pixelCount; i++)
@@ -636,7 +636,7 @@ namespace TAlex.GameOfLife.Controls
 
                         int col_offset = (int)(x * floatScale) * 4;
                         int row_offset = (int)(y * floatScale) * backBufferStride;
-                        int offset = pBackBuffer + row_offset + col_offset;
+                        var offset = pBackBuffer + row_offset + col_offset;
 
                         int cellWidth = (x < m) ? intScale : lastColWidth;
                         int cellHeight = (y < n) ? intScale : lastRowHeight;
@@ -681,7 +681,7 @@ namespace TAlex.GameOfLife.Controls
 
                                 int col_offset = (int)(x * floatScale) * 4;
                                 int row_offset = (int)(y * floatScale) * backBufferStride;
-                                int offset = pBackBuffer + row_offset + col_offset;
+                                var offset = pBackBuffer + row_offset + col_offset;
 
                                 int cellWidth = (x < m) ? intScale : lastColWidth;
                                 int cellHeight = (y < n) ? intScale : lastRowHeight;
@@ -750,15 +750,15 @@ namespace TAlex.GameOfLife.Controls
 
                     int col_offset = x * 4;
                     int row_offset = y * backBufferStride;
-                    int offset = pBackBuffer + row_offset + col_offset;
+                    var offset = pBackBuffer + row_offset + col_offset;
 
                     for (int i = 0; i < sel_h; i++)
                     {
                         for (int j = 0; j < sel_w; j++)
                         {
-                            int d = offset + i * backBufferStride + j * 4;
+                            var d = offset + i * backBufferStride + j * 4;
 
-                            int old_color = *((int*)d);
+                            var old_color = *((int*)d);
                             *((int*)d) = OverlayColors(old_color);
                         }
                     }
@@ -797,8 +797,8 @@ namespace TAlex.GameOfLife.Controls
             unsafe
             {
                 // Get a pointer to the back buffer.
-                int pBackBufferOrigin = (int)_wb.BackBuffer;
-                int pBackBuffer = pBackBufferOrigin;
+                var pBackBufferOrigin = (long)_wb.BackBuffer;
+                var pBackBuffer = pBackBufferOrigin;
 
                 // Draw cell
                 int n = FieldHeight;
@@ -826,7 +826,7 @@ namespace TAlex.GameOfLife.Controls
                 {
                     int col_offset = (int)(x * floatScale) * 4;
                     int row_offset = (int)(y * floatScale) * backBufferStride;
-                    int offset = pBackBuffer + row_offset + col_offset;
+                    var offset = pBackBuffer + row_offset + col_offset;
 
                     int cellColor = _statesCellColors[state];
                     if (state == 0) cellColor = back_c;
@@ -890,13 +890,13 @@ namespace TAlex.GameOfLife.Controls
 
                         int col_offset = (int)(x * floatScale) * 4;
                         int row_offset = (int)(y * floatScale) * backBufferStride;
-                        int offset = pBackBuffer + row_offset + col_offset;
+                        var offset = pBackBuffer + row_offset + col_offset;
 
                         for (int p = 0; p < cellHeight; p++)
                         {
                             for (int k = 0; k < cellWidth; k++)
                             {
-                                int d = offset + p * backBufferStride + k * 4;
+                                var d = offset + p * backBufferStride + k * 4;
 
                                 int old_color = *((int*)d);
                                 *((int*)d) = OverlayColors(old_color);
