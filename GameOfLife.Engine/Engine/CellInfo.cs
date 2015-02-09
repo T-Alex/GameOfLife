@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace TAlex.GameOfLife.Engine
 {
     [StructLayout(LayoutKind.Sequential)]
-    struct CellInfo
+    public struct CellInfo
     {
         #region Fields
 

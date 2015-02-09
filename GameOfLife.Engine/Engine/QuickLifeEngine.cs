@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
 namespace TAlex.GameOfLife.Engine
 {
     public class QuickLifeEngine : LifeEngine

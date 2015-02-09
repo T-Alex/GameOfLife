@@ -38,6 +38,7 @@
     <ApplicationRevision>30</ApplicationRevision>
     <ApplicationVersion>2.0.21.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -168,21 +169,6 @@
     <Compile Include="Services\Commands\Undo\IUndoUnit.cs" />
     <Compile Include="Services\Commands\Undo\TransactionEventArgs.cs" />
     <Compile Include="Services\Commands\Undo\UndoManager.cs" />
-    <Compile Include="Engine\Cell.cs" />
-    <Compile Include="Engine\CellInfo.cs" />
-    <Compile Include="Engine\LifeEngine.cs" />
-    <Compile Include="Engine\QuickLifeEngine.cs" />
-    <Compile Include="Engine\LifeRule.cs" />
-    <Compile Include="FileFormats\Life105LifePatternFileFormat.cs" />
-    <Compile Include="FileFormats\Life106LifePatternFileFormat.cs" />
-    <Compile Include="FileFormats\LifePattern.cs" />
-    <Compile Include="FileFormats\LifePatternFileFormat.cs" />
-    <Compile Include="FileFormats\LifePatternFileFormatManager.cs" />
-    <Compile Include="FileFormats\PlaintextLifePatternFileFormat.cs" />
-    <Compile Include="FileFormats\RLELifePatternFileFormat.cs" />
-    <Compile Include="FileFormats\TextLifePatternFileFormat.cs" />
-    <Compile Include="Helpers\LifeHelpers.cs" />
-    <Compile Include="Helpers\StringUtils.cs" />
     <Compile Include="PreferencesWindow.xaml.cs">
       <DependentUpon>PreferencesWindow.xaml</DependentUpon>
     </Compile>
@@ -253,6 +239,11 @@
     <Resource Include="Resources\Images\aboutLogo.png" />
   </ItemGroup>
   <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -276,13 +267,14 @@
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
+      <Install>false</Install>
     </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameOfLife.Engine\GameOfLife.Engine.csproj">
+      <Project>{b54e963d-41f3-4a0b-9e49-47ebffa070f5}</Project>
+      <Name>GameOfLife.Engine</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

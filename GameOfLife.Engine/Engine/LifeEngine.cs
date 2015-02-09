@@ -4,12 +4,8 @@ using System.Text;
 
 namespace TAlex.GameOfLife.Engine
 {
-    public abstract class LifeEngine
+    public abstract class LifeEngine : ILifeEngine
     {
-        #region Fields
-
-        #endregion
-
         #region Properties
 
         public abstract byte this[int x, int y]

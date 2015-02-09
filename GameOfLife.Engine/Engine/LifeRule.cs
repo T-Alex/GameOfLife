@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace TAlex.GameOfLife.Engine
 {
     public struct LifeRule : IFormattable

@@ -6,7 +6,7 @@ using TAlex.GameOfLife.Engine;
 
 namespace TAlex.GameOfLife.Helpers
 {
-    internal class LifeHelpers
+    public class LifeHelpers
     {
         public static Cell GetTopLeftCell(ICollection<Cell> cells)
         {
