@@ -35,10 +35,11 @@
     <SupportUrl>http://talex-soft.com</SupportUrl>
     <ProductName>Game of Life</ProductName>
     <PublisherName>T-Alex Software</PublisherName>
-    <ApplicationRevision>30</ApplicationRevision>
+    <ApplicationRevision>38</ApplicationRevision>
     <ApplicationVersion>2.0.21.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -63,9 +64,22 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>C6412619D3DD33EA4A493D3D901AEBBB7E6068C2</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>GameOfLife_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="TAlex.WPF.Controls, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -191,6 +205,9 @@
     <Compile Include="Helpers\Snapshot.cs" />
     <Compile Include="Services\Commands\Undo\UndoState.cs" />
     <Compile Include="Themes\Twilight\TwilightThemeManager.cs" />
+    <Content Include="Resources\Icons\FileFormats\Cells.ico" />
+    <Content Include="Resources\Icons\FileFormats\Life.ico" />
+    <Content Include="Resources\Icons\FileFormats\RLE.ico" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -226,7 +243,49 @@
     <Resource Include="Resources\Images\Menu\flip-horizontal.png" />
     <Resource Include="Resources\Images\Menu\flip-vertical.png" />
     <Resource Include="Resources\Images\aboutLogoText.png" />
+    <None Include="GameOfLife_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <Content Include="Patterns\Breeders\LWSS Breeder.rle" />
+    <Content Include="Patterns\Guns\2c5 Spaceship Gun P416.rle" />
+    <Content Include="Patterns\Guns\2c5 Spaceship Gun P690.rle" />
+    <Content Include="Patterns\Guns\Cordership Gun P784.rle" />
+    <Content Include="Patterns\Guns\P690 PT Cordership Gun.rle" />
+    <Content Include="Patterns\Guns\Pseudo P34 Gun.rle" />
+    <Content Include="Patterns\Oscillators\Billiard Table.rle" />
+    <Content Include="Patterns\Oscillators\DRH Oscillators.rle" />
+    <Content Include="Patterns\Oscillators\Extensible Low Period.rle" />
+    <Content Include="Patterns\Oscillators\Glider Stream Crystal.rle" />
+    <Content Include="Patterns\Oscillators\Low Period.rle" />
+    <Content Include="Patterns\Oscillators\p103079214841.rle" />
+    <Content Include="Patterns\Oscillators\Queen Bee Turn.rle" />
+    <Content Include="Patterns\Oscillators\Traffic Light Hasslers.rle" />
+    <Content Include="Patterns\Oscillators\Unique High Period.rle" />
+    <Content Include="Patterns\Other Rules\Breeder 2.rle" />
+    <Content Include="Patterns\Other Rules\Growing Ship.rle" />
+    <Content Include="Patterns\Other Rules\Gun and Antigun %28Day and Night%29.rle" />
+    <Content Include="Patterns\Signal Circuitry\P30 Racetrack.rle" />
+    <Content Include="Patterns\Signal Circuitry\P46 Racetrack.rle" />
+    <Content Include="Patterns\Signal Circuitry\Turing Machine 3 state.rle" />
+    <Content Include="Patterns\Signal Circuitry\Unit Life Cell 512x512.rle" />
+    <Content Include="Patterns\Signal Circuitry\Unit Life Deep Cell.rle" />
+    <Content Include="Patterns\Simple\Clock.rle" />
+    <Content Include="Patterns\Simple\Eight.rle" />
+    <Content Include="Patterns\Simple\Galaxy.rle" />
+    <Content Include="Patterns\Simple\Glider.rle" />
+    <Content Include="Patterns\Simple\Gosper Glider Gun 1.rle" />
+    <Content Include="Patterns\Simple\Gosper Glider Gun 2.rle" />
+    <Content Include="Patterns\Simple\Oscillators.rle" />
+    <Content Include="Patterns\Simple\Port.rle" />
+    <Content Include="Patterns\Simple\Spaceships.rle" />
+    <Content Include="Patterns\Simple\Still Life.rle" />
+    <Content Include="Patterns\Syntheses\Make Harbor.rle" />
+    <Content Include="Patterns\Syntheses\Make osc p3.rle" />
+    <Content Include="Patterns\Syntheses\Make osc p4.rle" />
+    <Content Include="Patterns\Syntheses\Make osc p5 plus.rle" />
+    <Content Include="Patterns\Syntheses\Make p11.rle" />
+    <Content Include="Patterns\Syntheses\Make p18.rle" />
+    <Content Include="Patterns\Syntheses\Make p33.rle" />
+    <Content Include="Patterns\Syntheses\Oscillator Syntheses.rle" />
     <None Include="Resources\Icons\icon.ico" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -275,6 +334,438 @@
       <Project>{b54e963d-41f3-4a0b-9e49-47ebffa070f5}</Project>
       <Name>GameOfLife.Engine</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Patterns\Breeders\LWSS Breeder.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Guns\2c5 Spaceship Gun P416.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Guns\2c5 Spaceship Gun P690.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Guns\Cordership Gun P784.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Guns\P690 PT Cordership Gun.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Guns\Pseudo P34 Gun.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Oscillators\Billiard Table.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Oscillators\DRH Oscillators.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Oscillators\Extensible Low Period.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Oscillators\Glider Stream Crystal.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Oscillators\Low Period.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Oscillators\p103079214841.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Oscillators\Queen Bee Turn.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Oscillators\Traffic Light Hasslers.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Oscillators\Unique High Period.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Other Rules\Breeder 2.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Other Rules\Growing Ship.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Other Rules\Gun and Antigun %28Day and Night%29.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Signal Circuitry\P30 Racetrack.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Signal Circuitry\P46 Racetrack.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Signal Circuitry\Turing Machine 3 state.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Signal Circuitry\Unit Life Cell 512x512.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Signal Circuitry\Unit Life Deep Cell.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Simple\Clock.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Simple\Eight.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Simple\Galaxy.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Simple\Glider.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Simple\Gosper Glider Gun 1.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Simple\Gosper Glider Gun 2.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Simple\Oscillators.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Simple\Port.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Simple\Spaceships.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Simple\Still Life.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Syntheses\Make Harbor.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Syntheses\Make osc p3.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Syntheses\Make osc p4.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Syntheses\Make osc p5 plus.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Syntheses\Make p11.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Syntheses\Make p18.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Syntheses\Make p33.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Patterns\Syntheses\Oscillator Syntheses.rle">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <FileAssociation Include=".cells">
+      <Visible>False</Visible>
+      <Description>Cells %28plaintext%29 file</Description>
+      <Progid>Game Of Life</Progid>
+      <DefaultIcon>Resources\Icons\FileFormats\Cells.ico</DefaultIcon>
+    </FileAssociation>
+    <FileAssociation Include=".lif%3b.life">
+      <Visible>False</Visible>
+      <Description>Life file</Description>
+      <Progid>Game Of Life</Progid>
+      <DefaultIcon>Resources\Icons\FileFormats\Life.ico</DefaultIcon>
+    </FileAssociation>
+    <FileAssociation Include=".rle">
+      <Visible>False</Visible>
+      <Description>RLE file</Description>
+      <Progid>Game Of Life</Progid>
+      <DefaultIcon>Resources\Icons\FileFormats\RLE.ico</DefaultIcon>
+    </FileAssociation>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

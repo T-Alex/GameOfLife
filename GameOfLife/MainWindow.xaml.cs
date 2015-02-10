@@ -19,6 +19,7 @@ using TAlex.GameOfLife.Engine;
 using TAlex.GameOfLife.FileFormats;
 using TAlex.GameOfLife.Helpers;
 using TAlex.GameOfLife.Controls;
+using System.Deployment.Application;
 
 
 namespace TAlex.GameOfLife
@@ -53,8 +54,7 @@ namespace TAlex.GameOfLife
             SetTitle(_currentFilePath);
             aboutMenuItem.Header = "_About " + productTitle;
 
-            _patternsDirPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal),
-                System.IO.Path.Combine("Game of Life", "Patterns"));
+            _patternsDirPath = GetPatternsDirectory();
         }
 
         #endregion
@@ -209,6 +209,20 @@ namespace TAlex.GameOfLife
             {
                 LoadSettings();
             }
+        }
+
+        private string GetPatternsDirectory()
+        {
+            string basePath = null;
+            try
+            {
+                basePath = ApplicationDeployment.CurrentDeployment.DataDirectory;
+            }
+            catch (InvalidDeploymentException)
+            {
+                basePath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+            }
+            return System.IO.Path.Combine(basePath, "Patterns");
         }
 
         #region Event Handlers
@@ -433,9 +447,11 @@ namespace TAlex.GameOfLife
             Initialize();
             
             string[] args = Environment.GetCommandLineArgs();
-            if (args.Length > 1)
+            
+            var activationData = AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData;
+            if (args.Length > 1 || activationData != null)
             {
-                LoadPattern(args[1]);
+                LoadPattern(args.Length > 1 ? args[1] : activationData[0]);
             }
         }
 
