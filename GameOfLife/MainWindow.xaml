@@ -2,13 +2,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:life="clr-namespace:TAlex.GameOfLife.Controls"
-    xmlns:conv="clr-namespace:TAlex.GameOfLife.Controls.Converters"
-    Height="615" Width="860" MinWidth="725" MinHeight="550"
+    xmlns:talex="http://schemas.talex-soft.com/2010/xaml/presentation"
+    Height="615" Width="880" MinWidth="725" MinHeight="550"
     WindowStartupLocation="CenterScreen" ResizeMode="CanResize"
     Loaded="Window_Loaded">
         
     <Window.Resources>
-        <conv:Int32ToDoubleConverter x:Key="int32toDoubleConverter" />
+        <talex:Int32ToDoubleConverter x:Key="int32toDoubleConverter" />
     </Window.Resources>
     
     <Window.CommandBindings>
@@ -220,12 +220,89 @@
             </MenuItem>
         </Menu>
         
-        <Grid Grid.Row="1" Background="{DynamicResource GradBrush}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="265" />
-            </Grid.ColumnDefinitions>
-            
+        <DockPanel Grid.Row="1" Background="{DynamicResource GradBrush}">
+            <Expander Margin="0,5,5,0" DockPanel.Dock="Right" IsExpanded="True" ExpandDirection="Right">
+                                
+                <StackPanel Width="265">
+                    <GroupBox Header="Game Control" Margin="10,5,10,0" Height="85" Foreground="White">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+
+                            <Button Name="startGameButton" Grid.Column="0" Grid.Row="0" Margin="5,2,5,2" Focusable="False" Command="{x:Static life:GameField.StartCommand}">Star_t Game</Button>
+                            <RepeatButton Name="nextGenerationButton" Grid.Column="1" Grid.Row="0" Margin="5,2,5,2" Focusable="False" Command="{x:Static life:GameField.NextGenerationCommand}">_Next Generation</RepeatButton>
+                            <Button Name="stopGameButton" Grid.Column="0" Grid.Row="1" Margin="5,2,5,2" Focusable="False" Command="{x:Static life:GameField.StopCommand}">Sto_p Game</Button>
+                            <Button Name="resetGameButton" Grid.Column="1" Grid.Row="1" Focusable="False" Margin="5,2,5,2" Command="{x:Static life:GameField.ResetCommand}">_Reset Game</Button>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Field" Margin="10,5,10,0" Height="80" Foreground="White">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+
+                            <CheckBox Name="showGridCheckBox" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0" Focusable="False"
+                                  IsChecked="{Binding Path=ShowGridlines, ElementName=gameField, Mode=TwoWay}">Show gridlines</CheckBox>
+
+                            <Label Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="7,0,0,0">Scale:</Label>
+                            <TextBlock Foreground="Black" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Padding="0" Margin="45,0,0,0">
+                            <Run Name="scaleFactorRun" />
+                            <Run BaselineAlignment="Superscript" FontSize="11" Name="expRun" />
+                            </TextBlock>
+                            <Slider Name="scaleFactorSlider" Grid.Row="1" Margin="100,0,10,0" TickFrequency="1" IsSnapToTickEnabled="True"
+                                Minimum="{Binding Path=MinScaleFactor, ElementName=gameField, Converter={StaticResource int32toDoubleConverter}}"
+                                Maximum="{Binding Path=MaxScaleFactor, ElementName=gameField, Converter={StaticResource int32toDoubleConverter}}"
+                                Value="{Binding Path=ScaleFactor, ElementName=gameField, Mode=TwoWay, Converter={StaticResource int32toDoubleConverter}}"
+                                TickPlacement="BottomRight" Height="27" ValueChanged="scaleFactorSlider_ValueChanged" />
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Rule sets" Margin="10,5,10,0" Foreground="White" Height="55">
+                        <Grid>
+                            <Label VerticalAlignment="Center" HorizontalAlignment="Left" Margin="7,0,0,0">Rule:</Label>
+                            <ComboBox Name="ruleComboBox" Margin="52,0,10,0" Height="23" Tag="B3/S23" IsEditable="True" SelectedIndex="5"
+                              TextBoxBase.TextChanged="ruleComboBox_TextChanged" MouseLeave="ruleComboBox_MouseLeave">
+                                <ComboBoxItem ToolTip="Replicator">B1357/S1357</ComboBoxItem>
+                                <ComboBoxItem ToolTip="Seeds">B2</ComboBoxItem>
+                                <ComboBoxItem ToolTip="Serviettes or Persian Rug">B234</ComboBoxItem>
+                                <ComboBoxItem ToolTip="Life without Death">B3/S012345678</ComboBoxItem>
+                                <ComboBoxItem ToolTip="Maze">B3/S12345</ComboBoxItem>
+                                <ComboBoxItem ToolTip="Life">B3/S23</ComboBoxItem>
+                                <ComboBoxItem ToolTip="Coral">B3/S45678</ComboBoxItem>
+                                <ComboBoxItem ToolTip="34 Life">B34/S34</ComboBoxItem>
+                                <ComboBoxItem ToolTip="Assimilation">B345/S4567</ComboBoxItem>
+                                <ComboBoxItem ToolTip="Long Life">B345/S5</ComboBoxItem>
+                                <ComboBoxItem ToolTip="Diamoeba">B35678/S5678</ComboBoxItem>
+                                <ComboBoxItem ToolTip="Amoeba">B357/S1358</ComboBoxItem>
+                                <ComboBoxItem ToolTip="Pseudo Life">B357/S238</ComboBoxItem>
+                                <ComboBoxItem ToolTip="2x2">B36/S125</ComboBoxItem>
+                                <ComboBoxItem ToolTip="High Life">B36/S23</ComboBoxItem>
+                                <ComboBoxItem ToolTip="Stains">B3678/S235678</ComboBoxItem>
+                                <ComboBoxItem ToolTip="Day &amp; Night">B3678/S34678</ComboBoxItem>
+                                <ComboBoxItem ToolTip="Move">B368/S245</ComboBoxItem>
+                                <ComboBoxItem ToolTip="Coagulations">B378/S235678</ComboBoxItem>
+                                <ComboBoxItem ToolTip="Walled Cities">B45678/S2345</ComboBoxItem>
+                            </ComboBox>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Speed" Margin="10,5,10,0" Height="55" Foreground="White">
+                        <Grid>
+                            <Label Name="updateTimeLabel" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="7,0,0,0">Update time:</Label>
+                            <Slider Name="speedSlider" VerticalAlignment="Center" Margin="123,0,10,0" Height="29" TickPlacement="BottomRight" Maximum="500" Minimum="10" TickFrequency="25" Delay="50" Value="100" SmallChange="10" LargeChange="10" ValueChanged="speedSlider_ValueChanged" />
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </Expander>
+
             <Grid Margin="5">
                 <Grid.Background>
                     <SolidColorBrush Color="White" Opacity="0.2" />
@@ -269,86 +346,7 @@
                     </life:GameField.ContextMenu>
                 </life:GameField>
             </Grid>
-            
-            <StackPanel Grid.Column="1">
-                <GroupBox Header="Game Control" Margin="10,5,10,0" Height="85" Foreground="White">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="30" />
-                            <RowDefinition Height="30" />
-                        </Grid.RowDefinitions>
-                        
-                        <Button Name="startGameButton" Grid.Column="0" Grid.Row="0" Margin="5,2,5,2" Focusable="False" Command="{x:Static life:GameField.StartCommand}">Star_t Game</Button>
-                        <RepeatButton Name="nextGenerationButton" Grid.Column="1" Grid.Row="0" Margin="5,2,5,2" Focusable="False" Command="{x:Static life:GameField.NextGenerationCommand}">_Next Generation</RepeatButton>
-                        <Button Name="stopGameButton" Grid.Column="0" Grid.Row="1" Margin="5,2,5,2" Focusable="False" Command="{x:Static life:GameField.StopCommand}">Sto_p Game</Button>
-                        <Button Name="resetGameButton" Grid.Column="1" Grid.Row="1" Focusable="False" Margin="5,2,5,2" Command="{x:Static life:GameField.ResetCommand}">_Reset Game</Button>
-                    </Grid>
-                </GroupBox>
-
-                <GroupBox Header="Field" Margin="10,5,10,0" Height="80" Foreground="White">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="25" />
-                            <RowDefinition Height="30" />
-                        </Grid.RowDefinitions>
-                        
-                        <CheckBox Name="showGridCheckBox" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0" Focusable="False"
-                                  IsChecked="{Binding Path=ShowGridlines, ElementName=gameField, Mode=TwoWay}">Show gridlines</CheckBox>
-                        
-                        <Label Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="7,0,0,0">Scale:</Label>
-                        <TextBlock Foreground="Black" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Padding="0" Margin="45,0,0,0">
-                            <Run Name="scaleFactorRun" />
-                            <Run BaselineAlignment="Superscript" FontSize="11" Name="expRun" />
-                        </TextBlock>
-                        <Slider Name="scaleFactorSlider" Grid.Row="1" Margin="100,0,10,0" TickFrequency="1" IsSnapToTickEnabled="True"
-                                Minimum="{Binding Path=MinScaleFactor, ElementName=gameField, Converter={StaticResource int32toDoubleConverter}}"
-                                Maximum="{Binding Path=MaxScaleFactor, ElementName=gameField, Converter={StaticResource int32toDoubleConverter}}"
-                                Value="{Binding Path=ScaleFactor, ElementName=gameField, Mode=TwoWay, Converter={StaticResource int32toDoubleConverter}}"
-                                TickPlacement="BottomRight" Height="27" ValueChanged="scaleFactorSlider_ValueChanged" />
-                    </Grid>
-                </GroupBox>
-
-                <GroupBox Header="Rule sets" Margin="10,5,10,0" Foreground="White" Height="55">
-                    <Grid>
-                        <Label VerticalAlignment="Center" HorizontalAlignment="Left" Margin="7,0,0,0">Rule:</Label>
-                        <ComboBox Name="ruleComboBox" Margin="52,0,10,0" Height="23" Tag="B3/S23" IsEditable="True" SelectedIndex="5"
-                              TextBoxBase.TextChanged="ruleComboBox_TextChanged" MouseLeave="ruleComboBox_MouseLeave">
-                            <ComboBoxItem ToolTip="Replicator">B1357/S1357</ComboBoxItem>
-                            <ComboBoxItem ToolTip="Seeds">B2</ComboBoxItem>
-                            <ComboBoxItem ToolTip="Serviettes or Persian Rug">B234</ComboBoxItem>
-                            <ComboBoxItem ToolTip="Life without Death">B3/S012345678</ComboBoxItem>
-                            <ComboBoxItem ToolTip="Maze">B3/S12345</ComboBoxItem>
-                            <ComboBoxItem ToolTip="Life">B3/S23</ComboBoxItem>
-                            <ComboBoxItem ToolTip="Coral">B3/S45678</ComboBoxItem>
-                            <ComboBoxItem ToolTip="34 Life">B34/S34</ComboBoxItem>
-                            <ComboBoxItem ToolTip="Assimilation">B345/S4567</ComboBoxItem>
-                            <ComboBoxItem ToolTip="Long Life">B345/S5</ComboBoxItem>
-                            <ComboBoxItem ToolTip="Diamoeba">B35678/S5678</ComboBoxItem>
-                            <ComboBoxItem ToolTip="Amoeba">B357/S1358</ComboBoxItem>
-                            <ComboBoxItem ToolTip="Pseudo Life">B357/S238</ComboBoxItem>
-                            <ComboBoxItem ToolTip="2x2">B36/S125</ComboBoxItem>
-                            <ComboBoxItem ToolTip="High Life">B36/S23</ComboBoxItem>
-                            <ComboBoxItem ToolTip="Stains">B3678/S235678</ComboBoxItem>
-                            <ComboBoxItem ToolTip="Day &amp; Night">B3678/S34678</ComboBoxItem>
-                            <ComboBoxItem ToolTip="Move">B368/S245</ComboBoxItem>
-                            <ComboBoxItem ToolTip="Coagulations">B378/S235678</ComboBoxItem>
-                            <ComboBoxItem ToolTip="Walled Cities">B45678/S2345</ComboBoxItem>
-                        </ComboBox>
-                    </Grid>
-                </GroupBox>
-
-                <GroupBox Header="Speed" Margin="10,5,10,0" Height="55" Foreground="White">
-                    <Grid>
-                        <Label Name="updateTimeLabel" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="7,0,0,0">Update time:</Label>
-                        <Slider Name="speedSlider" VerticalAlignment="Center" Margin="123,0,10,0" Height="29" TickPlacement="BottomRight" Maximum="500" Minimum="10" TickFrequency="25" Delay="50" Value="100" SmallChange="10" LargeChange="10" ValueChanged="speedSlider_ValueChanged" />
-                    </Grid>
-                </GroupBox>
-            </StackPanel>
-        </Grid>
+        </DockPanel>
 
         <StatusBar Grid.Row="2" Background="{DynamicResource StatusBarBgBrush}">
             <StatusBarItem>Generation:</StatusBarItem>

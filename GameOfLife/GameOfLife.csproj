@@ -82,9 +82,8 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
-    <Reference Include="TAlex.WPF.Controls, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\TAlex.WPF.Controls.2.0.0.0\lib\net40\TAlex.WPF.Controls.dll</HintPath>
+    <Reference Include="TAlex.WPF.Controls">
+      <HintPath>..\packages\TAlex.WPF.Controls.2.0.1.0\lib\net40\TAlex.WPF.Controls.dll</HintPath>
     </Reference>
     <Reference Include="UIAutomationProvider">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
@@ -178,7 +177,6 @@
       <DependentUpon>GameField.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\GameFieldMemento.cs" />
-    <Compile Include="Controls\Converters\Int32ToDoubleConverter.cs" />
     <Compile Include="Controls\PasteMode.cs" />
     <Compile Include="Services\Commands\Undo\IUndoUnit.cs" />
     <Compile Include="Services\Commands\Undo\TransactionEventArgs.cs" />
@@ -244,7 +242,6 @@
     <Resource Include="Resources\Images\Menu\flip-vertical.png" />
     <Resource Include="Resources\Images\aboutLogoText.png" />
     <None Include="GameOfLife_TemporaryKey.pfx" />
-    <None Include="packages.config" />
     <Content Include="Patterns\Breeders\LWSS Breeder.rle" />
     <Content Include="Patterns\Guns\2c5 Spaceship Gun P416.rle" />
     <Content Include="Patterns\Guns\2c5 Spaceship Gun P690.rle" />
@@ -286,6 +283,7 @@
     <Content Include="Patterns\Syntheses\Make p18.rle" />
     <Content Include="Patterns\Syntheses\Make p33.rle" />
     <Content Include="Patterns\Syntheses\Oscillator Syntheses.rle" />
+    <None Include="packages.config" />
     <None Include="Resources\Icons\icon.ico" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

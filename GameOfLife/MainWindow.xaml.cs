@@ -514,6 +514,8 @@ namespace TAlex.GameOfLife
 
         private void speedSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            if (gameField == null) return;
+
             gameField.UpdateTime = TimeSpan.FromMilliseconds((int)e.NewValue);
             updateTimeLabel.Content = String.Format(CultureInfo.InvariantCulture, "Update time: {0}ms", gameField.UpdateTime.Milliseconds);
         }
