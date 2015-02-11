@@ -17,7 +17,7 @@ using System.Threading;
 using TAlex.GameOfLife.Engine;
 using TAlex.GameOfLife.FileFormats;
 using TAlex.GameOfLife.Helpers;
-using TAlex.Services.Commands.Undo;
+using TAlex.Common.Services.Commands.Undo;
 
 
 namespace TAlex.GameOfLife.Controls

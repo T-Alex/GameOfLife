@@ -6,7 +6,8 @@ using System.Reflection;
 using System.Diagnostics;
 using System.Windows.Media.Animation;
 
-namespace TAlex.GameOfLife
+
+namespace TAlex.GameOfLife.Views
 {
     /// <summary>
     /// Interaction logic for WindowAbout.xaml

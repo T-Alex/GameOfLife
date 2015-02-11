@@ -1,4 +1,4 @@
-﻿<Window x:Class="TAlex.GameOfLife.MainWindow"
+﻿<Window x:Class="TAlex.GameOfLife.Views.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:life="clr-namespace:TAlex.GameOfLife.Controls"

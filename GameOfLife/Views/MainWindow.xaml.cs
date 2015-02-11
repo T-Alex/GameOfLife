@@ -20,9 +20,10 @@ using TAlex.GameOfLife.FileFormats;
 using TAlex.GameOfLife.Helpers;
 using TAlex.GameOfLife.Controls;
 using System.Deployment.Application;
+using TAlex.GameOfLife.Views;
 
 
-namespace TAlex.GameOfLife
+namespace TAlex.GameOfLife.Views
 {
     public partial class MainWindow : Window
     {

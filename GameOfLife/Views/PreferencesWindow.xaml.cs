@@ -14,7 +14,7 @@ using System.Globalization;
 using TAlex.WPF.Controls;
 using TAlex.GameOfLife.Helpers;
 
-namespace TAlex.GameOfLife
+namespace TAlex.GameOfLife.Views
 {
     /// <summary>
     /// Interaction logic for PreferencesWindow.xaml
