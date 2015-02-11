@@ -5,6 +5,7 @@ using System.Windows.Data;
 using System.Reflection;
 using System.Diagnostics;
 using System.Windows.Media.Animation;
+using TAlex.Common.Extensions;
 
 
 namespace TAlex.GameOfLife.Views
@@ -16,15 +17,7 @@ namespace TAlex.GameOfLife.Views
     {
         #region Fields
 
-        private const string propertyNameTitle = "Title";
-
-        private const string propertyNameDescription = "Description";
-
-        private const string propertyNameCompany = "Company";
-
-        private const string propertyNameProduct = "Product";
-
-        private const string propertyNameCopyright = "Copyright";
+        private static Assembly ExecutingAssembly = Assembly.GetExecutingAssembly();
 
         #endregion
 
@@ -37,7 +30,7 @@ namespace TAlex.GameOfLife.Views
         {
             get
             {
-                return GetAssemblyProperty<AssemblyTitleAttribute>(propertyNameTitle);
+                return ExecutingAssembly.GetTitle();
             }
         }
 
@@ -48,7 +41,7 @@ namespace TAlex.GameOfLife.Views
         {
             get
             {
-                return GetAssemblyProperty<AssemblyDescriptionAttribute>(propertyNameDescription);
+                return ExecutingAssembly.GetDescription();
             }
         }
 
@@ -59,7 +52,7 @@ namespace TAlex.GameOfLife.Views
         {
             get
             {
-                return GetAssemblyProperty<AssemblyCompanyAttribute>(propertyNameCompany);
+                return ExecutingAssembly.GetCompany();
             }
         }
 
@@ -70,7 +63,7 @@ namespace TAlex.GameOfLife.Views
         {
             get
             {
-                return GetAssemblyProperty<AssemblyProductAttribute>(propertyNameProduct);
+                return ExecutingAssembly.GetProduct();
             }
         }
 
@@ -81,8 +74,7 @@ namespace TAlex.GameOfLife.Views
         {
             get
             {
-                return String.Format("{0}. All rights reserved.",
-                    GetAssemblyProperty<AssemblyCopyrightAttribute>(propertyNameCopyright));
+                return String.Format("{0}. All rights reserved.", ExecutingAssembly.GetCopyright());
             }
         }
 
@@ -93,7 +85,7 @@ namespace TAlex.GameOfLife.Views
         {
             get
             {
-                return Assembly.GetExecutingAssembly().GetName().Version;
+                return ExecutingAssembly.GetVersion();
             }
         }
 
@@ -161,57 +153,6 @@ namespace TAlex.GameOfLife.Views
             Close();
         }
 
-        protected override void OnKeyDown(KeyEventArgs e)
-        {
-            base.OnKeyDown(e);
-
-            // Easter egg.
-            if (e.Key == Key.L && licTextLabel.Opacity == 1.0)
-            {
-                DoubleAnimationUsingKeyFrames licenseInfoOpacityAnim = new DoubleAnimationUsingKeyFrames();
-                licenseInfoOpacityAnim.KeyFrames.Add(new LinearDoubleKeyFrame(1.0, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))));
-                licenseInfoOpacityAnim.KeyFrames.Add(new LinearDoubleKeyFrame(0.0, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(5000))));
-                licenseInfoOpacityAnim.KeyFrames.Add(new LinearDoubleKeyFrame(0.0, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(42000))));
-                licenseInfoOpacityAnim.KeyFrames.Add(new LinearDoubleKeyFrame(1.0, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(47000))));
-                licTextLabel.BeginAnimation(UIElement.OpacityProperty, licenseInfoOpacityAnim);
-
-
-                DoubleAnimationUsingKeyFrames dedicatedOpacityAnim = new DoubleAnimationUsingKeyFrames();
-                dedicatedOpacityAnim.BeginTime = TimeSpan.FromMilliseconds(7000);
-                dedicatedOpacityAnim.KeyFrames.Add(new LinearDoubleKeyFrame(0.0, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))));
-                dedicatedOpacityAnim.KeyFrames.Add(new LinearDoubleKeyFrame(1.0, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(3000))));
-                dedicatedOpacityAnim.KeyFrames.Add(new LinearDoubleKeyFrame(0.0, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(6000))));
-                dedicatedLabel.BeginAnimation(UIElement.OpacityProperty, dedicatedOpacityAnim);
-
-
-                DoubleAnimationUsingKeyFrames LoveOpacityAnim = new DoubleAnimationUsingKeyFrames();
-                LoveOpacityAnim.KeyFrames.Add(new LinearDoubleKeyFrame(0.0, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(0))));
-                LoveOpacityAnim.KeyFrames.Add(new LinearDoubleKeyFrame(1.0, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(3000))));
-                LoveOpacityAnim.KeyFrames.Add(new LinearDoubleKeyFrame(1.0, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(14000))));
-                LoveOpacityAnim.KeyFrames.Add(new LinearDoubleKeyFrame(0.0, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(17000))));
-
-                // Show "I" word
-                LoveOpacityAnim.BeginTime = TimeSpan.FromMilliseconds(14000);
-                ILabel.BeginAnimation(UIElement.OpacityProperty, LoveOpacityAnim);
-
-                // Show "Love" word
-                LoveOpacityAnim.BeginTime = TimeSpan.FromMilliseconds(16000);
-                LoveLabel.BeginAnimation(UIElement.OpacityProperty, LoveOpacityAnim);
-
-                // Show "You" word
-                LoveOpacityAnim.BeginTime = TimeSpan.FromMilliseconds(18000);
-                YouLabel.BeginAnimation(UIElement.OpacityProperty, LoveOpacityAnim);
-
-                // Show "Ksenia" word
-                LoveOpacityAnim.BeginTime = TimeSpan.FromMilliseconds(21000);
-                KseniaLabel.BeginAnimation(UIElement.OpacityProperty, LoveOpacityAnim);
-
-                // Show "Savitskaya" word
-                LoveOpacityAnim.BeginTime = TimeSpan.FromMilliseconds(23000);
-                SavitskayaLabel.BeginAnimation(UIElement.OpacityProperty, LoveOpacityAnim);
-            }
-        }
-
         private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
         {
             if (e.Uri != null && string.IsNullOrEmpty(e.Uri.OriginalString) == false)
@@ -220,26 +161,6 @@ namespace TAlex.GameOfLife.Views
                 Process.Start(new ProcessStartInfo(uri));
                 e.Handled = true;
             }
-        }
-
-        private static string GetAssemblyProperty<T>(string propertyName)
-        {
-            string result = String.Empty;
-
-            object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(T), false);
-
-            if (attributes.Length > 0)
-            {
-                T attribute = (T)attributes[0];
-                PropertyInfo property = attribute.GetType().GetProperty(propertyName);
-
-                if (property != null)
-                {
-                    result = property.GetValue(attributes[0], null) as string;
-                }
-            }
-
-            return result;
         }
 
         #endregion

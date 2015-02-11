@@ -46,20 +46,5 @@
         <Label Margin="0,0,0,10" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Foreground="DarkBlue"
                Content="{Binding Mode=OneTime, Path=Copyright}">
         </Label>
-        
-        
-        <!-- Easter egg. -->
-        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label Name="dedicatedLabel" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0">
-                This product is dedicated to the best lass in the world!
-            </Label>
-            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Label Name="ILabel" Padding="2" Opacity="0">I</Label>
-                <Label Name="LoveLabel" Padding="2" Opacity="0">Love</Label>
-                <Label Name="YouLabel" Padding="2" Opacity="0">You</Label>
-                <Label Name="KseniaLabel" Padding="2" Opacity="0">Ksenia</Label>
-                <Label Name="SavitskayaLabel" Padding="2" Opacity="0">Savitskaya</Label>
-            </WrapPanel>
-        </Grid>
     </Grid>
 </Window>
