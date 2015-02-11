@@ -296,7 +296,7 @@
 
                     <GroupBox Header="Speed" Margin="10,5,10,0" Height="55" Foreground="White">
                         <Grid>
-                            <Label Name="updateTimeLabel" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="7,0,0,0">Update time:</Label>
+                            <Label VerticalAlignment="Center" HorizontalAlignment="Left" Margin="7,0,0,0" ContentStringFormat="Update time: {0:N0}ms" Content="{Binding ElementName=speedSlider, Path=Value}" />
                             <Slider Name="speedSlider" VerticalAlignment="Center" Margin="123,0,10,0" Height="29" TickPlacement="BottomRight" Maximum="500" Minimum="10" TickFrequency="25" Delay="50" Value="100" SmallChange="10" LargeChange="10" ValueChanged="speedSlider_ValueChanged" />
                         </Grid>
                     </GroupBox>

@@ -82,9 +82,9 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
-    <Reference Include="TAlex.Common, Version=0.2.1.2, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="TAlex.Common, Version=0.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\TAlex.Common.0.2.1.2\lib\portable-net45+win+wpa81+wp80\TAlex.Common.dll</HintPath>
+      <HintPath>..\packages\TAlex.Common.0.2.2.0\lib\portable-net45+win+wpa81+wp80\TAlex.Common.dll</HintPath>
     </Reference>
     <Reference Include="TAlex.WPF.Controls">
       <HintPath>..\packages\TAlex.WPF.Controls.2.0.1.0\lib\net40\TAlex.WPF.Controls.dll</HintPath>

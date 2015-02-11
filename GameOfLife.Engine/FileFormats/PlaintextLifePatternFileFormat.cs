@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using TAlex.GameOfLife.Engine;
+using TAlex.Common.Extensions;
 
 namespace TAlex.GameOfLife.FileFormats
 {
@@ -149,7 +150,7 @@ namespace TAlex.GameOfLife.FileFormats
             // Input the pattern comments
             if (!String.IsNullOrEmpty(pattern.Description))
             {
-                string[] lines = Helpers.StringUtils.MultilineStringToArray(pattern.Description);
+                string[] lines = pattern.Description.SplitByLines();
 
                 foreach (string line in lines)
                 {

@@ -518,7 +518,6 @@ namespace TAlex.GameOfLife.Views
             if (gameField == null) return;
 
             gameField.UpdateTime = TimeSpan.FromMilliseconds((int)e.NewValue);
-            updateTimeLabel.Content = String.Format(CultureInfo.InvariantCulture, "Update time: {0}ms", gameField.UpdateTime.Milliseconds);
         }
 
         private void ruleComboBox_TextChanged(object sender, TextChangedEventArgs e)
