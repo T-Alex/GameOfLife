@@ -42,9 +42,9 @@ namespace TAlex.GameOfLife.Controls
 
         private Int32Rect _pastingCellsRect = Int32Rect.Empty;
 
-        private PasteMode _pasteMode = PasteMode.Or;
+        private GameFieldPasteMode _pasteMode = GameFieldPasteMode.Or;
 
-        private CursorMode _cursorMode = CursorMode.Draw;
+        private GameFieldCursorMode _cursorMode = GameFieldCursorMode.Draw;
 
         private Int32Rect _previousSelectedRegion = Int32Rect.Empty;
 
@@ -270,7 +270,7 @@ namespace TAlex.GameOfLife.Controls
             }
         }
 
-        public CursorMode CursorMode
+        public GameFieldCursorMode CursorMode
         {
             get
             {
@@ -283,7 +283,7 @@ namespace TAlex.GameOfLife.Controls
             }
         }
 
-        public PasteMode PasteMode
+        public GameFieldPasteMode PasteMode
         {
             get
             {
@@ -1026,7 +1026,7 @@ namespace TAlex.GameOfLife.Controls
             UpdatePopulationSize();
         }
 
-        public void SetCursorMode(CursorMode cursorMode, bool savingMode)
+        public void SetCursorMode(GameFieldCursorMode cursorMode, bool savingMode)
         {
             if (savingMode)
             {
@@ -1035,15 +1035,15 @@ namespace TAlex.GameOfLife.Controls
 
             switch (cursorMode)
             {
-                case CursorMode.Draw:
+                case GameFieldCursorMode.Draw:
                     Cursor = Cursors.Pen;
                     break;
 
-                case CursorMode.Move:
+                case GameFieldCursorMode.Move:
                     Cursor = Cursors.SizeAll;
                     break;
 
-                case CursorMode.Select:
+                case GameFieldCursorMode.Select:
                     Cursor = Cursors.Cross;
                     break;
             }
@@ -1241,7 +1241,7 @@ namespace TAlex.GameOfLife.Controls
 
             _pasting = true;
 
-            SetCursorMode(CursorMode.Move, false);
+            SetCursorMode(GameFieldCursorMode.Move, false);
 
             Render();
         }
@@ -1257,7 +1257,7 @@ namespace TAlex.GameOfLife.Controls
 
                 switch (_pasteMode)
                 {
-                    case PasteMode.Copy:
+                    case GameFieldPasteMode.Copy:
                         ICollection<Cell> selectedCells1 = LifeHelpers.GetSelectedCells(Cells, rect.X, rect.Y, rect.Width, rect.Height).Keys;
 
                         foreach (Cell cell in selectedCells1)
@@ -1277,7 +1277,7 @@ namespace TAlex.GameOfLife.Controls
                         }
                         break;
 
-                    case PasteMode.And:
+                    case GameFieldPasteMode.And:
                         ICollection<Cell> selectedCells2 = LifeHelpers.GetSelectedCells(Cells, rect.X, rect.Y, rect.Width, rect.Height).Keys;
 
                         foreach (Cell cell in selectedCells2)
@@ -1290,7 +1290,7 @@ namespace TAlex.GameOfLife.Controls
                         }
                         break;
 
-                    case PasteMode.Or:
+                    case GameFieldPasteMode.Or:
                         foreach (Cell cell in _pastingCells)
                         {
                             Cell newCell = new Cell(left + cell.X, top + cell.Y);
@@ -1299,7 +1299,7 @@ namespace TAlex.GameOfLife.Controls
                         }
                         break;
 
-                    case PasteMode.Xor:
+                    case GameFieldPasteMode.Xor:
                         foreach (Cell cell in _pastingCells)
                         {
                             Cell newCell = new Cell(left + cell.X, top + cell.Y);
@@ -1635,7 +1635,7 @@ namespace TAlex.GameOfLife.Controls
 
             switch (_cursorMode)
             {
-                case CursorMode.Draw:
+                case GameFieldCursorMode.Draw:
                     _currPressedCell = new Cell(x, y);
                     byte oldState = GetInternalCellState(_currPressedCell);
                     _currPressedCellReverseState = (oldState != 0) ? (byte)0 : (byte)1;
@@ -1650,13 +1650,13 @@ namespace TAlex.GameOfLife.Controls
                     RenderCell(_currPressedCell, _currPressedCellReverseState);
                     break;
 
-                case CursorMode.Move:
+                case GameFieldCursorMode.Move:
                     _currPressedPoint = point;
                     CaptureMouse();
                     Render();
                     break;
 
-                case CursorMode.Select:
+                case GameFieldCursorMode.Select:
                     _previousSelectedRegion = _selectedRegion;
                     _currPressedPoint = point;
                     CaptureMouse();
@@ -1681,11 +1681,11 @@ namespace TAlex.GameOfLife.Controls
 
             switch (_cursorMode)
             {
-                case CursorMode.Move:
+                case GameFieldCursorMode.Move:
                     ReleaseMouseCapture();
                     break;
 
-                case CursorMode.Select:
+                case GameFieldCursorMode.Select:
                     if (!RectIsEmpty(_selectedRegion) || !RectIsEmpty(_previousSelectedRegion))
                     {
                         AddUndoUnit(new SelectRegionUndoUnit(this, _selectedRegion, _previousSelectedRegion));
@@ -1693,7 +1693,7 @@ namespace TAlex.GameOfLife.Controls
                     ReleaseMouseCapture();
                     break;
 
-                case CursorMode.Draw:
+                case GameFieldCursorMode.Draw:
                     AddUndoUnit(new DrawCellsUndoUnit(this, _drawingCells));
                     break;
             }
@@ -1710,7 +1710,7 @@ namespace TAlex.GameOfLife.Controls
 
                 switch (_cursorMode)
                 {
-                    case CursorMode.Draw:
+                    case GameFieldCursorMode.Draw:
                         if (_currPressedCell.X != x || _currPressedCell.Y != y)
                         {
                             _currPressedCell = new Cell(x, y);
@@ -1727,7 +1727,7 @@ namespace TAlex.GameOfLife.Controls
                         }
                         break;
 
-                    case CursorMode.Move:
+                    case GameFieldCursorMode.Move:
                         if (IsMouseCaptured)
                         {
                             if (Math.Abs(_currPressedPoint.X - point.X) >= Scale || Math.Abs(_currPressedPoint.Y - point.Y) >= Scale)
@@ -1746,7 +1746,7 @@ namespace TAlex.GameOfLife.Controls
                         }
                         break;
 
-                    case CursorMode.Select:
+                    case GameFieldCursorMode.Select:
                         if (IsMouseCaptured)
                         {
                             Cell selectedTopLeftCell = new Cell();
@@ -1845,17 +1845,17 @@ namespace TAlex.GameOfLife.Controls
 
         private void drawCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            CursorMode = CursorMode.Draw;
+            CursorMode = GameFieldCursorMode.Draw;
         }
 
         private void moveCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            CursorMode = CursorMode.Move;
+            CursorMode = GameFieldCursorMode.Move;
         }
 
         private void selectCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            CursorMode = CursorMode.Select;
+            CursorMode = GameFieldCursorMode.Select;
         }
 
 
@@ -2126,6 +2126,74 @@ namespace TAlex.GameOfLife.Controls
         #endregion
 
         #region Nested types
+
+        public enum GameFieldCursorMode
+        {
+            Draw,
+            Move,
+            Select
+        }
+
+        public enum GameFieldPasteMode
+        {
+            Copy,
+            And,
+            Or,
+            Xor
+        }
+
+        public class GameFieldMemento
+        {
+            #region Fields
+
+            private int _generation;
+
+            private IDictionary<Cell, byte> _cells;
+
+            private Int32Rect _selectedRegion;
+
+            #endregion
+
+            #region Properties
+
+            public int Generation
+            {
+                get
+                {
+                    return _generation;
+                }
+            }
+
+            public IDictionary<Cell, byte> Cells
+            {
+                get
+                {
+                    return _cells;
+                }
+            }
+
+            public Int32Rect SelectedRegion
+            {
+                get
+                {
+                    return _selectedRegion;
+                }
+            }
+
+            #endregion
+
+            #region Constructors
+
+            public GameFieldMemento(int generation, IDictionary<Cell, byte> cells, Int32Rect selectedRegion)
+            {
+                _generation = generation;
+                _cells = new Dictionary<Cell, byte>(cells);
+                _selectedRegion = selectedRegion;
+            }
+
+            #endregion
+        }
+
 
         class DrawCellsUndoUnit : IUndoUnit
         {

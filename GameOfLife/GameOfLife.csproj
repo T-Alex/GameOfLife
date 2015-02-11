@@ -172,12 +172,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\CursorMode.cs" />
     <Compile Include="Controls\GameField.xaml.cs">
       <DependentUpon>GameField.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\GameFieldMemento.cs" />
-    <Compile Include="Controls\PasteMode.cs" />
     <Compile Include="Services\Commands\Undo\IUndoUnit.cs" />
     <Compile Include="Services\Commands\Undo\TransactionEventArgs.cs" />
     <Compile Include="Services\Commands\Undo\UndoManager.cs" />

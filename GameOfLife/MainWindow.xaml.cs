@@ -83,7 +83,7 @@ namespace TAlex.GameOfLife
             gameField.SelectionColor = settings.SelectionColor;
             gameField.ShowGridlines = settings.ShowGrid;
             gameField.SetStatesCellColors(settings.StatesCellColors);
-            gameField.PasteMode = (PasteMode)Enum.Parse(typeof(PasteMode), settings.PasteMode, true);
+            gameField.PasteMode = (GameField.GameFieldPasteMode)Enum.Parse(typeof(GameField.GameFieldPasteMode), settings.PasteMode, true);
 
             speedSlider.Value = settings.SpeedValue;
         }
@@ -110,7 +110,7 @@ namespace TAlex.GameOfLife
                 return;
 
             gameField.DeselectAll();
-            gameField.CursorMode = TAlex.GameOfLife.Controls.CursorMode.Draw;
+            gameField.CursorMode = TAlex.GameOfLife.Controls.GameField.GameFieldCursorMode.Draw;
 
             gameField.Clear();
 
@@ -247,7 +247,7 @@ namespace TAlex.GameOfLife
             if (ofd.ShowDialog() == true)
             {
                 gameField.DeselectAll();
-                gameField.CursorMode = TAlex.GameOfLife.Controls.CursorMode.Move;
+                gameField.CursorMode = TAlex.GameOfLife.Controls.GameField.GameFieldCursorMode.Move;
                 LoadPattern(ofd.FileName);
             }
         }
@@ -613,7 +613,7 @@ namespace TAlex.GameOfLife
             MenuItem item = sender as MenuItem;
             string tag = item.Tag as String;
 
-            PasteMode mode = (PasteMode)Enum.Parse(typeof(PasteMode), tag);
+            var mode = (GameField.GameFieldPasteMode)Enum.Parse(typeof(GameField.GameFieldPasteMode), tag);
             gameField.PasteMode = mode;
         }
 
