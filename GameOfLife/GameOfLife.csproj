@@ -214,29 +214,6 @@
     <Content Include="Help.chm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\Images\Menu\exit.png" />
-    <Resource Include="Resources\Images\Menu\next.png" />
-    <Resource Include="Resources\Images\Menu\start.png" />
-    <Resource Include="Resources\Images\Menu\settings.png" />
-    <Resource Include="Resources\Images\Menu\home.png" />
-    <Resource Include="Resources\Images\Menu\about.png" />
-    <Resource Include="Resources\Images\Menu\help.png" />
-    <Resource Include="Resources\Images\Menu\new.png" />
-    <Resource Include="Resources\Images\Menu\open.png" />
-    <Resource Include="Resources\Images\Menu\stop.png" />
-    <Resource Include="Resources\Images\Menu\save.png" />
-    <Resource Include="Resources\Images\Menu\rotate-180.png" />
-    <Resource Include="Resources\Images\Menu\rotate-cw.png" />
-    <Resource Include="Resources\Images\Menu\rotate-ccw.png" />
-    <Resource Include="Resources\Images\Menu\save-as.png" />
-    <Resource Include="Resources\Images\Menu\copy.png" />
-    <Resource Include="Resources\Images\Menu\cut.png" />
-    <Resource Include="Resources\Images\Menu\delete.png" />
-    <Resource Include="Resources\Images\Menu\paste.png" />
-    <Resource Include="Resources\Images\Menu\redo.png" />
-    <Resource Include="Resources\Images\Menu\undo.png" />
-    <Resource Include="Resources\Images\Menu\flip-horizontal.png" />
-    <Resource Include="Resources\Images\Menu\flip-vertical.png" />
     <Resource Include="Resources\Images\aboutLogoText.png" />
     <None Include="GameOfLife_TemporaryKey.pfx" />
     <Content Include="Patterns\Breeders\LWSS Breeder.rle" />
@@ -281,6 +258,7 @@
     <Content Include="Patterns\Syntheses\Make p33.rle" />
     <Content Include="Patterns\Syntheses\Oscillator Syntheses.rle" />
     <None Include="packages.config" />
+    <Resource Include="Resources\Fonts\Fontawesome.ttf" />
     <None Include="Resources\Icons\icon.ico" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -768,6 +746,7 @@
       <DefaultIcon>Resources\Icons\FileFormats\RLE.ico</DefaultIcon>
     </FileAssociation>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

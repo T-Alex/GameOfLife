@@ -9,6 +9,16 @@
         
     <Window.Resources>
         <talex:Int32ToDoubleConverter x:Key="int32toDoubleConverter" />
+
+        <FontFamily x:Key="IconicFont">/GameOfLife;component/Resources/Fonts/#Fontawesome</FontFamily>
+        
+        <Style x:Key="IconLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource IconicFont}" />
+            <Setter Property="Foreground" Value="#005098" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Padding" Value="0" />
+        </Style>
     </Window.Resources>
     
     <Window.CommandBindings>
@@ -56,59 +66,58 @@
             <MenuItem Header="_File">
                 <MenuItem Header="_New" Command="ApplicationCommands.New">
                     <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/new.png" />
+                        <Label Content="&#xf016;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="_Open..." Command="ApplicationCommands.Open">
                     <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/open.png" />
+                        <Label Content="&#xf115;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="_Save" Command="ApplicationCommands.Save">
                     <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/save.png" />
+                        <Label Content="&#xf0c7;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Save _As..." Command="ApplicationCommands.SaveAs">
-                    <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/save-as.png" />
-                    </MenuItem.Icon>
-                </MenuItem>
+                <MenuItem Header="Save _As..." Command="ApplicationCommands.SaveAs" />
                 <Separator />
                 <MenuItem Header="_Exit" InputGestureText="Alt+F4" Click="exitMenuItem_Click">
+                    <MenuItem.Icon>
+                        <Label Content="&#xf08b;" Style="{StaticResource IconLabelStyle}" />
+                    </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
             
             <MenuItem Header="_Edit">
                 <MenuItem Header="_Undo" Command="ApplicationCommands.Undo">
                     <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/undo.png" />
+                        <Label Content="&#xf0e2;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="_Redo" Command="ApplicationCommands.Redo">
                     <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/redo.png" />
+                        <Label Content="&#xf01e;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator />
                 <MenuItem Header="Cu_t" Command="ApplicationCommands.Cut">
                     <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/cut.png" />
+                        <Label Content="&#xf0c4;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="_Copy" Command="ApplicationCommands.Copy">
                     <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/copy.png" />
+                        <Label Content="&#xf0c5;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="_Paste" Command="ApplicationCommands.Paste">
                     <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/paste.png" />
+                        <Label Content="&#xf0ea;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="_Delete" Command="ApplicationCommands.Delete">
                     <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/delete.png" />
+                        <Label Content="&#xf00d;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator />
@@ -118,30 +127,22 @@
                 <MenuItem Header="Transform">
                     <MenuItem Header="Rotate _180°" Command="{x:Static life:GameField.Rotate180Command}">
                         <MenuItem.Icon>
-                            <Image Source="Resources/Images/Menu/rotate-180.png" />
+                            <Label Content="&#xf021;" Style="{StaticResource IconLabelStyle}" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Header="Rotate _90° CW" Command="{x:Static life:GameField.Rotate90CWCommand}">
                         <MenuItem.Icon>
-                            <Image Source="Resources/Images/Menu/rotate-cw.png" />
+                            <Label Content="&#xf01e;" Style="{StaticResource IconLabelStyle}" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Header="Rotate 9_0° CCW" Command="{x:Static life:GameField.Rotate90CCWCommand}">
                         <MenuItem.Icon>
-                            <Image Source="Resources/Images/Menu/rotate-ccw.png" />
+                            <Label Content="&#xf0e2;" Style="{StaticResource IconLabelStyle}" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <Separator />
-                    <MenuItem Header="Flip _Horizontal" Command="{x:Static life:GameField.FlipHorizontalCommand}">
-                        <MenuItem.Icon>
-                            <Image Source="Resources/Images/Menu/flip-horizontal.png" />
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <MenuItem Header="Flip _Vertical" Command="{x:Static life:GameField.FlipVerticalCommand}">
-                        <MenuItem.Icon>
-                            <Image Source="Resources/Images/Menu/flip-vertical.png" />
-                        </MenuItem.Icon>
-                    </MenuItem>
+                    <MenuItem Header="Flip _Horizontal" Command="{x:Static life:GameField.FlipHorizontalCommand}" />
+                    <MenuItem Header="Flip _Vertical" Command="{x:Static life:GameField.FlipVerticalCommand}" />
                 </MenuItem>
                 <Separator />
                 <MenuItem Header="Paste mode">
@@ -160,23 +161,23 @@
             <MenuItem Header="_Control">
                 <MenuItem Header="Star_t Game" InputGestureText="Enter" Command="{x:Static life:GameField.StartCommand}">
                     <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/start.png" />
+                        <Label Content="&#xf04b;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="Sto_p Game" InputGestureText="Shift+Enter" Command="{x:Static life:GameField.StopCommand}">
                     <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/stop.png" />
+                        <Label Content="&#xf04d;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="_Next Generation" Command="{x:Static life:GameField.NextGenerationCommand}">
                     <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/next.png" />
+                        <Label Content="&#xf051;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator />
                 <MenuItem Header="_Reset Game" InputGestureText="Ctrl+R" Command="{x:Static life:GameField.ResetCommand}">
                     <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/undo.png" />
+                        <Label Content="&#xf0e2;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
@@ -194,7 +195,7 @@
             <MenuItem Header="_Tools">
                 <MenuItem Header="P_references..." Click="preferencesMenuItem_Click">
                     <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/settings.png" />
+                        <Label Content="&#xf013;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
@@ -202,19 +203,19 @@
             <MenuItem Header="_Help">
                 <MenuItem Header="_View Help" Command="ApplicationCommands.Help">
                     <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/help.png" />
+                        <Label Content="&#xf059;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator />
                 <MenuItem Header="T-Alex Software _Homepage" Click="homepageMenuItem_Click">
                     <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/home.png" />
+                        <Label Content="&#xf015;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator />
                 <MenuItem Name="aboutMenuItem" Header="_About" Click="abountMenuItem_Click">
                     <MenuItem.Icon>
-                        <Image Source="Resources/Images/Menu/about.png" />
+                        <Label Content="&#xf05a;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
