@@ -211,9 +211,6 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Help.chm">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Resource Include="Resources\Images\aboutLogoText.png" />
     <None Include="GameOfLife_TemporaryKey.pfx" />
     <Content Include="Patterns\Breeders\LWSS Breeder.rle" />

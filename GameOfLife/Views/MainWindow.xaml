@@ -26,7 +26,6 @@
         <CommandBinding Command="ApplicationCommands.Open" Executed="openCommandBinding_Executed"/>
         <CommandBinding Command="ApplicationCommands.Save" Executed="saveCommandBinding_Executed"/>
         <CommandBinding Command="ApplicationCommands.SaveAs" Executed="saveAsCommandBinding_Executed" />
-        <CommandBinding Command="ApplicationCommands.Help" Executed="helpCommandBinding_Executed"/>
         
         <CommandBinding Command="{x:Static life:GameField.DrawCommand}" Executed="drawCommandBinding_Executed" />
         <CommandBinding Command="{x:Static life:GameField.MoveCommand}" Executed="moveCommandBinding_Executed" />
@@ -201,13 +200,7 @@
             </MenuItem>
             
             <MenuItem Header="_Help">
-                <MenuItem Header="_View Help" Command="ApplicationCommands.Help">
-                    <MenuItem.Icon>
-                        <Label Content="&#xf059;" Style="{StaticResource IconLabelStyle}" />
-                    </MenuItem.Icon>
-                </MenuItem>
-                <Separator />
-                <MenuItem Header="T-Alex Software _Homepage" Click="homepageMenuItem_Click">
+                <MenuItem Header="_Homepage" Click="homepageMenuItem_Click">
                     <MenuItem.Icon>
                         <Label Content="&#xf015;" Style="{StaticResource IconLabelStyle}" />
                     </MenuItem.Icon>

@@ -275,19 +275,6 @@ namespace TAlex.GameOfLife.Views
             SaveAs();
         }
 
-        private void helpCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            try
-            {
-                string startPath = System.IO.Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]);
-                System.Diagnostics.Process.Start(System.IO.Path.Combine(startPath, Properties.Resources.HelpFileName));
-            }
-            catch (System.ComponentModel.Win32Exception)
-            {
-                return;
-            }
-        }
-
 
         private void drawCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
