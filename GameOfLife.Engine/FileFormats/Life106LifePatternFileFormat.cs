@@ -4,6 +4,7 @@ using System.Text;
 using System.IO;
 
 using TAlex.GameOfLife.Engine;
+using System.Threading.Tasks;
 
 namespace TAlex.GameOfLife.FileFormats
 {
@@ -91,10 +92,11 @@ namespace TAlex.GameOfLife.FileFormats
                 }
             }
             
-            LifePattern pattern = new LifePattern();
-            pattern.Rule = LifeRule.StandardLifeRule;
-            pattern.Cells = cells;
-
+            LifePattern pattern = new LifePattern
+            {
+                Rule = LifeRule.StandardLifeRule,
+                Cells = cells
+            };
             return pattern;
         }
 

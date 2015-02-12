@@ -21,6 +21,7 @@ using TAlex.GameOfLife.Helpers;
 using TAlex.GameOfLife.Controls;
 using System.Deployment.Application;
 using TAlex.GameOfLife.Views;
+using System.IO;
 
 
 namespace TAlex.GameOfLife.Views
@@ -120,16 +121,22 @@ namespace TAlex.GameOfLife.Views
             SetTitle(_currentFilePath);
         }
 
-        private void LoadPattern(string path)
+        private async void LoadPattern(string path)
         {
             gameField.Stop();
 
             try
             {
-                LifePattern pattern = LifePatternFileFormatManager.LoadPatternFromFile(path, out _currentOpenedFileFormat);
-                ruleComboBox.Text = pattern.Rule.ToString();
+                using (FileStream file = new FileStream(path, FileMode.Open, FileAccess.Read))
+                {
+                    LifePattern pattern = await LifePatternFileFormatManager.LoadPatternFromStreamAsync(file, System.IO.Path.GetExtension(path));
+                    _currentOpenedFileFormat = pattern.Format;
 
-                gameField.Initialize(pattern.Cells);
+                    ruleComboBox.Text = pattern.Rule.ToString();
+
+                    gameField.Initialize(pattern.Cells);
+                }
+
 
                 _currentFilePath = path;
                 _patternChanged = false;
@@ -148,8 +155,7 @@ namespace TAlex.GameOfLife.Views
 
         private void SavePattern(string path, int filterIndex)
         {
-            _currentOpenedFileFormat =
-                LifePatternFileFormatManager.GetPatternFileFormatFromFilterIndex(filterIndex);
+            _currentOpenedFileFormat = LifePatternFileFormatManager.GetPatternFileFormatFromFilterIndex(filterIndex);
             SavePattern(path, _currentOpenedFileFormat);
         }
 
@@ -164,7 +170,10 @@ namespace TAlex.GameOfLife.Views
             {
                 try
                 {
-                    format.SavePattern(pattern, path);
+                    using (FileStream file = new FileStream(path, FileMode.Create, FileAccess.Write))
+                    {
+                        format.SavePattern(pattern, file);
+                    }
                 }
                 catch (UnauthorizedAccessException exc)
                 {

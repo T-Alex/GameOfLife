@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Threading.Tasks;
+
 
 namespace TAlex.GameOfLife.FileFormats
 {
@@ -70,31 +73,29 @@ namespace TAlex.GameOfLife.FileFormats
 
         #region Methods
 
-        public static LifePattern LoadPatternFromFile(string path, out LifePatternFileFormat f)
+        public static async Task<LifePattern> LoadPatternFromStreamAsync(Stream stream, string extension)
         {
-            string extension = Path.GetExtension(path);
-
-            foreach (LifePatternFileFormat format in _formats)
+            using (var bufferStream = new MemoryStream())
             {
-                if (format.CanLoad && format.ContainsExtension(extension))
+                await stream.CopyToAsync(bufferStream);
+
+                foreach (LifePatternFileFormat format in _formats.Where(x => x.CanLoad && x.IsAcceptable(extension)))
                 {
-                    FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+                    bufferStream.Seek(0, SeekOrigin.Begin);
 
                     try
                     {
-                        LifePattern pattern = format.LoadPattern(fs);
-                        fs.Close();
-                        f = format;
+                        var pattern = await format.LoadPatternAsync(bufferStream);
+                        pattern.Format = format;
                         return pattern;
                     }
                     catch (FormatException)
                     {
-                        fs.Close();
                         continue;
                     }
                 }
             }
-
+            
             throw new FormatException();
         }
 
@@ -107,22 +108,21 @@ namespace TAlex.GameOfLife.FileFormats
                 if (format is TextLifePatternFileFormat && format.CanLoad)
                 {
                     TextLifePatternFileFormat textFormat = format as TextLifePatternFileFormat;
-                    StringReader sr = new StringReader(str);
-
-                    try
+                    
+                    using (StringReader sr = new StringReader(str))
                     {
-                        pattern = textFormat.LoadPattern(sr);
-                        sr.Close();
-                        break;
-                    }
-                    catch (FormatException)
-                    {
-                        sr.Close();
-                        continue;
+                        try
+                        {
+                            pattern = textFormat.LoadPattern(sr);
+                            break;
+                        }
+                        catch (FormatException)
+                        {
+                            continue;
+                        }
                     }
                 }
             }
-
 
             if (pattern == null)
                 throw new FormatException();
@@ -133,13 +133,13 @@ namespace TAlex.GameOfLife.FileFormats
         public static void SavePatternToString(LifePattern pattern, out string str)
         {
             StringBuilder sb = new StringBuilder();
-            TextWriter txtWriter = new StringWriter(sb);
-
-            TextLifePatternFileFormat lifeFormat = new RLELifePatternFileFormat();
-            lifeFormat.SavePattern(pattern, txtWriter);
-
-            str = sb.ToString();
-            txtWriter.Close();
+            
+            using (TextWriter txtWriter = new StringWriter(sb))
+            {
+                TextLifePatternFileFormat lifeFormat = new RLELifePatternFileFormat();
+                lifeFormat.SavePattern(pattern, txtWriter);
+                str = sb.ToString();
+            }
         }
 
         public static LifePatternFileFormat GetPatternFileFormatFromFilterIndex(int filterIndex)

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-
+using System.Threading.Tasks;
 using TAlex.GameOfLife.Engine;
+
 
 namespace TAlex.GameOfLife.FileFormats
 {
@@ -34,36 +35,17 @@ namespace TAlex.GameOfLife.FileFormats
 
         #region Methods
 
-        public abstract LifePattern LoadPattern(Stream stream);
-
-        public LifePattern LoadPattern(string path)
-        {
-            FileStream fs = new FileStream(path, FileMode.Open);
-            LifePattern pattern = LoadPattern(fs);
-            fs.Close();
-
-            return pattern;
-        }
-
+        public abstract Task<LifePattern> LoadPatternAsync(Stream stream);
 
         public abstract void SavePattern(LifePattern pattern, Stream stream);
 
-        public void SavePattern(LifePattern pattern, string path)
-        {
-            FileStream fs = new FileStream(path, FileMode.Create);
-            SavePattern(pattern, fs);
-            fs.Close();
-        }
-
-
-        public bool ContainsExtension(string ext)
+        public bool IsAcceptable(string fileExtension)
         {
             foreach (string item in FileExtensions)
             {
-                if (item == ext)
+                if (item == fileExtension)
                     return true;
             }
-
             return false;
         }
 

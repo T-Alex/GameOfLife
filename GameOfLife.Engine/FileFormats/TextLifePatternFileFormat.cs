@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Threading.Tasks;
+
 
 namespace TAlex.GameOfLife.FileFormats
 {
@@ -9,13 +11,9 @@ namespace TAlex.GameOfLife.FileFormats
     {
         #region Methods
 
-        public override LifePattern LoadPattern(Stream stream)
+        public override async Task<LifePattern> LoadPatternAsync(Stream stream)
         {
-            TextReader txtReader = new StreamReader(stream);
-            LifePattern pattern = LoadPattern(txtReader);
-            txtReader.Close();
-
-            return pattern;
+            return await Task.Run<LifePattern>(() => LoadPattern(new StreamReader(stream)));
         }
 
         public abstract LifePattern LoadPattern(TextReader txtReader);
@@ -23,9 +21,10 @@ namespace TAlex.GameOfLife.FileFormats
 
         public override void SavePattern(LifePattern pattern, Stream stream)
         {
-            TextWriter txtWriter = new StreamWriter(stream);
-            SavePattern(pattern, txtWriter);
-            txtWriter.Close();
+            using (TextWriter txtWriter = new StreamWriter(stream))
+            {
+                SavePattern(pattern, txtWriter);
+            }
         }
 
         public abstract void SavePattern(LifePattern pattern, TextWriter txtWriter);
