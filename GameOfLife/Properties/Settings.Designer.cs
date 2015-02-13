@@ -38,12 +38,12 @@ namespace TAlex.GameOfLife.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100")]
-        public double SpeedValue {
+        public int UpdateInterval {
             get {
-                return ((double)(this["SpeedValue"]));
+                return ((int)(this["UpdateInterval"]));
             }
             set {
-                this["SpeedValue"] = value;
+                this["UpdateInterval"] = value;
             }
         }
         

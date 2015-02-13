@@ -5,7 +5,7 @@
     <Setting Name="ShowGrid" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="SpeedValue" Type="System.Double" Scope="User">
+    <Setting Name="UpdateInterval" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="GridlinesColor" Type="System.Windows.Media.Color" Scope="User">

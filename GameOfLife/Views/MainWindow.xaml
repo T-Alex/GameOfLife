@@ -9,7 +9,7 @@
         
     <Window.Resources>
         <talex:Int32ToDoubleConverter x:Key="int32toDoubleConverter" />
-
+        
         <FontFamily x:Key="IconicFont">/GameOfLife;component/Resources/Fonts/#Fontawesome</FontFamily>
         
         <Style x:Key="IconLabelStyle" TargetType="Label">
@@ -298,8 +298,8 @@
 
                     <GroupBox Header="Speed" Margin="10,5,10,0" Height="55" Foreground="White">
                         <Grid>
-                            <Label VerticalAlignment="Center" HorizontalAlignment="Left" Margin="7,0,0,0" ContentStringFormat="Update time: {0:N0}ms" Content="{Binding ElementName=speedSlider, Path=Value}" />
-                            <Slider Name="speedSlider" VerticalAlignment="Center" Margin="123,0,10,0" Height="29" TickPlacement="BottomRight" Maximum="500" Minimum="10" TickFrequency="25" Delay="50" Value="100" SmallChange="10" LargeChange="10" ValueChanged="speedSlider_ValueChanged" />
+                            <Label VerticalAlignment="Center" HorizontalAlignment="Left" Margin="7,0,0,0" ContentStringFormat="Update time: {0}ms" Content="{Binding ElementName=gameField, Path=UpdateInterval}" />
+                            <Slider VerticalAlignment="Center" Margin="123,0,10,0" Height="29" TickPlacement="BottomRight" Maximum="500" Minimum="10" TickFrequency="25" Delay="50" SmallChange="10" LargeChange="10" Value="{Binding ElementName=gameField, Path=UpdateInterval, Converter={StaticResource int32toDoubleConverter}}" />
                         </Grid>
                     </GroupBox>
                 </StackPanel>

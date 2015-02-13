@@ -86,16 +86,15 @@ namespace TAlex.GameOfLife.Views
             gameField.ShowGridlines = settings.ShowGrid;
             gameField.SetStatesCellColors(settings.StatesCellColors);
             gameField.PasteMode = (GameField.GameFieldPasteMode)Enum.Parse(typeof(GameField.GameFieldPasteMode), settings.PasteMode, true);
-
-            speedSlider.Value = settings.SpeedValue;
+            gameField.UpdateInterval = settings.UpdateInterval;
         }
 
         private void SaveSettings()
         {
             Properties.Settings settings = Properties.Settings.Default;
 
-            settings.ShowGrid = (bool)showGridCheckBox.IsChecked;
-            settings.SpeedValue = speedSlider.Value;
+            settings.ShowGrid = gameField.ShowGridlines;
+            settings.UpdateInterval = gameField.UpdateInterval;
             settings.PasteMode = gameField.PasteMode.ToString();
 
             settings.WindowState = WindowState;
@@ -506,13 +505,6 @@ namespace TAlex.GameOfLife.Views
                 scaleFactorRun.Text = "1:2";
                 expRun.Text = scaleFactor.ToString("F0", CultureInfo.InvariantCulture);
             }
-        }
-
-        private void speedSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            if (gameField == null) return;
-
-            gameField.UpdateTime = TimeSpan.FromMilliseconds((int)e.NewValue);
         }
 
         private void ruleComboBox_TextChanged(object sender, TextChangedEventArgs e)

@@ -17,6 +17,7 @@ using System.Threading;
 using TAlex.GameOfLife.Engine;
 using TAlex.GameOfLife.FileFormats;
 using TAlex.GameOfLife.Helpers;
+using TAlex.Common.Extensions;
 using TAlex.Common.Services.Commands.Undo;
 
 
@@ -94,53 +95,34 @@ namespace TAlex.GameOfLife.Controls
         public static readonly DependencyProperty PopulationProperty;
 
         public static readonly DependencyProperty ScaleFactorProperty;
-
         public static readonly DependencyProperty ShowGridlinesProperty;
-
         public static readonly DependencyProperty BackColorProperty;
-
         public static readonly DependencyProperty GridlinesColorProperty;
-
         public static readonly DependencyProperty AlternatingGridlinesColorProperty;
-
         public static readonly DependencyProperty CellColorProperty;
-
         public static readonly DependencyProperty SelectionColorProperty;
-
+        public static readonly DependencyProperty UpdateIntervalProperty;
 
         public static RoutedUICommand DrawCommand;
-
         public static RoutedUICommand MoveCommand;
-
         public static RoutedUICommand SelectCommand;
 
-
         public static RoutedUICommand StartCommand;
-
         public static RoutedUICommand StopCommand;
-
         public static RoutedUICommand NextGenerationCommand;
-
         public static RoutedUICommand ResetCommand;
 
-
         public static RoutedUICommand DeselectAllCommand;
-
         public static RoutedUICommand Rotate180Command;
 
         public static RoutedUICommand Rotate90CWCommand;
-
         public static RoutedUICommand Rotate90CCWCommand;
-
         public static RoutedUICommand FlipHorizontalCommand;
-
         public static RoutedUICommand FlipVerticalCommand;
 
 
         public static RoutedUICommand FitPatternCommand;
-
         public static RoutedUICommand FitSelectionCommand;
-
         public static RoutedUICommand CenteringPatternCommand;
 
         public static RoutedEvent PatternChangedEvent;
@@ -340,18 +322,18 @@ namespace TAlex.GameOfLife.Controls
         }
 
         /// <summary>
-        /// Gets or sets the interval generating new generations.
+        /// Gets or sets the interval generating in miliseconds of new generations.
         /// </summary>
-        public TimeSpan UpdateTime
+        public int UpdateInterval
         {
             get
             {
-                return _updateTimer.Interval;
+                return (int)GetValue(UpdateIntervalProperty);
             }
 
             set
             {
-                _updateTimer.Interval = value;
+                SetValue(UpdateIntervalProperty, value);
             }
         }
 
@@ -468,6 +450,7 @@ namespace TAlex.GameOfLife.Controls
             AlternatingGridlinesColorProperty = DependencyProperty.Register("AlternatingGridlinesColor", typeof(Color), typeof(GameField), new PropertyMetadata(Colors.DarkGray, NeededRenderingPropertyChanged));
             CellColorProperty = DependencyProperty.Register("CellColor", typeof(Color), typeof(GameField), new PropertyMetadata(Colors.CornflowerBlue, CellColorPropertyChanged));
             SelectionColorProperty = DependencyProperty.Register("SelectionColor", typeof(Color), typeof(GameField), new PropertyMetadata(Color.FromArgb(128, 30, 144, 255), SelectionColorPropertyChanged));
+            UpdateIntervalProperty = DependencyProperty.Register("UpdateInterval", typeof(int), typeof(GameField), new PropertyMetadata(100, UpdateIntervalPropertyChanged));
         }
 
         public GameField()
@@ -556,6 +539,12 @@ namespace TAlex.GameOfLife.Controls
 
             field.UpdateSelectionColor((Color)e.NewValue);
             field.Render();
+        }
+
+        private static void UpdateIntervalPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var field = d as GameField;
+            field._updateTimer.Interval = TimeSpan.FromMilliseconds((int)e.NewValue);
         }
 
         public GameFieldMemento CreateMemento()
