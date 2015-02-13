@@ -184,9 +184,17 @@
             <MenuItem Header="_View">
                 <!--<MenuItem Header="_Fullscreen" InputGestureText="F11" />
                 <Separator />-->
-                <MenuItem Header="Fit _pattern" Command="{x:Static life:GameField.FitPatternCommand}" CommandTarget="{Binding ElementName=gameField}" />
+                <MenuItem Header="Fit _pattern" Command="{x:Static life:GameField.FitPatternCommand}" CommandTarget="{Binding ElementName=gameField}">
+                    <MenuItem.Icon>
+                        <Label Content="&#xf0b2;" Style="{StaticResource IconLabelStyle}" />
+                    </MenuItem.Icon>
+                </MenuItem>
                 <MenuItem Header="Fit _selection" Command="{x:Static life:GameField.FitSelectionCommand}" CommandTarget="{Binding ElementName=gameField}" />
-                <MenuItem Header="_Centering pattern" Command="{x:Static life:GameField.CenteringPatternCommand}" CommandTarget="{Binding ElementName=gameField}" />
+                <MenuItem Header="_Centering pattern" Command="{x:Static life:GameField.CenteringPatternCommand}" CommandTarget="{Binding ElementName=gameField}">
+                    <MenuItem.Icon>
+                        <Label Content="&#xf05b;" Style="{StaticResource IconLabelStyle}" />
+                    </MenuItem.Icon>
+                </MenuItem>
                 <Separator />
                 <MenuItem Name="showGridlinesMenuItem" Header="Show _gridlines" IsCheckable="True" IsChecked="{Binding Path=ShowGridlines, ElementName=gameField, Mode=TwoWay}" />
             </MenuItem>

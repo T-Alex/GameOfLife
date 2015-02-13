@@ -33,37 +33,35 @@
                                     </ItemsPanelTemplate>
                                 </StackPanel.Resources>
                                 
-                                <Expander Header="Birth" IsExpanded="True">
-                                    <ListView Name="birthStatesListView" ItemsPanel="{StaticResource itemsPanel}" BorderThickness="0">
-                                        <ListView.Items>
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 1: Drawing mode" />
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 2" />
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 3" />
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 4" />
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 5" />
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 6" />
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 7" />
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 8" />
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 9" />
-                                        </ListView.Items>
-                                    </ListView>
-                                </Expander>
-                                
-                                <Expander Header="Survival" IsExpanded="True">
-                                    <ListView Name="survivalStatesListView" ItemsPanel="{StaticResource itemsPanel}" BorderThickness="0">
-                                        <ListView.Items>
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 10" />
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 11" />
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 12" />
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 13" />
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 14" />
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 15" />
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 16" />
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 17" />
-                                            <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 18" />
-                                        </ListView.Items>
-                                    </ListView>
-                                </Expander>
+                                <Label>Birth</Label>
+                                <ListView Name="birthStatesListView" ItemsPanel="{StaticResource itemsPanel}" BorderThickness="0">
+                                    <ListView.Items>
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 1: Drawing mode" />
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 2" />
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 3" />
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 4" />
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 5" />
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 6" />
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 7" />
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 8" />
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 9" />
+                                    </ListView.Items>
+                                </ListView>
+
+                                <Label>Survival</Label>
+                                <ListView Name="survivalStatesListView" ItemsPanel="{StaticResource itemsPanel}" BorderThickness="0">
+                                    <ListView.Items>
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 10" />
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 11" />
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 12" />
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 13" />
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 14" />
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 15" />
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 16" />
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 17" />
+                                        <talex:ColorChip ShowStandardToolTip="False" ToolTip="State 18" />
+                                    </ListView.Items>
+                                </ListView>
                             </StackPanel>
                         </GroupBox>
                     </Grid>
