@@ -137,7 +137,6 @@ namespace TAlex.GameOfLife.Views
                     gameField.Initialize(pattern.Cells);
                 }
 
-
                 _currentFilePath = path;
                 _patternChanged = false;
                 SetTitle(path);
@@ -159,7 +158,7 @@ namespace TAlex.GameOfLife.Views
             SavePattern(path, _currentOpenedFileFormat);
         }
 
-        private void SavePattern(string path, LifePatternFileFormat format)
+        private async void SavePattern(string path, LifePatternFileFormat format)
         {
             LifePattern pattern = new LifePattern();
             pattern.Name = System.IO.Path.GetFileNameWithoutExtension(path);
@@ -172,7 +171,7 @@ namespace TAlex.GameOfLife.Views
                 {
                     using (FileStream file = new FileStream(path, FileMode.Create, FileAccess.Write))
                     {
-                        format.SavePattern(pattern, file);
+                        await format.SavePatternAsync(pattern, file);
                     }
                 }
                 catch (UnauthorizedAccessException exc)

@@ -37,7 +37,7 @@ namespace TAlex.GameOfLife.FileFormats
 
         public abstract Task<LifePattern> LoadPatternAsync(Stream stream);
 
-        public abstract void SavePattern(LifePattern pattern, Stream stream);
+        public abstract Task SavePatternAsync(LifePattern pattern, Stream stream);
 
         public bool IsAcceptable(string fileExtension)
         {

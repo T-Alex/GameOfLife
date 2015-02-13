@@ -19,11 +19,11 @@ namespace TAlex.GameOfLife.FileFormats
         public abstract LifePattern LoadPattern(TextReader txtReader);
 
 
-        public override void SavePattern(LifePattern pattern, Stream stream)
+        public override async Task SavePatternAsync(LifePattern pattern, Stream stream)
         {
             using (TextWriter txtWriter = new StreamWriter(stream))
             {
-                SavePattern(pattern, txtWriter);
+                await Task.Run(() => SavePattern(pattern, txtWriter));
             }
         }
 
