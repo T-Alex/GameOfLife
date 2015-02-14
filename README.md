@@ -1,5 +1,5 @@
 # Game Of Life
-WPF realization of Conway's Game of Life.
+#### WPF realization of Conway's Game of Life.
 
 Interesting version of the computer realization of mathematical game "Life" invented by British mathematician John Conway in 1970. This game is the best known example of cellular automaton.
 
