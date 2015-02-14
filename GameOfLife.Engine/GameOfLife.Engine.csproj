@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="TAlex.Common">
-      <HintPath>..\packages\TAlex.Common.0.2.3.0\lib\portable-net45+win+wpa81+wp80\TAlex.Common.dll</HintPath>
+      <HintPath>..\packages\TAlex.Common.0.2.4.0\lib\portable-net45+win+wpa81+wp80\TAlex.Common.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

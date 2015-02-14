@@ -92,17 +92,17 @@ namespace TAlex.GameOfLife.Helpers
             return result;
         }
 
-        public static ICollection<Cell> CellsAlignToOrigin(ICollection<Cell> cells)
+        public static IDictionary<Cell, byte> CellsAlignToOrigin(Dictionary<Cell, byte> cells)
         {
-            Cell topLeftCell = GetTopLeftCell(cells);
+            Cell topLeftCell = GetTopLeftCell(cells.Keys);
             int left = topLeftCell.X;
             int top = topLeftCell.Y;
 
-            ICollection<Cell> resultCells = new List<Cell>(cells.Count);
+            var resultCells = new Dictionary<Cell, byte>(cells.Count);
 
-            foreach (Cell cell in cells)
+            foreach (var pair in cells)
             {
-                resultCells.Add(new Cell(cell.X - left, cell.Y - top));
+                resultCells.Add(new Cell(pair.Key.X - left, pair.Key.Y - top), pair.Value);
             }
 
             return resultCells;

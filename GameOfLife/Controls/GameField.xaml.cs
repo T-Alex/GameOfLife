@@ -31,20 +31,17 @@ namespace TAlex.GameOfLife.Controls
         #region Fields
 
         private const int DefaultScaleFactor = 3;
-
         private const int DefaultAlternationCount = 10;
-
         private const int MinScaleFactorWhenShowGrid = 2;
 
 
         private bool _pasting = false;
 
-        private ICollection<Cell> _pastingCells = null;
+        private IDictionary<Cell, byte> _pastingCells = null;
 
         private Int32Rect _pastingCellsRect = Int32Rect.Empty;
 
         private GameFieldPasteMode _pasteMode = GameFieldPasteMode.Or;
-
         private GameFieldCursorMode _cursorMode = GameFieldCursorMode.Draw;
 
         private Int32Rect _previousSelectedRegion = Int32Rect.Empty;
@@ -66,7 +63,6 @@ namespace TAlex.GameOfLife.Controls
         private byte _currPressedCellReverseState;
 
         private Cell _topLeftCell = new Cell();
-
         private Cell _currPressedCell = new Cell();
 
         private Point _currPressedPoint;
@@ -82,18 +78,14 @@ namespace TAlex.GameOfLife.Controls
         private int _undoUnitCountForReset = 0;
 
         private GameFieldMemento _mementoForReset = null;
-
         private UndoManager _undoManager = new UndoManager();
-
         private DispatcherTimer _updateTimer = new DispatcherTimer();
 
 
         private static readonly DependencyPropertyKey GenerationPropertyKey;
         public static readonly DependencyProperty GenerationProperty;
-
         private static readonly DependencyPropertyKey PopulationPropertyKey;
         public static readonly DependencyProperty PopulationProperty;
-
         public static readonly DependencyProperty ScaleFactorProperty;
         public static readonly DependencyProperty ShowGridlinesProperty;
         public static readonly DependencyProperty BackColorProperty;
@@ -106,21 +98,16 @@ namespace TAlex.GameOfLife.Controls
         public static RoutedUICommand DrawCommand;
         public static RoutedUICommand MoveCommand;
         public static RoutedUICommand SelectCommand;
-
         public static RoutedUICommand StartCommand;
         public static RoutedUICommand StopCommand;
         public static RoutedUICommand NextGenerationCommand;
         public static RoutedUICommand ResetCommand;
-
         public static RoutedUICommand DeselectAllCommand;
         public static RoutedUICommand Rotate180Command;
-
         public static RoutedUICommand Rotate90CWCommand;
         public static RoutedUICommand Rotate90CCWCommand;
         public static RoutedUICommand FlipHorizontalCommand;
         public static RoutedUICommand FlipVerticalCommand;
-
-
         public static RoutedUICommand FitPatternCommand;
         public static RoutedUICommand FitSelectionCommand;
         public static RoutedUICommand CenteringPatternCommand;
@@ -437,20 +424,20 @@ namespace TAlex.GameOfLife.Controls
             InitializeCommands();
             InitializeEvents();
 
-            GenerationPropertyKey = DependencyProperty.RegisterReadOnly("Generation", typeof(int), typeof(GameField), new PropertyMetadata());
+            GenerationPropertyKey = DependencyProperty.RegisterReadOnly(PropertyName.Get<GameField>(x => x.Generation), typeof(int), typeof(GameField), new PropertyMetadata());
             GenerationProperty = GenerationPropertyKey.DependencyProperty;
 
-            PopulationPropertyKey = DependencyProperty.RegisterReadOnly("Population", typeof(int), typeof(GameField), new PropertyMetadata());
+            PopulationPropertyKey = DependencyProperty.RegisterReadOnly(PropertyName.Get<GameField>(x => x.Population), typeof(int), typeof(GameField), new PropertyMetadata());
             PopulationProperty = PopulationPropertyKey.DependencyProperty;
 
-            ScaleFactorProperty = DependencyProperty.Register("ScaleFactor", typeof(int), typeof(GameField), new PropertyMetadata(DefaultScaleFactor, ScaleFactorPropertyChanged));
-            ShowGridlinesProperty = DependencyProperty.Register("ShowGridlines", typeof(bool), typeof(GameField), new PropertyMetadata(true, NeededRenderingPropertyChanged));
-            BackColorProperty = DependencyProperty.Register("BackColor", typeof(Color), typeof(GameField), new PropertyMetadata(Colors.WhiteSmoke, NeededRenderingPropertyChanged));
-            GridlinesColorProperty = DependencyProperty.Register("GridlinesColor", typeof(Color), typeof(GameField), new PropertyMetadata(Colors.LightGray, NeededRenderingPropertyChanged));
-            AlternatingGridlinesColorProperty = DependencyProperty.Register("AlternatingGridlinesColor", typeof(Color), typeof(GameField), new PropertyMetadata(Colors.DarkGray, NeededRenderingPropertyChanged));
-            CellColorProperty = DependencyProperty.Register("CellColor", typeof(Color), typeof(GameField), new PropertyMetadata(Colors.CornflowerBlue, CellColorPropertyChanged));
-            SelectionColorProperty = DependencyProperty.Register("SelectionColor", typeof(Color), typeof(GameField), new PropertyMetadata(Color.FromArgb(128, 30, 144, 255), SelectionColorPropertyChanged));
-            UpdateIntervalProperty = DependencyProperty.Register("UpdateInterval", typeof(int), typeof(GameField), new PropertyMetadata(100, UpdateIntervalPropertyChanged));
+            ScaleFactorProperty = DependencyProperty.Register(PropertyName.Get<GameField>(x => x.ScaleFactor), typeof(int), typeof(GameField), new PropertyMetadata(DefaultScaleFactor, ScaleFactorPropertyChanged));
+            ShowGridlinesProperty = DependencyProperty.Register(PropertyName.Get<GameField>(x => x.ShowGridlines), typeof(bool), typeof(GameField), new PropertyMetadata(true, NeededRenderingPropertyChanged));
+            BackColorProperty = DependencyProperty.Register(PropertyName.Get<GameField>(x => x.BackColor), typeof(Color), typeof(GameField), new PropertyMetadata(Colors.WhiteSmoke, NeededRenderingPropertyChanged));
+            GridlinesColorProperty = DependencyProperty.Register(PropertyName.Get<GameField>(x => x.GridlinesColor), typeof(Color), typeof(GameField), new PropertyMetadata(Colors.LightGray, NeededRenderingPropertyChanged));
+            AlternatingGridlinesColorProperty = DependencyProperty.Register(PropertyName.Get<GameField>(x => x.AlternatingGridlinesColor), typeof(Color), typeof(GameField), new PropertyMetadata(Colors.DarkGray, NeededRenderingPropertyChanged));
+            CellColorProperty = DependencyProperty.Register(PropertyName.Get<GameField>(x => x.CellColor), typeof(Color), typeof(GameField), new PropertyMetadata(Colors.CornflowerBlue, CellColorPropertyChanged));
+            SelectionColorProperty = DependencyProperty.Register(PropertyName.Get<GameField>(x => x.SelectionColor), typeof(Color), typeof(GameField), new PropertyMetadata(Color.FromArgb(128, 30, 144, 255), SelectionColorPropertyChanged));
+            UpdateIntervalProperty = DependencyProperty.Register(PropertyName.Get<GameField>(x => x.UpdateInterval), typeof(int), typeof(GameField), new PropertyMetadata(100, UpdateIntervalPropertyChanged));
         }
 
         public GameField()
@@ -559,18 +546,25 @@ namespace TAlex.GameOfLife.Controls
                 _selectedRegion = m.SelectedRegion;
                 SetGeneration(m.Cells, m.Generation);
             }
-        }   
+        }
 
-        public void Render()
+        #region Rendering
+
+        public virtual void Render()
         {
-            if (_wb == null || _game == null)
-            {
-                return;
-            }
+            Render(_game.AliveCells, true);
+        }
+
+        private void RenderCell(Cell cell, byte state)
+        {
+            Render(new Dictionary<Cell, byte> { { cell, state } }, false);
+        }
+
+        private void Render(Dictionary<Cell, byte> cells, bool renderAll)
+        {
+            if (_wb == null || _game == null) return;
 
             int back_c = ColorToBgra32(BackColor);
-            int grid_c = ColorToBgra32(GridlinesColor);
-            int altgrid_c = ColorToBgra32(AlternatingGridlinesColor);
 
             int intScale = Math.Max(1, (int)Scale);
             double floatScale = Scale;
@@ -578,7 +572,6 @@ namespace TAlex.GameOfLife.Controls
             int w = _wb.PixelWidth;
             int h = _wb.PixelHeight;
 
-            int pixelCount = h * w;
             int backBufferStride = _wb.BackBufferStride;
 
             // Reserve the back buffer for updates.
@@ -587,170 +580,42 @@ namespace TAlex.GameOfLife.Controls
             unsafe
             {
                 // Get a pointer to the back buffer.
-                var pBackBufferOrigin = (long)_wb.BackBuffer;
-                var pBackBuffer = pBackBufferOrigin;
-
-                // Draw background
-                for (int i = 0; i < pixelCount; i++)
-                {
-                    *((int*)pBackBuffer) = back_c;
-                    pBackBuffer += 4;
-                }
-
-                // Draw alive cells
-                pBackBuffer = pBackBufferOrigin;
-
-                int n = FieldHeight;
-                int m = FieldWidth;
-                int nn = n + 1;
-                int mm = m + 1;
-
-                int lastColWidth = (int)(w - m * floatScale);
-                int lastRowHeight = (int)(h - n * floatScale);
-
+                var pBackBuffer = (long)_wb.BackBuffer;
+                
                 int top = _topLeftCell.Y;
                 int left = _topLeftCell.X;
 
-                Dictionary<Cell, byte> cells = _game.AliveCells;
+                // Render background
+                if (renderAll) RenderBackground(pBackBuffer, w, h, back_c);
 
-                lock (cells)
-                {
-                    foreach (KeyValuePair<Cell, byte> pair in cells)
-                    {
-                        int x = pair.Key.X - left;
-                        int y = pair.Key.Y - top;
-
-                        if (y < 0 || x < 0 || y >= nn || x >= mm)
-                            continue;
-
-                        int col_offset = (int)(x * floatScale) * 4;
-                        int row_offset = (int)(y * floatScale) * backBufferStride;
-                        var offset = pBackBuffer + row_offset + col_offset;
-
-                        int cellWidth = (x < m) ? intScale : lastColWidth;
-                        int cellHeight = (y < n) ? intScale : lastRowHeight;
-
-                        int color = _statesCellColors[pair.Value];
-
-                        for (int p = 0; p < cellHeight; p++)
-                        {
-                            for (int k = 0; k < cellWidth; k++)
-                            {
-                                *((int*)(offset + p * backBufferStride + k * 4)) = color;
-                            }
-                        }
-                    }
-                }
+                // Render alive cells
+                RenderCells(pBackBuffer, cells, w, h, floatScale, intScale, backBufferStride, back_c, 0, 0);
 
                 // Draw pasting cells
-                if (_pasting)
+                if (_pasting && _pastingCells != null)
                 {
-                    pBackBuffer = pBackBufferOrigin;
-
                     Point point = Mouse.GetPosition(this);
                     int cur_x, cur_y;
                     PointToCoordinate(point, out cur_x, out cur_y);
 
-                    int hals_w = _pastingCellsRect.Width / 2;
+                    int half_w = _pastingCellsRect.Width / 2;
                     int half_h = _pastingCellsRect.Height / 2;
 
-                    if (_pastingCells != null)
-                    {
-                        lock (_pastingCells)
-                        {
-                            int color = _statesCellColors[1];
-
-                            foreach (Cell cell in _pastingCells)
-                            {
-                                int x = cell.X - left + cur_x - hals_w;
-                                int y = cell.Y - top + cur_y - half_h;
-
-                                if (y < 0 || x < 0 || y >= nn || x >= mm)
-                                    continue;
-
-                                int col_offset = (int)(x * floatScale) * 4;
-                                int row_offset = (int)(y * floatScale) * backBufferStride;
-                                var offset = pBackBuffer + row_offset + col_offset;
-
-                                int cellWidth = (x < m) ? intScale : lastColWidth;
-                                int cellHeight = (y < n) ? intScale : lastRowHeight;
-
-                                for (int p = 0; p < cellHeight; p++)
-                                {
-                                    for (int k = 0; k < cellWidth; k++)
-                                    {
-                                        *((int*)(offset + p * backBufferStride + k * 4)) = color;
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    RenderCells(pBackBuffer, _pastingCells, w, h, floatScale, intScale, backBufferStride, back_c, cur_x - half_w, cur_y - half_h);
                 }
 
-
-                // Draw gridlines
+                // Render gridlines
                 if (ShowGridlines && _scaleFactor >= MinScaleFactorWhenShowGrid)
                 {
-                    int cols = (w % intScale == 0) ? (w / intScale) : (w / intScale + 1);
-                    int rows = (h % intScale == 0) ? (h / intScale) : (h / intScale + 1);
-
-
-                    pBackBuffer = pBackBufferOrigin;
-
-                    // Draw vertical gridlines
-                    for (int i = 0; i < cols; i++)
-                    {
-                        int col_offset = i * 4 * intScale;
-
-                        int c = grid_c;
-                        if (((i + left) % DefaultAlternationCount) == 0) c = altgrid_c;
-
-                        for (int j = 0; j < h; j++)
-                        {
-                            *((int*)(pBackBuffer + j * backBufferStride + col_offset)) = c;
-                        }
-                    }
-                    
-                    // Draw horizontal gridlines
-                    for (int i = 0; i < rows; i++)
-                    {
-                        int row_offset = i * backBufferStride * intScale;
-
-                        int c = grid_c;
-                        if (((i + top) % DefaultAlternationCount) == 0) c = altgrid_c;
-
-                        for (int j = 0; j < w; j++)
-                        {
-                            *((int*)(pBackBuffer + row_offset + j * 4)) = c;
-                        }
-                    }
+                    int grid_c = ColorToBgra32(GridlinesColor);
+                    int altgrid_c = ColorToBgra32(AlternatingGridlinesColor);
+                    RenderGrid(pBackBuffer, w, h, top, left, intScale, backBufferStride, grid_c, altgrid_c);
                 }
 
-                // Draw selected region
+                // Render selected region
                 if (!RectIsEmpty(_selectedRegion))
                 {
-                    pBackBuffer = pBackBufferOrigin;
-
-                    int x = (int)(Math.Max(_selectedRegion.X - left, 0) * floatScale);
-                    int y = (int)(Math.Max(_selectedRegion.Y - top, 0) * floatScale);
-
-                    int sel_w = Math.Min((int)(((_selectedRegion.X - left) + _selectedRegion.Width) * floatScale), w) - x;
-                    int sel_h = Math.Min((int)(((_selectedRegion.Y - top) + _selectedRegion.Height) * floatScale), h) - y;
-
-                    int col_offset = x * 4;
-                    int row_offset = y * backBufferStride;
-                    var offset = pBackBuffer + row_offset + col_offset;
-
-                    for (int i = 0; i < sel_h; i++)
-                    {
-                        for (int j = 0; j < sel_w; j++)
-                        {
-                            var d = offset + i * backBufferStride + j * 4;
-
-                            var old_color = *((int*)d);
-                            *((int*)d) = OverlayColors(old_color);
-                        }
-                    }
+                    RenderSelectedRegion(pBackBuffer, _selectedRegion, w, h, top, left, floatScale, backBufferStride);
                 }
             }
 
@@ -761,146 +626,120 @@ namespace TAlex.GameOfLife.Controls
             _wb.Unlock();
         }
 
-        private void RenderCell(Cell cell, byte state)
+        private unsafe void RenderBackground(long pBackBuffer, int w, int h, int backgroundColor)
         {
-            if (_wb == null || _game == null)
+            int pixelCount = h * w;
+
+            for (int i = 0; i < pixelCount; i++)
             {
-                return;
+                *((int*)pBackBuffer) = backgroundColor;
+                pBackBuffer += 4;
             }
+        }
 
-            int back_c = ColorToBgra32(BackColor);
-            int grid_c = ColorToBgra32(GridlinesColor);
-            int altgrid_c = ColorToBgra32(AlternatingGridlinesColor);
+        private unsafe void RenderCells(long pBackBuffer, IDictionary<Cell, byte> cells, int w, int h, double floatScale, int intScale, int backBufferStride, int backgroundColor, int offsetX, int offsetY)
+        {
+            int n = FieldHeight;
+            int m = FieldWidth;
+            int nn = n + 1;
+            int mm = m + 1;
 
-            int intScale = Math.Max(1, (int)Scale);
-            double floatScale = Scale;
+            int lastColWidth = (int)(w - m * floatScale);
+            int lastRowHeight = (int)(h - n * floatScale);
 
-            int w = _wb.PixelWidth;
-            int h = _wb.PixelHeight;
+            int top = _topLeftCell.Y;
+            int left = _topLeftCell.X;
 
-            int backBufferStride = _wb.BackBufferStride;
-
-            // Reserve the back buffer for updates.
-            _wb.Lock();
-
-            unsafe
+            lock (cells)
             {
-                // Get a pointer to the back buffer.
-                var pBackBufferOrigin = (long)_wb.BackBuffer;
-                var pBackBuffer = pBackBufferOrigin;
-
-                // Draw cell
-                int n = FieldHeight;
-                int m = FieldWidth;
-                int nn = n + 1;
-                int mm = m + 1;
-
-                int lastColWidth = (int)(w - m * floatScale);
-                int lastRowHeight = (int)(h - n * floatScale);
-
-                int top = _topLeftCell.Y;
-                int left = _topLeftCell.X;
-
-                int x = cell.X - left;
-                int y = cell.Y - top;
-
-                int cellWidth = (x < m) ? intScale : lastColWidth;
-                int cellHeight = (y < n) ? intScale : lastRowHeight;
-
-                if (y < 0 || x < 0 || y >= nn || x >= mm)
+                foreach (KeyValuePair<Cell, byte> pair in cells)
                 {
-                    return;
-                }
-                else
-                {
+                    int x = pair.Key.X - left + offsetX;
+                    int y = pair.Key.Y - top + offsetY;
+
+                    if (y < 0 || x < 0 || y >= nn || x >= mm)
+                        continue;
+
                     int col_offset = (int)(x * floatScale) * 4;
                     int row_offset = (int)(y * floatScale) * backBufferStride;
                     var offset = pBackBuffer + row_offset + col_offset;
 
-                    int cellColor = _statesCellColors[state];
-                    if (state == 0) cellColor = back_c;
+                    int cellWidth = (x < m) ? intScale : lastColWidth;
+                    int cellHeight = (y < n) ? intScale : lastRowHeight;
+
+                    int color = _statesCellColors[pair.Value];
+                    if (pair.Value == 0) color = backgroundColor;
 
                     for (int p = 0; p < cellHeight; p++)
                     {
                         for (int k = 0; k < cellWidth; k++)
                         {
-                            *((int*)(offset + p * backBufferStride + k * 4)) = cellColor;
+                            *((int*)(offset + p * backBufferStride + k * 4)) = color;
                         }
                     }
                 }
+            }
+        }
 
-                // Draw gridlines
-                if (ShowGridlines && _scaleFactor >= MinScaleFactorWhenShowGrid)
+        private unsafe void RenderGrid(long pBackBuffer, int w, int h, int top, int left, int intScale, int backBufferStride, int grid_c, int altgrid_c)
+        {
+            int cols = (w % intScale == 0) ? (w / intScale) : (w / intScale + 1);
+            int rows = (h % intScale == 0) ? (h / intScale) : (h / intScale + 1);
+
+            // Draw vertical gridlines
+            for (int i = 0; i < cols; i++)
+            {
+                int col_offset = i * 4 * intScale;
+
+                int c = grid_c;
+                if (((i + left) % DefaultAlternationCount) == 0) c = altgrid_c;
+
+                for (int j = 0; j < h; j++)
                 {
-                    int cols = (w % intScale == 0) ? (w / intScale) : (w / intScale + 1);
-                    int rows = (h % intScale == 0) ? (h / intScale) : (h / intScale + 1);
-
-                    pBackBuffer = pBackBufferOrigin;
-
-                    // Draw vertical gridlines
-                    int x_max = Math.Min(x + 1, cols);
-                    int y_max = Math.Min(y + 1, rows);
-
-                    for (int i = x; i < x_max; i++)
-                    {
-                        int col_offset = i * 4 * intScale;
-
-                        int c = grid_c;
-                        if (((i + left) % DefaultAlternationCount) == 0) c = altgrid_c;
-
-                        for (int j = y * intScale; j < y_max * intScale; j++)
-                        {
-                            *((int*)(pBackBuffer + j * backBufferStride + col_offset)) = c;
-                        }
-                    }
-
-                    // Draw horizontal gridlines
-                    for (int i = y; i < y_max; i++)
-                    {
-                        int row_offset = i * backBufferStride * intScale;
-
-                        int c = grid_c;
-                        if (((i + top) % DefaultAlternationCount) == 0) c = altgrid_c;
-
-                        for (int j = x * intScale; j < x_max * intScale; j++)
-                        {
-                            *((int*)(pBackBuffer + row_offset + j * 4)) = c;
-                        }
-                    }
+                    *((int*)(pBackBuffer + j * backBufferStride + col_offset)) = c;
                 }
-
-                // Draw selected region
-                if (!RectIsEmpty(_selectedRegion))
-                {
-                    if (cell.X >= _selectedRegion.X && cell.X <= _selectedRegion.X + _selectedRegion.Width &&
-                        cell.Y >= _selectedRegion.Y && cell.Y <= _selectedRegion.Y + _selectedRegion.Height)
-                    {
-                        pBackBuffer = pBackBufferOrigin;
-
-                        int col_offset = (int)(x * floatScale) * 4;
-                        int row_offset = (int)(y * floatScale) * backBufferStride;
-                        var offset = pBackBuffer + row_offset + col_offset;
-
-                        for (int p = 0; p < cellHeight; p++)
-                        {
-                            for (int k = 0; k < cellWidth; k++)
-                            {
-                                var d = offset + p * backBufferStride + k * 4;
-
-                                int old_color = *((int*)d);
-                                *((int*)d) = OverlayColors(old_color);
-                            }
-                        }
-                    }
-                }
-
-                // Specify the area of the bitmap that changed.
-                _wb.AddDirtyRect(new Int32Rect((int)(x * floatScale), (int)(y * floatScale), cellWidth, cellHeight));
             }
 
-            // Release the back buffer and make it available for display.
-            _wb.Unlock();
+            // Draw horizontal gridlines
+            for (int i = 0; i < rows; i++)
+            {
+                int row_offset = i * backBufferStride * intScale;
+
+                int c = grid_c;
+                if (((i + top) % DefaultAlternationCount) == 0) c = altgrid_c;
+
+                for (int j = 0; j < w; j++)
+                {
+                    *((int*)(pBackBuffer + row_offset + j * 4)) = c;
+                }
+            }
         }
+
+        private unsafe void RenderSelectedRegion(long pBackBuffer, Int32Rect selectedRegion, int w, int h, int top, int left, double floatScale, int backBufferStride)
+        {
+            int x = (int)(Math.Max(selectedRegion.X - left, 0) * floatScale);
+            int y = (int)(Math.Max(selectedRegion.Y - top, 0) * floatScale);
+
+            int sel_w = Math.Min((int)(((selectedRegion.X - left) + selectedRegion.Width) * floatScale), w) - x;
+            int sel_h = Math.Min((int)(((selectedRegion.Y - top) + selectedRegion.Height) * floatScale), h) - y;
+
+            int col_offset = x * 4;
+            int row_offset = y * backBufferStride;
+            var offset = pBackBuffer + row_offset + col_offset;
+
+            for (int i = 0; i < sel_h; i++)
+            {
+                for (int j = 0; j < sel_w; j++)
+                {
+                    var d = offset + i * backBufferStride + j * 4;
+
+                    var old_color = *((int*)d);
+                    *((int*)d) = OverlayColors(old_color);
+                }
+            }
+        }
+
+        #endregion
 
         public void Initialize()
         {
@@ -1223,9 +1062,9 @@ namespace TAlex.GameOfLife.Controls
             
             LifePattern pattern = LifePatternFileFormatManager.LoadPatternFromString(Clipboard.GetText());
 
-            _pastingCells = LifeHelpers.CellsAlignToOrigin(pattern.Cells.Keys);
+            _pastingCells = LifeHelpers.CellsAlignToOrigin(pattern.Cells);
             int x, y, w, h;
-            LifeHelpers.GetBoundedRect(_pastingCells, out x, out y, out w, out h);
+            LifeHelpers.GetBoundedRect(_pastingCells.Keys, out x, out y, out w, out h);
             _pastingCellsRect = new Int32Rect(x, y, w, h);
 
             _pasting = true;
@@ -1251,14 +1090,14 @@ namespace TAlex.GameOfLife.Controls
 
                         foreach (Cell cell in selectedCells1)
                         {
-                            if (!_pastingCells.Contains(new Cell(cell.X - left, cell.Y - top)))
+                            if (!_pastingCells.ContainsKey(new Cell(cell.X - left, cell.Y - top)))
                             {
                                 pastingCellsInfo.Add(new CellInfo(cell, GetInternalCellState(cell), 0));
                                 _game[cell.X, cell.Y] = 0;
                             }
                         }
 
-                        foreach (Cell cell in _pastingCells)
+                        foreach (Cell cell in _pastingCells.Keys)
                         {
                             Cell newCell = new Cell(left + cell.X, top + cell.Y);
                             pastingCellsInfo.Add(new CellInfo(newCell, GetInternalCellState(newCell), 1));
@@ -1271,7 +1110,7 @@ namespace TAlex.GameOfLife.Controls
 
                         foreach (Cell cell in selectedCells2)
                         {
-                            if (!_pastingCells.Contains(new Cell(cell.X - left, cell.Y - top)))
+                            if (!_pastingCells.ContainsKey(new Cell(cell.X - left, cell.Y - top)))
                             {
                                 pastingCellsInfo.Add(new CellInfo(cell, GetInternalCellState(cell), 0));
                                 _game[cell.X, cell.Y] = 0;
@@ -1280,7 +1119,7 @@ namespace TAlex.GameOfLife.Controls
                         break;
 
                     case GameFieldPasteMode.Or:
-                        foreach (Cell cell in _pastingCells)
+                        foreach (Cell cell in _pastingCells.Keys)
                         {
                             Cell newCell = new Cell(left + cell.X, top + cell.Y);
                             pastingCellsInfo.Add(new CellInfo(newCell, GetInternalCellState(newCell), 1));
@@ -1289,7 +1128,7 @@ namespace TAlex.GameOfLife.Controls
                         break;
 
                     case GameFieldPasteMode.Xor:
-                        foreach (Cell cell in _pastingCells)
+                        foreach (Cell cell in _pastingCells.Keys)
                         {
                             Cell newCell = new Cell(left + cell.X, top + cell.Y);
                             byte oldState = GetInternalCellState(newCell);
