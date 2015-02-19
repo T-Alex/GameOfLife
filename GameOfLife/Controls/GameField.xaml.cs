@@ -33,6 +33,7 @@ namespace TAlex.GameOfLife.Controls
         private const int DefaultScaleFactor = 3;
         private const int DefaultAlternationCount = 10;
         private const int MinScaleFactorWhenShowGrid = 2;
+        private const int DefaultUpdateInterval = 100;
 
 
         private bool _pasting = false;
@@ -79,7 +80,7 @@ namespace TAlex.GameOfLife.Controls
 
         private GameFieldMemento _mementoForReset = null;
         private UndoManager _undoManager = new UndoManager();
-        private DispatcherTimer _updateTimer = new DispatcherTimer();
+        private DispatcherTimer _updateTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(DefaultUpdateInterval) };
 
 
         private static readonly DependencyPropertyKey GenerationPropertyKey;
@@ -437,7 +438,7 @@ namespace TAlex.GameOfLife.Controls
             AlternatingGridlinesColorProperty = DependencyProperty.Register(PropertyName.Get<GameField>(x => x.AlternatingGridlinesColor), typeof(Color), typeof(GameField), new PropertyMetadata(Colors.DarkGray, NeededRenderingPropertyChanged));
             CellColorProperty = DependencyProperty.Register(PropertyName.Get<GameField>(x => x.CellColor), typeof(Color), typeof(GameField), new PropertyMetadata(Colors.CornflowerBlue, CellColorPropertyChanged));
             SelectionColorProperty = DependencyProperty.Register(PropertyName.Get<GameField>(x => x.SelectionColor), typeof(Color), typeof(GameField), new PropertyMetadata(Color.FromArgb(128, 30, 144, 255), SelectionColorPropertyChanged));
-            UpdateIntervalProperty = DependencyProperty.Register(PropertyName.Get<GameField>(x => x.UpdateInterval), typeof(int), typeof(GameField), new PropertyMetadata(100, UpdateIntervalPropertyChanged));
+            UpdateIntervalProperty = DependencyProperty.Register(PropertyName.Get<GameField>(x => x.UpdateInterval), typeof(int), typeof(GameField), new PropertyMetadata(DefaultUpdateInterval, UpdateIntervalPropertyChanged));
         }
 
         public GameField()
@@ -1637,6 +1638,7 @@ namespace TAlex.GameOfLife.Controls
         private void updateTimer_Tick(object sender, EventArgs e)
         {
             _NextGeneration();
+            CommandManager.InvalidateRequerySuggested();
 
             if (IsEmpty)
             {
