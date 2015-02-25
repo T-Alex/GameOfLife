@@ -19,9 +19,12 @@ using TAlex.GameOfLife.Engine;
 using TAlex.GameOfLife.FileFormats;
 using TAlex.GameOfLife.Helpers;
 using TAlex.GameOfLife.Controls;
+using TAlex.Common.Extensions;
 using System.Deployment.Application;
 using TAlex.GameOfLife.Views;
 using System.IO;
+using System.Reflection;
+using TAlex.Common.Models;
 
 
 namespace TAlex.GameOfLife.Views
@@ -42,6 +45,8 @@ namespace TAlex.GameOfLife.Views
 
         private string _patternsDirPath;
 
+        public static AssemblyInfo AssemblyInfo = Assembly.GetExecutingAssembly().GetAssemblyInfo();
+
         #endregion
 
         #region Constructors
@@ -51,10 +56,8 @@ namespace TAlex.GameOfLife.Views
             InitializeComponent();
             LoadSettings();
 
-            string productTitle = AboutWindow.ProductTitle;
-
             SetTitle(_currentFilePath);
-            aboutMenuItem.Header = "_About " + productTitle;
+            aboutMenuItem.Header = "_About " + AssemblyInfo.Title;
 
             _patternsDirPath = GetPatternsDirectory();
         }
@@ -142,12 +145,12 @@ namespace TAlex.GameOfLife.Views
             }
             catch (UnauthorizedAccessException exc)
             {
-                MessageBox.Show(this, exc.Message, AboutWindow.ProductTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(this, exc.Message, AssemblyInfo.Title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (Exception)
             {
                 MessageBox.Show(this, "Can't load the pattern. File is corrupted.",
-                    AboutWindow.ProductTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                    AssemblyInfo.Title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -175,14 +178,14 @@ namespace TAlex.GameOfLife.Views
                 }
                 catch (UnauthorizedAccessException exc)
                 {
-                    MessageBox.Show(this, exc.Message, AboutWindow.ProductTitle,
+                    MessageBox.Show(this, exc.Message, AssemblyInfo.Title,
                         MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
             {
                 MessageBox.Show(this, "This format does not support saving.",
-                    AboutWindow.ProductTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+                    AssemblyInfo.Title, MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
 
@@ -202,7 +205,7 @@ namespace TAlex.GameOfLife.Views
             catch (FormatException)
             {
                 MessageBox.Show(this, "Invalid data. Please enter the correct information.",
-                    AboutWindow.ProductTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                    AssemblyInfo.Title, MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
         }
@@ -623,9 +626,9 @@ namespace TAlex.GameOfLife.Views
             string filename = System.IO.Path.GetFileName(path);
 
             if (_patternChanged)
-                Title = String.Format("{0}* - {1}", filename, AboutWindow.ProductTitle);
+                Title = String.Format("{0}* - {1}", filename, AssemblyInfo.Title);
             else
-                Title = String.Format("{0} - {1}", filename, AboutWindow.ProductTitle);
+                Title = String.Format("{0} - {1}", filename, AssemblyInfo.Title);
         }
 
         private bool? SaveAs()
@@ -654,7 +657,7 @@ namespace TAlex.GameOfLife.Views
             {
                 MessageBoxResult result = MessageBox.Show(this,
                     String.Format("Do you want to save changes to {0} before the action?", System.IO.Path.GetFileName(_currentFilePath)),
-                    AboutWindow.ProductTitle, MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                    AssemblyInfo.Title, MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
 
                 if (result == MessageBoxResult.Yes)
                 {

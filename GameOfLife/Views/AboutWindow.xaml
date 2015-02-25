@@ -13,7 +13,7 @@
         </Canvas>
                 
         <!-- Version -->
-        <Label Margin="0,20,45,0" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="11" FontFamily="Arial Black" Foreground="DarkBlue" Content="{Binding Mode=OneTime, Path=Version}" />
+        <Label Margin="0,20,45,0" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="11" FontFamily="Arial Black" Foreground="DarkBlue" Content="{Binding Mode=OneTime, Path=ApplicationInfo.Version}" />
         
         <!-- About Logo text -->
         <Image Margin="0,35,0,0" SnapsToDevicePixels="True" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Center" Source="/Resources/Images/aboutLogoText.png"></Image>
@@ -44,7 +44,8 @@
         
         <!-- Copyright -->
         <Label Margin="0,0,0,10" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Foreground="DarkBlue"
-               Content="{Binding Mode=OneTime, Path=Copyright}">
+               ContentStringFormat="{}{0}. All rights reserved."
+               Content="{Binding Mode=OneTime, Path=ApplicationInfo.Copyright}">
         </Label>
     </Grid>
 </Window>

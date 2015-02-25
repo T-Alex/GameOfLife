@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Diagnostics;
 using System.Windows.Media.Animation;
 using TAlex.Common.Extensions;
+using TAlex.Common.Models;
 
 
 namespace TAlex.GameOfLife.Views
@@ -15,78 +16,14 @@ namespace TAlex.GameOfLife.Views
     /// </summary>
     public partial class AboutWindow : Window
     {
-        #region Fields
-
-        private static Assembly ExecutingAssembly = Assembly.GetExecutingAssembly();
-
-        #endregion
-
         #region Properties
 
         /// <summary>
-        /// Gets the application's title.
+        /// Gets the application info.
         /// </summary>
-        public static string ProductTitle
+        public static AssemblyInfo ApplicationInfo
         {
-            get
-            {
-                return ExecutingAssembly.GetTitle();
-            }
-        }
-
-        /// <summary>
-        /// Gets the application's description.
-        /// </summary>
-        public static string Description
-        {
-            get
-            {
-                return ExecutingAssembly.GetDescription();
-            }
-        }
-
-        /// <summary>
-        /// Gets the application's company.
-        /// </summary>
-        public static string Company
-        {
-            get
-            {
-                return ExecutingAssembly.GetCompany();
-            }
-        }
-
-        /// <summary>
-        /// Gets the application's product.
-        /// </summary>
-        public static string Product
-        {
-            get
-            {
-                return ExecutingAssembly.GetProduct();
-            }
-        }
-
-        /// <summary>
-        /// Gets the application's copyright.
-        /// </summary>
-        public static string Copyright
-        {
-            get
-            {
-                return String.Format("{0}. All rights reserved.", ExecutingAssembly.GetCopyright());
-            }
-        }
-
-        /// <summary>
-        /// Gets the application's version.
-        /// </summary>
-        public static Version Version
-        {
-            get
-            {
-                return ExecutingAssembly.GetVersion();
-            }
+            get { return Assembly.GetExecutingAssembly().GetAssemblyInfo(); }
         }
 
         /// <summary>
@@ -141,7 +78,7 @@ namespace TAlex.GameOfLife.Views
         {
             InitializeComponent();
 
-            Title = "About " + ProductTitle;
+            Title = "About " + ApplicationInfo.Title;
         }
 
         #endregion
