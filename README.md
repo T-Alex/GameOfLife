@@ -1,5 +1,8 @@
 # Game Of Life
+[![Build status](https://ci.appveyor.com/api/projects/status/7qn8i5nfscq3f7fm?svg=true)](https://ci.appveyor.com/project/T-Alex/gameoflife)
+
 WPF realization of Conway's Game of Life.
+
 ## Description
 Interesting version of the computer realization of mathematical game "Life" invented by British mathematician John Conway in 1970. This game is the best known example of cellular automaton.
 
@@ -8,4 +11,4 @@ Venue of the game - "the universe" - is marked on the cell surface, unlimited, l
 This implementation provides you "unlimited" size of the universe, it can scale, load and save in many popular file formats. Also there is the opportunity to set rules for the game, the generation time of the new generations, etc. The editor stores user actions that can, if necessary, roll them up to a certain moment, transformations such as rotations or flips can be applied on the selected areas. It is possible to work with the clipboard that allows you to copy and paste the samples when it's necessary. Also you can choose the color for the states of cells, gridlines, and background. The game has nice and intuitive user interface that will help to fill gameplay with new feelings.
 
 ## License
-GameOfLife is under the [MIT license](https://github.com/T-Alex/GameOfLife/blob/master/LICENSE.md).
+GameOfLife is under the [MIT license](LICENSE.md).
