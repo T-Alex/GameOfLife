@@ -69,7 +69,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup>
+  <!--PropertyGroup>
     <ManifestCertificateThumbprint>C6412619D3DD33EA4A493D3D901AEBBB7E6068C2</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
@@ -80,7 +80,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
-  </PropertyGroup>
+  </PropertyGroup-->
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
