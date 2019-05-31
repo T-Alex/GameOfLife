@@ -69,18 +69,18 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <!--PropertyGroup>
-    <ManifestCertificateThumbprint>C6412619D3DD33EA4A493D3D901AEBBB7E6068C2</ManifestCertificateThumbprint>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>57D60A095EE7443CA883C9F5F870B3EEB4F1AFFA</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>GameOfLife_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>GameOfLife_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
-  </PropertyGroup-->
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -217,7 +217,7 @@
       <SubType>Designer</SubType>
     </None>
     <Resource Include="Resources\Images\aboutLogoText.png" />
-    <None Include="GameOfLife_TemporaryKey.pfx" />
+    <None Include="GameOfLife_1_TemporaryKey.pfx" />
     <Content Include="Patterns\Breeders\LWSS Breeder.rle" />
     <Content Include="Patterns\Guns\2c5 Spaceship Gun P416.rle" />
     <Content Include="Patterns\Guns\2c5 Spaceship Gun P690.rle" />
