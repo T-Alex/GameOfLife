@@ -34,8 +34,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://storage.talex-soft.com/clickonceinstall/gameoflife/</InstallUrl>
-    <SupportUrl>http://talex-soft.com</SupportUrl>
+    <InstallUrl>http://storage.alextitarenko.me/clickonceinstall/gameoflife/</InstallUrl>
+    <SupportUrl>https://alextitarenko.me</SupportUrl>
     <ProductName>Game of Life</ProductName>
     <PublisherName>T-Alex Software</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
