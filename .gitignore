@@ -31,6 +31,7 @@ obj/
 [Rr]elease*/
 [Pp]ublish
 Ankh.NoLoad
+.vs/
 
 #MonoDevelop
 *.pidb

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife", "GameOfLife\GameOfLife.csproj", "{96AA2D89-E2BC-4468-AFEF-F032D93E05E1}"
 EndProject
@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2A25BB
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GameOfLifeSetup", "GameOfLifeSetup\GameOfLifeSetup.vdproj", "{DE87F3A9-E0B7-48FF-8417-4BB43EB5EB6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,8 +29,13 @@ Global
 		{B54E963D-41F3-4A0B-9E49-47EBFFA070F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B54E963D-41F3-4A0B-9E49-47EBFFA070F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B54E963D-41F3-4A0B-9E49-47EBFFA070F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE87F3A9-E0B7-48FF-8417-4BB43EB5EB6E}.Debug|Any CPU.ActiveCfg = Debug
+		{DE87F3A9-E0B7-48FF-8417-4BB43EB5EB6E}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7B4E317-4D65-43D6-AF2E-B82F5E08C1E0}
 	EndGlobalSection
 EndGlobal
