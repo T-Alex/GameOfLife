@@ -87,6 +87,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_3C882095E88B49009DB70DB5FA7FA7A4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_3F440193C9D92553B567A98FA116CB11"
         "OwnerKey" = "8:_78C6579902404D81B08751D2B432E088"
         "MsmSig" = "8:_UNDEFINED"
@@ -381,6 +387,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_F4847E00046C452B9B2011F7305C23ED"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_F4971D598D67DB1F604ADF5074C1E75C"
         "OwnerKey" = "8:_78C6579902404D81B08751D2B432E088"
         "MsmSig" = "8:_UNDEFINED"
@@ -389,6 +401,12 @@
         {
         "MsmKey" = "8:_F7820BAD725101CE30093894DB7DE1C5"
         "OwnerKey" = "8:_78C6579902404D81B08751D2B432E088"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F993D4CD5EFA482D9D79EC33393C6530"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -449,12 +467,6 @@
         {
         "MsmKey" = "8:_FF65DA66F16E465CA5DCD9EE4E396DDA"
         "OwnerKey" = "8:_78C6579902404D81B08751D2B432E088"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_98E8FDB9CF225297D53B990CA528A49F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -763,6 +775,12 @@
         "OwnerKey" = "8:_AAE3F15E13227E4098EB3EE14DA42071"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_98E8FDB9CF225297D53B990CA528A49F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -781,6 +799,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -797,6 +823,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -1134,6 +1168,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3C882095E88B49009DB70DB5FA7FA7A4"
+            {
+            "SourcePath" = "8:..\\GameOfLife\\Resources\\Icons\\FileFormats\\RLE.ico"
+            "TargetName" = "8:RLE.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_E939059B5BE24064830CF10E5632CA12"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3F440193C9D92553B567A98FA116CB11"
@@ -2252,6 +2306,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F4847E00046C452B9B2011F7305C23ED"
+            {
+            "SourcePath" = "8:..\\GameOfLife\\Resources\\Icons\\FileFormats\\Life.ico"
+            "TargetName" = "8:Life.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_E939059B5BE24064830CF10E5632CA12"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F4971D598D67DB1F604ADF5074C1E75C"
             {
             "AssemblyRegister" = "3:1"
@@ -2312,6 +2386,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F993D4CD5EFA482D9D79EC33393C6530"
+            {
+            "SourcePath" = "8:..\\GameOfLife\\Resources\\Icons\\FileFormats\\Cells.ico"
+            "TargetName" = "8:Cells.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_E939059B5BE24064830CF10E5632CA12"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F9D8133500D06320936CCF0A0C22967E"
@@ -2472,6 +2566,98 @@
         }
         "FileType"
         {
+            "{5EB83D71-FA18-4901-BE56-DE22E13CC478}:_3D7AE40F44184B5F871F20A46C654EEA"
+            {
+            "Name" = "8:RLE file"
+            "Description" = "8:"
+            "Extensions" = "8:.rle"
+            "MIME" = "8:"
+            "Icon" = "8:_3C882095E88B49009DB70DB5FA7FA7A4"
+            "IconIndex" = "3:0"
+                "Command"
+                {
+                "Command" = "8:_78C6579902404D81B08751D2B432E088"
+                }
+                "Verbs"
+                {
+                    "{95C0C507-CBF0-42B8-B119-07219E384A4A}:_235FD759663C41D39DF0E09DF9BE23C4"
+                    {
+                    "Command" = "8:&Open"
+                    "Verb" = "8:open"
+                    "Arguments" = "8:\"%1\""
+                    "Order" = "3:0"
+                    }
+                }
+            }
+            "{5EB83D71-FA18-4901-BE56-DE22E13CC478}:_5A5706C5FBF44010936716DF8894E213"
+            {
+            "Name" = "8:Life file (life)"
+            "Description" = "8:"
+            "Extensions" = "8:.life"
+            "MIME" = "8:"
+            "Icon" = "8:_F4847E00046C452B9B2011F7305C23ED"
+            "IconIndex" = "3:0"
+                "Command"
+                {
+                "Command" = "8:_78C6579902404D81B08751D2B432E088"
+                }
+                "Verbs"
+                {
+                    "{95C0C507-CBF0-42B8-B119-07219E384A4A}:_C93582AD86C04557816DB432C385467B"
+                    {
+                    "Command" = "8:&Open"
+                    "Verb" = "8:open"
+                    "Arguments" = "8:\"%1\""
+                    "Order" = "3:0"
+                    }
+                }
+            }
+            "{5EB83D71-FA18-4901-BE56-DE22E13CC478}:_DF7CE03744DB4693AE3D4E1DE10513D1"
+            {
+            "Name" = "8:Cells (plaintext) file"
+            "Description" = "8:"
+            "Extensions" = "8:.cells"
+            "MIME" = "8:"
+            "Icon" = "8:_F993D4CD5EFA482D9D79EC33393C6530"
+            "IconIndex" = "3:0"
+                "Command"
+                {
+                "Command" = "8:_78C6579902404D81B08751D2B432E088"
+                }
+                "Verbs"
+                {
+                    "{95C0C507-CBF0-42B8-B119-07219E384A4A}:_456264970996418F9F1613D69101C5E1"
+                    {
+                    "Command" = "8:&Open"
+                    "Verb" = "8:open"
+                    "Arguments" = "8:\"%1\""
+                    "Order" = "3:0"
+                    }
+                }
+            }
+            "{5EB83D71-FA18-4901-BE56-DE22E13CC478}:_FF4B133253F84622ADD5549D5D96F7D6"
+            {
+            "Name" = "8:Life file (lif)"
+            "Description" = "8:"
+            "Extensions" = "8:.lif"
+            "MIME" = "8:"
+            "Icon" = "8:_F4847E00046C452B9B2011F7305C23ED"
+            "IconIndex" = "3:0"
+                "Command"
+                {
+                "Command" = "8:_78C6579902404D81B08751D2B432E088"
+                }
+                "Verbs"
+                {
+                    "{95C0C507-CBF0-42B8-B119-07219E384A4A}:_66FE380E21234399B077AA6A4E5CB8FA"
+                    {
+                    "Command" = "8:&Open"
+                    "Verb" = "8:open"
+                    "Arguments" = "8:\"%1\""
+                    "Order" = "3:0"
+                    }
+                }
+            }
         }
         "Folder"
         {
@@ -2526,7 +2712,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Game of Life"
         "ProductCode" = "8:{66701F70-B570-48BB-9512-58FD9D3019B7}"
-        "PackageCode" = "8:{8DDD7211-7C0B-4CF5-9D79-0D5D99310BA3}"
+        "PackageCode" = "8:{E610066E-A4AA-4333-BAD3-368696E08348}"
         "UpgradeCode" = "8:{BB3DE138-CC47-42F7-AC87-3A1F7389AC85}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
