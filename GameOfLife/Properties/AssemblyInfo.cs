@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("Game of Life")]
 [assembly: AssemblyDescription("The Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("T-Alex Software")]
+[assembly: AssemblyCompany("Alex Titarenko")]
 [assembly: AssemblyProduct("Game of Life")]
-[assembly: AssemblyCopyright("Copyright © 2015 T-Alex Software")]
+[assembly: AssemblyCopyright("Copyright © 2019 Alex Titarenko")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -51,5 +51,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.2.2.0")]
-[assembly: AssemblyFileVersion("2.2.2.0")]
+[assembly: AssemblyVersion("2.3.0.0")]
+[assembly: AssemblyFileVersion("2.3.0.0")]

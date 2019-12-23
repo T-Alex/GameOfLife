@@ -806,6 +806,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
         "Release"
@@ -2712,7 +2720,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Game of Life"
         "ProductCode" = "8:{66701F70-B570-48BB-9512-58FD9D3019B7}"
-        "PackageCode" = "8:{E610066E-A4AA-4333-BAD3-368696E08348}"
+        "PackageCode" = "8:{3EEAA1EC-CE21-4A66-932A-1823DD14CF37}"
         "UpgradeCode" = "8:{BB3DE138-CC47-42F7-AC87-3A1F7389AC85}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -2720,7 +2728,7 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
         "ProductVersion" = "8:2.3.0"
-        "Manufacturer" = "8:TAlex"
+        "Manufacturer" = "8:Alex Titarenko"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Game of Life"
