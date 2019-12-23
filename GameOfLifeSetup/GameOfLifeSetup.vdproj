@@ -838,6 +838,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -2840,6 +2848,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_64CA263BB8BC449AA49AD4978B593491"
+            {
+            "Name" = "8:Game of Life"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_78C6579902404D81B08751D2B432E088"
+            "Folder" = "8:_FAB89F9CB36C42589E3E3C52933AB521"
+            "WorkingFolder" = "8:_E939059B5BE24064830CF10E5632CA12"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_7A51633AF9034C59A1B7D46194DAF35D"
             {
             "Name" = "8:Game of Life"
