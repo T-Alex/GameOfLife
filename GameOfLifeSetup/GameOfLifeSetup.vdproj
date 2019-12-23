@@ -2526,7 +2526,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Game of Life"
         "ProductCode" = "8:{66701F70-B570-48BB-9512-58FD9D3019B7}"
-        "PackageCode" = "8:{4112101A-AAF6-40FC-B188-EDD05B68C3F7}"
+        "PackageCode" = "8:{8DDD7211-7C0B-4CF5-9D79-0D5D99310BA3}"
         "UpgradeCode" = "8:{BB3DE138-CC47-42F7-AC87-3A1F7389AC85}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -2652,12 +2652,12 @@
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
+            "IconIndex" = "3:32512"
             "Transitive" = "11:FALSE"
             "Target" = "8:_78C6579902404D81B08751D2B432E088"
             "Folder" = "8:_D8B02FA73E9E4448A8E7841456F7A1F9"
             "WorkingFolder" = "8:_E939059B5BE24064830CF10E5632CA12"
-            "Icon" = "8:"
+            "Icon" = "8:_78C6579902404D81B08751D2B432E088"
             "Feature" = "8:"
             }
         }
