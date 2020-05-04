@@ -70,13 +70,6 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
-    <Reference Include="TAlex.Common, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\TAlex.Common.1.0.1.0\lib\portable-net45+win+wpa81+wp80\TAlex.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="TAlex.WPF.Controls">
-      <HintPath>..\packages\TAlex.WPF.Controls.2.0.1.0\lib\net40\TAlex.WPF.Controls.dll</HintPath>
-    </Reference>
     <Reference Include="UIAutomationProvider">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
@@ -241,9 +234,6 @@
     <Content Include="Patterns\Syntheses\Make p18.rle" />
     <Content Include="Patterns\Syntheses\Make p33.rle" />
     <Content Include="Patterns\Syntheses\Oscillator Syntheses.rle" />
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
     <Resource Include="Resources\Fonts\Fontawesome.ttf" />
     <None Include="Resources\Icons\icon.ico" />
     <None Include="Properties\Settings.settings">
@@ -294,7 +284,14 @@
       <Name>GameOfLife.Engine</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="TAlex.Common">
+      <Version>1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="TAlex.WPF.Controls">
+      <Version>2.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
