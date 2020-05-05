@@ -24,13 +24,32 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Resources\Icons\icon.ico" />
-    <None Include="Properties\Settings.settings">
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
-    
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="Resources\Icons\icon.ico" />
+        
     <Resource Include="Resources\Fonts\Fontawesome.ttf" />
     <Resource Include="Resources\Images\aboutLogoText.png" />
     <Resource Include="Resources\Images\aboutLogo.png" />
@@ -79,6 +98,19 @@
     <Content Include="Patterns\Syntheses\Make p18.rle" />
     <Content Include="Patterns\Syntheses\Make p33.rle" />
     <Content Include="Patterns\Syntheses\Oscillator Syntheses.rle" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
 
