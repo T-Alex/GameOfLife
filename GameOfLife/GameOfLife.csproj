@@ -57,6 +57,7 @@
     <Content Include="Resources\Icons\FileFormats\Cells.ico" />
     <Content Include="Resources\Icons\FileFormats\Life.ico" />
     <Content Include="Resources\Icons\FileFormats\RLE.ico" />
+    
     <Content Include="Patterns\Breeders\LWSS Breeder.rle" />
     <Content Include="Patterns\Guns\2c5 Spaceship Gun P416.rle" />
     <Content Include="Patterns\Guns\2c5 Spaceship Gun P690.rle" />
