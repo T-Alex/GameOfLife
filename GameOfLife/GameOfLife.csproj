@@ -1,4 +1,89 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net451</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>TAlex.GameOfLife</RootNamespace>
+    <AssemblyName>GameOfLife</AssemblyName>
+    <Title>Game of Life</Title>
+    <Version>2.5.0</Version>
+    <Company>Alex Titarenko</Company>
+    <Description>The Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970.</Description>
+    <Copyright>Copyright 2020 Alex Titarenko</Copyright>
+    <ApplicationIcon>Resources\Icons\icon.ico</ApplicationIcon>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TAlex.Common" Version="2.1.0" />
+    <PackageReference Include="TAlex.WPF.Controls" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GameOfLife.Engine\GameOfLife.Engine.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\Icons\icon.ico" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    
+    <Resource Include="Resources\Fonts\Fontawesome.ttf" />
+    <Resource Include="Resources\Images\aboutLogoText.png" />
+    <Resource Include="Resources\Images\aboutLogo.png" />
+    
+    <Content Include="Resources\Icons\FileFormats\Cells.ico" />
+    <Content Include="Resources\Icons\FileFormats\Life.ico" />
+    <Content Include="Resources\Icons\FileFormats\RLE.ico" />
+    <Content Include="Patterns\Breeders\LWSS Breeder.rle" />
+    <Content Include="Patterns\Guns\2c5 Spaceship Gun P416.rle" />
+    <Content Include="Patterns\Guns\2c5 Spaceship Gun P690.rle" />
+    <Content Include="Patterns\Guns\Cordership Gun P784.rle" />
+    <Content Include="Patterns\Guns\P690 PT Cordership Gun.rle" />
+    <Content Include="Patterns\Guns\Pseudo P34 Gun.rle" />
+    <Content Include="Patterns\Oscillators\Billiard Table.rle" />
+    <Content Include="Patterns\Oscillators\DRH Oscillators.rle" />
+    <Content Include="Patterns\Oscillators\Extensible Low Period.rle" />
+    <Content Include="Patterns\Oscillators\Glider Stream Crystal.rle" />
+    <Content Include="Patterns\Oscillators\Low Period.rle" />
+    <Content Include="Patterns\Oscillators\p103079214841.rle" />
+    <Content Include="Patterns\Oscillators\Queen Bee Turn.rle" />
+    <Content Include="Patterns\Oscillators\Traffic Light Hasslers.rle" />
+    <Content Include="Patterns\Oscillators\Unique High Period.rle" />
+    <Content Include="Patterns\Other Rules\Breeder 2.rle" />
+    <Content Include="Patterns\Other Rules\Growing Ship.rle" />
+    <Content Include="Patterns\Other Rules\Gun and Antigun %28Day and Night%29.rle" />
+    <Content Include="Patterns\Signal Circuitry\P30 Racetrack.rle" />
+    <Content Include="Patterns\Signal Circuitry\P46 Racetrack.rle" />
+    <Content Include="Patterns\Signal Circuitry\Turing Machine 3 state.rle" />
+    <Content Include="Patterns\Signal Circuitry\Unit Life Cell 512x512.rle" />
+    <Content Include="Patterns\Signal Circuitry\Unit Life Deep Cell.rle" />
+    <Content Include="Patterns\Simple\Clock.rle" />
+    <Content Include="Patterns\Simple\Eight.rle" />
+    <Content Include="Patterns\Simple\Galaxy.rle" />
+    <Content Include="Patterns\Simple\Glider.rle" />
+    <Content Include="Patterns\Simple\Gosper Glider Gun 1.rle" />
+    <Content Include="Patterns\Simple\Gosper Glider Gun 2.rle" />
+    <Content Include="Patterns\Simple\Oscillators.rle" />
+    <Content Include="Patterns\Simple\Port.rle" />
+    <Content Include="Patterns\Simple\Spaceships.rle" />
+    <Content Include="Patterns\Simple\Still Life.rle" />
+    <Content Include="Patterns\Syntheses\Make Harbor.rle" />
+    <Content Include="Patterns\Syntheses\Make osc p3.rle" />
+    <Content Include="Patterns\Syntheses\Make osc p4.rle" />
+    <Content Include="Patterns\Syntheses\Make osc p5 plus.rle" />
+    <Content Include="Patterns\Syntheses\Make p11.rle" />
+    <Content Include="Patterns\Syntheses\Make p18.rle" />
+    <Content Include="Patterns\Syntheses\Make p33.rle" />
+    <Content Include="Patterns\Syntheses\Oscillator Syntheses.rle" />
+  </ItemGroup>
+</Project>
+
+<!--
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -301,11 +386,5 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
+-->

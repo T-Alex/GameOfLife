@@ -1,27 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
 
 using Microsoft.Win32;
 
 using TAlex.GameOfLife.Engine;
 using TAlex.GameOfLife.FileFormats;
-using TAlex.GameOfLife.Helpers;
 using TAlex.GameOfLife.Controls;
 using TAlex.Common.Extensions;
-using System.Deployment.Application;
-using TAlex.GameOfLife.Views;
 using System.IO;
 using System.Reflection;
 using TAlex.Common.Models;
@@ -225,14 +213,7 @@ namespace TAlex.GameOfLife.Views
         private string GetPatternsDirectory()
         {
             string basePath = null;
-            try
-            {
-                basePath = ApplicationDeployment.CurrentDeployment.DataDirectory;
-            }
-            catch (InvalidDeploymentException)
-            {
-                basePath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-            }
+            basePath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
             return System.IO.Path.Combine(basePath, "Patterns");
         }
 
