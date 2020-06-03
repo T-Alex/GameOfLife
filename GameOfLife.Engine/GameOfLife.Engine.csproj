@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net451</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
     <RootNamespace>TAlex.GameOfLife</RootNamespace>
     <AssemblyName>GameOfLife.Engine</AssemblyName>
     <Product>GameOfLife.Engine</Product>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <Authors>Alex Titarenko</Authors>
     <Copyright>Copyright 2020 Alex Titarenko</Copyright>
   </PropertyGroup>

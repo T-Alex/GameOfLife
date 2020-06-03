@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net451</TargetFramework>
+    <TargetFramework>net461</TargetFramework>
     <UseWPF>true</UseWPF>
     <RootNamespace>TAlex.GameOfLife</RootNamespace>
     <AssemblyName>GameOfLife</AssemblyName>
     <Title>Game of Life</Title>
-    <Version>2.5.0</Version>
+    <Version>2.6.0</Version>
     <Company>Alex Titarenko</Company>
     <Description>The Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970.</Description>
     <Copyright>Copyright 2020 Alex Titarenko</Copyright>
@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="TAlex.Common" Version="2.1.0" />
-    <PackageReference Include="TAlex.WPF.Controls" Version="2.0.1" />
+    <PackageReference Include="TAlex.WPF.Controls" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>

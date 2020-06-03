@@ -96,10 +96,10 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5.2"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
                     {
-                    "Name" = "8:Microsoft .NET Framework 4.5.2 (x86 and x64)"
-                    "ProductCode" = "8:.NETFramework,Version=v4.5.2"
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
                     }
                 }
             }
@@ -946,7 +946,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_78C6579902404D81B08751D2B432E088"
             {
-            "SourcePath" = "8:..\\GameOfLife\\obj\\Release\\net451\\GameOfLife.exe"
+            "SourcePath" = "8:..\\GameOfLife\\obj\\Release\\net461\\GameOfLife.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E939059B5BE24064830CF10E5632CA12"
