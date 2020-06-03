@@ -426,15 +426,10 @@ namespace TAlex.GameOfLife.Views
             Initialize();
             
             string[] args = Environment.GetCommandLineArgs();
-            var activationData = AppDomain.CurrentDomain.SetupInformation.ActivationArguments?.ActivationData;
 
             if (args.Length > 1)
             {
                 LoadPattern(args[1]);
-            }
-            else if (activationData != null)
-            {
-                LoadPattern(activationData[0]);
             }
         }
 
