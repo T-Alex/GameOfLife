@@ -1,10 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop" DefaultTargets="Publish">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    <PublishTrimmed>true</PublishTrimmed>
-    <PublishReadyToRun>true</PublishReadyToRun>
     <UseWPF>true</UseWPF>
     <RootNamespace>TAlex.GameOfLife</RootNamespace>
     <AssemblyName>GameOfLife</AssemblyName>
