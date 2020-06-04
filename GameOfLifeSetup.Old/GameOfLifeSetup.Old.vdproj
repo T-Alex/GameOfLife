@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:GameOfLifeSetup"
+"ProjectName" = "8:GameOfLifeSetup.Old"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -120,6 +120,16 @@
         {
             "LaunchCondition"
             {
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_BA5A322202864E889F3EAED01492BABE"
+                {
+                "Name" = "8:.NET Core"
+                "Message" = "8:[VSDNETCOREMSG]"
+                "AllowLaterVersions" = "11:FALSE"
+                "InstallUrl" = "8:https://dotnet.microsoft.com/download/dotnet-core/[NetCoreVerMajorDotMinor]"
+                "IsNETCore" = "11:TRUE"
+                "Architecture" = "2:0"
+                "Runtime" = "2:0"
+                }
                 "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_CDBBD85093634246A2519E54A5727AC7"
                 {
                 "Name" = "8:.NET Framework"
@@ -890,7 +900,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_09743D0B358041448378FB2144BF254E"
             {
-            "SourcePath" = "8:"
+            "SourcePath" = "8:..\\GameOfLife\\obj\\Debug\\netcoreapp3.1\\GameOfLife.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E939059B5BE24064830CF10E5632CA12"
@@ -946,14 +956,14 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_78C6579902404D81B08751D2B432E088"
             {
-            "SourcePath" = "8:..\\GameOfLife\\obj\\Release\\net461\\GameOfLife.exe"
+            "SourcePath" = "8:..\\GameOfLife\\obj\\Debug\\netcoreapp3.1\\GameOfLife.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E939059B5BE24064830CF10E5632CA12"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
+            "ReadOnly" = "11:TRUE"
             "Hidden" = "11:FALSE"
             "System" = "11:FALSE"
             "Permanent" = "11:FALSE"
