@@ -58,47 +58,129 @@
     <Content Include="Resources\Icons\FileFormats\Life.ico" />
     <Content Include="Resources\Icons\FileFormats\RLE.ico" />
     
-    <Content Include="Patterns\Breeders\LWSS Breeder.rle" />
-    <Content Include="Patterns\Guns\2c5 Spaceship Gun P416.rle" />
-    <Content Include="Patterns\Guns\2c5 Spaceship Gun P690.rle" />
-    <Content Include="Patterns\Guns\Cordership Gun P784.rle" />
-    <Content Include="Patterns\Guns\P690 PT Cordership Gun.rle" />
-    <Content Include="Patterns\Guns\Pseudo P34 Gun.rle" />
-    <Content Include="Patterns\Oscillators\Billiard Table.rle" />
-    <Content Include="Patterns\Oscillators\DRH Oscillators.rle" />
-    <Content Include="Patterns\Oscillators\Extensible Low Period.rle" />
-    <Content Include="Patterns\Oscillators\Glider Stream Crystal.rle" />
-    <Content Include="Patterns\Oscillators\Low Period.rle" />
-    <Content Include="Patterns\Oscillators\p103079214841.rle" />
-    <Content Include="Patterns\Oscillators\Queen Bee Turn.rle" />
-    <Content Include="Patterns\Oscillators\Traffic Light Hasslers.rle" />
-    <Content Include="Patterns\Oscillators\Unique High Period.rle" />
-    <Content Include="Patterns\Other Rules\Breeder 2.rle" />
-    <Content Include="Patterns\Other Rules\Growing Ship.rle" />
-    <Content Include="Patterns\Other Rules\Gun and Antigun %28Day and Night%29.rle" />
-    <Content Include="Patterns\Signal Circuitry\P30 Racetrack.rle" />
-    <Content Include="Patterns\Signal Circuitry\P46 Racetrack.rle" />
-    <Content Include="Patterns\Signal Circuitry\Turing Machine 3 state.rle" />
-    <Content Include="Patterns\Signal Circuitry\Unit Life Cell 512x512.rle" />
-    <Content Include="Patterns\Signal Circuitry\Unit Life Deep Cell.rle" />
-    <Content Include="Patterns\Simple\Clock.rle" />
-    <Content Include="Patterns\Simple\Eight.rle" />
-    <Content Include="Patterns\Simple\Galaxy.rle" />
-    <Content Include="Patterns\Simple\Glider.rle" />
-    <Content Include="Patterns\Simple\Gosper Glider Gun 1.rle" />
-    <Content Include="Patterns\Simple\Gosper Glider Gun 2.rle" />
-    <Content Include="Patterns\Simple\Oscillators.rle" />
-    <Content Include="Patterns\Simple\Port.rle" />
-    <Content Include="Patterns\Simple\Spaceships.rle" />
-    <Content Include="Patterns\Simple\Still Life.rle" />
-    <Content Include="Patterns\Syntheses\Make Harbor.rle" />
-    <Content Include="Patterns\Syntheses\Make osc p3.rle" />
-    <Content Include="Patterns\Syntheses\Make osc p4.rle" />
-    <Content Include="Patterns\Syntheses\Make osc p5 plus.rle" />
-    <Content Include="Patterns\Syntheses\Make p11.rle" />
-    <Content Include="Patterns\Syntheses\Make p18.rle" />
-    <Content Include="Patterns\Syntheses\Make p33.rle" />
-    <Content Include="Patterns\Syntheses\Oscillator Syntheses.rle" />
+    <Content Include="Patterns\Breeders\LWSS Breeder.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Guns\2c5 Spaceship Gun P416.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Guns\2c5 Spaceship Gun P690.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Guns\Cordership Gun P784.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Guns\P690 PT Cordership Gun.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Guns\Pseudo P34 Gun.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Oscillators\Billiard Table.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Oscillators\DRH Oscillators.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Oscillators\Extensible Low Period.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Oscillators\Glider Stream Crystal.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Oscillators\Low Period.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Oscillators\p103079214841.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Oscillators\Queen Bee Turn.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Oscillators\Traffic Light Hasslers.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Oscillators\Unique High Period.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Other Rules\Breeder 2.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Other Rules\Growing Ship.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Other Rules\Gun and Antigun %28Day and Night%29.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Signal Circuitry\P30 Racetrack.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Signal Circuitry\P46 Racetrack.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Signal Circuitry\Turing Machine 3 state.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Signal Circuitry\Unit Life Cell 512x512.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Signal Circuitry\Unit Life Deep Cell.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Simple\Clock.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Simple\Eight.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Simple\Galaxy.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Simple\Glider.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Simple\Gosper Glider Gun 1.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Simple\Gosper Glider Gun 2.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Simple\Oscillators.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Simple\Port.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Simple\Spaceships.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Simple\Still Life.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Syntheses\Make Harbor.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Syntheses\Make osc p3.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Syntheses\Make osc p4.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Syntheses\Make osc p5 plus.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Syntheses\Make p11.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Syntheses\Make p18.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Syntheses\Make p33.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Patterns\Syntheses\Oscillator Syntheses.rle">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   
   <ItemGroup>
