@@ -12,6 +12,7 @@
     <Copyright>Copyright 2020 Alex Titarenko</Copyright>
     <ApplicationIcon>Resources\Icons\icon.ico</ApplicationIcon>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Platforms>AnyCPU;x86;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>

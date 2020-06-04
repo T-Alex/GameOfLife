@@ -9,12 +9,12 @@
 
   <Identity
     Name="48ed3a8e-0d41-49bd-92e3-5f2a191f41f0"
-    Publisher="CN=alxti"
-    Version="1.0.1.0" />
+    Publisher="CN=talex"
+    Version="1.0.3.0" />
 
   <Properties>
-    <DisplayName>GameOfLifeSetup</DisplayName>
-    <PublisherDisplayName>talex</PublisherDisplayName>
+    <DisplayName>GameOfLife</DisplayName>
+    <PublisherDisplayName>TAlex</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
