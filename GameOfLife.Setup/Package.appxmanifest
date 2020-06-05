@@ -10,7 +10,7 @@
   <Identity
     Name="48ed3a8e-0d41-49bd-92e3-5f2a191f41f0"
     Publisher="CN=talex"
-    Version="1.0.7.0" />
+    Version="1.0.8.0" />
 
   <Properties>
     <DisplayName>GameOfLife</DisplayName>
