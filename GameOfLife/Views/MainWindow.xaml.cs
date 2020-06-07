@@ -13,7 +13,7 @@ using TAlex.Common.Extensions;
 using System.IO;
 using System.Reflection;
 using TAlex.Common.Models;
-
+using System.Diagnostics;
 
 namespace TAlex.GameOfLife.Views
 {
@@ -460,7 +460,11 @@ namespace TAlex.GameOfLife.Views
 
         private void homepageMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start(Properties.Resources.HomepageUrl);
+            System.Diagnostics.Process.Start(new ProcessStartInfo
+            {
+                FileName = Properties.Resources.HomepageUrl,
+                UseShellExecute = true
+            });
         }
 
         private void abountMenuItem_Click(object sender, RoutedEventArgs e)
