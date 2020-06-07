@@ -13,7 +13,7 @@ using TAlex.Common.Extensions;
 using System.IO;
 using System.Reflection;
 using TAlex.Common.Models;
-
+using System.Diagnostics;
 
 namespace TAlex.GameOfLife.Views
 {
@@ -426,15 +426,10 @@ namespace TAlex.GameOfLife.Views
             Initialize();
             
             string[] args = Environment.GetCommandLineArgs();
-            var activationData = AppDomain.CurrentDomain.SetupInformation.ActivationArguments?.ActivationData;
 
             if (args.Length > 1)
             {
                 LoadPattern(args[1]);
-            }
-            else if (activationData != null)
-            {
-                LoadPattern(activationData[0]);
             }
         }
 
@@ -465,7 +460,11 @@ namespace TAlex.GameOfLife.Views
 
         private void homepageMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start(Properties.Resources.HomepageUrl);
+            System.Diagnostics.Process.Start(new ProcessStartInfo
+            {
+                FileName = Properties.Resources.HomepageUrl,
+                UseShellExecute = true
+            });
         }
 
         private void abountMenuItem_Click(object sender, RoutedEventArgs e)

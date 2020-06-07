@@ -95,7 +95,12 @@ namespace TAlex.GameOfLife.Views
             if (e.Uri != null && string.IsNullOrEmpty(e.Uri.OriginalString) == false)
             {
                 string uri = e.Uri.AbsoluteUri;
-                Process.Start(new ProcessStartInfo(uri));
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = uri,
+                    UseShellExecute = true
+                });
+
                 e.Handled = true;
             }
         }

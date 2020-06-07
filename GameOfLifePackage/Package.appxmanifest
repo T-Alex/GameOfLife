@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+  IgnorableNamespaces="uap rescap uap3">
+
+  <Identity
+    Name="48ed3a8e-0d41-49bd-92e3-5f2a191f41f0"
+    Publisher="CN=talex"
+    Version="2.6.0.0" />
+
+  <Properties>
+    <DisplayName>GameOfLife</DisplayName>
+    <PublisherDisplayName>TAlex</PublisherDisplayName>
+    <Logo>Images\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.0" MaxVersionTested="10.0.14393.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="$targetentrypoint$">
+      <uap:VisualElements
+        DisplayName="GameOfLife"
+        Description="GameOfLife"
+        BackgroundColor="transparent"
+        Square150x150Logo="Images\Square150x150Logo.png"
+        Square44x44Logo="Images\Square44x44Logo.png">
+        <uap:DefaultTile  ShortName="GameOfLife" Square71x71Logo="Images\Square71x71Logo.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo"/>
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile >
+        <uap:SplashScreen Image="Images\SplashScreen.png" />
+      </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="cells">
+            <uap:SupportedFileTypes>
+              <uap:FileType>.cells</uap:FileType>
+            </uap:SupportedFileTypes>
+            <uap:DisplayName>Cells (plaintest)</uap:DisplayName>
+            <uap:Logo>Images\Extensions\сells.png</uap:Logo>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="life">
+            <uap:SupportedFileTypes>
+              <uap:FileType>.lif</uap:FileType>
+              <uap:FileType>.life</uap:FileType>
+            </uap:SupportedFileTypes>
+            <uap:DisplayName>Life file</uap:DisplayName>
+            <uap:Logo>Images\Extensions\life.png</uap:Logo>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="rle">
+            <uap:SupportedFileTypes>
+              <uap:FileType>.rle</uap:FileType>
+            </uap:SupportedFileTypes>
+            <uap:DisplayName>RLE file</uap:DisplayName>
+            <uap:Logo>Images\Extensions\rle.png</uap:Logo>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+</Package>
