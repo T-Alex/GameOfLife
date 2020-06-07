@@ -1,5 +1,5 @@
 # Game Of Life
-[![Build status](https://ci.appveyor.com/api/projects/status/7qn8i5nfscq3f7fm?svg=true)](https://ci.appveyor.com/project/alex-titarenko/gameoflife)
+![Build](https://github.com/alex-titarenko/gameoflife/workflows/Build/badge.svg?branch=master)
 
 WPF realization of Conway's Game of Life.
 
