@@ -8,13 +8,13 @@
   IgnorableNamespaces="uap rescap uap3">
 
   <Identity
-    Name="48ed3a8e-0d41-49bd-92e3-5f2a191f41f0"
-    Publisher="CN=talex"
+    Name="29875T-AlexSoftware.ConwaysGameOfLife"
+    Publisher="CN=6D78D5C4-37CF-4DE1-A2AB-A90A299C21B1"
     Version="2.6.0.0" />
 
   <Properties>
-    <DisplayName>GameOfLife</DisplayName>
-    <PublisherDisplayName>TAlex</PublisherDisplayName>
+    <DisplayName>Conway&apos;s GameOfLife</DisplayName>
+    <PublisherDisplayName>T-Alex Software</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
@@ -32,7 +32,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="GameOfLife"
+        DisplayName="Conway&apos;s GameOfLife"
         Description="GameOfLife"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
