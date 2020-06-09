@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StoreAssociation xmlns="http://schemas.microsoft.com/appx/2010/storeassociation">
   <Publisher>CN=6D78D5C4-37CF-4DE1-A2AB-A90A299C21B1</Publisher>
-  <PublisherDisplayName>T-Alex Software</PublisherDisplayName>
+  <PublisherDisplayName>T-ALEX</PublisherDisplayName>
   <DeveloperAccountType>MSA</DeveloperAccountType>
   <GeneratePackageHash>http://www.w3.org/2001/04/xmlenc#sha256</GeneratePackageHash>
   <SupportedLocales>
