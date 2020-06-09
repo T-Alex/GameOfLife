@@ -61,8 +61,8 @@
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
-    <PackageCertificateThumbprint>043052096DF092F202A793514A0891F09E9A2B93</PackageCertificateThumbprint>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <PackageCertificateKeyFile>GameOfLifePackage_TemporaryKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <AppxBundle>Never</AppxBundle>
@@ -100,8 +100,8 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <None Include="GameOfLife.Setup_TemporaryKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
+    <None Include="GameOfLifePackage_TemporaryKey.pfx" />
     <Content Include="Images\Extensions\life.png" />
     <Content Include="Images\Extensions\rle.png" />
     <Content Include="Images\Extensions\сells.png" />
