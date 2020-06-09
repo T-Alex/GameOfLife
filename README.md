@@ -1,5 +1,4 @@
 # Game Of Life
-![Build](https://github.com/alex-titarenko/gameoflife/workflows/Build/badge.svg?branch=master)
 
 WPF realization of Conway's Game of Life.
 
