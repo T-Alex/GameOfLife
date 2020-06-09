@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="GameOfLife.Setup_TemporaryKey.pfx" />
+    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Images\Extensions\life.png" />
     <Content Include="Images\Extensions\rle.png" />
     <Content Include="Images\Extensions\сells.png" />
