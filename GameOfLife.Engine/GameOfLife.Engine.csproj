@@ -7,7 +7,6 @@
     <Version>1.2.0</Version>
     <Authors>Alex Titarenko</Authors>
     <Copyright>Copyright 2020 Alex Titarenko</Copyright>
-    <Platforms>AnyCPU;x86;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>

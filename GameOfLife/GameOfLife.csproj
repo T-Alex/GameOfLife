@@ -12,7 +12,6 @@
     <Copyright>Copyright 2020 Alex Titarenko</Copyright>
     <ApplicationIcon>Resources\Icons\icon.ico</ApplicationIcon>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Platforms>AnyCPU;x86;x64</Platforms>
     <RuntimeIdentifiers>win-x86;win-x64</RuntimeIdentifiers>
   </PropertyGroup>
 
@@ -26,11 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -38,153 +32,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Properties\Settings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  
-  <ItemGroup>
-    <None Include="Resources\Icons\icon.ico" />
-        
-    <Resource Include="Resources\Fonts\Fontawesome.ttf" />
-    <Resource Include="Resources\Images\aboutLogoText.png" />
-    <Resource Include="Resources\Images\aboutLogo.png" />
-    
-    <Content Include="Resources\Icons\FileFormats\Cells.ico" />
-    <Content Include="Resources\Icons\FileFormats\Life.ico" />
-    <Content Include="Resources\Icons\FileFormats\RLE.ico" />
-    
-    <Content Include="Patterns\Breeders\LWSS Breeder.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Guns\2c5 Spaceship Gun P416.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Guns\2c5 Spaceship Gun P690.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Guns\Cordership Gun P784.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Guns\P690 PT Cordership Gun.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Guns\Pseudo P34 Gun.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Oscillators\Billiard Table.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Oscillators\DRH Oscillators.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Oscillators\Extensible Low Period.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Oscillators\Glider Stream Crystal.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Oscillators\Low Period.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Oscillators\p103079214841.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Oscillators\Queen Bee Turn.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Oscillators\Traffic Light Hasslers.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Oscillators\Unique High Period.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Other Rules\Breeder 2.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Other Rules\Growing Ship.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Other Rules\Gun and Antigun %28Day and Night%29.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Signal Circuitry\P30 Racetrack.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Signal Circuitry\P46 Racetrack.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Signal Circuitry\Turing Machine 3 state.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Signal Circuitry\Unit Life Cell 512x512.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Signal Circuitry\Unit Life Deep Cell.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Simple\Clock.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Simple\Eight.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Simple\Galaxy.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Simple\Glider.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Simple\Gosper Glider Gun 1.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Simple\Gosper Glider Gun 2.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Simple\Oscillators.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Simple\Port.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Simple\Spaceships.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Simple\Still Life.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Syntheses\Make Harbor.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Syntheses\Make osc p3.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Syntheses\Make osc p4.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Syntheses\Make osc p5 plus.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Syntheses\Make p11.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Syntheses\Make p18.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Syntheses\Make p33.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Patterns\Syntheses\Oscillator Syntheses.rle">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  
+
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -196,5 +49,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="Resources\Icons\icon.ico" />
+    <Resource Include="Resources\Fonts\Fontawesome.ttf" />
+    <Resource Include="Resources\Images\*" />   
+    <Content Include="Resources\Icons\FileFormats\*" />
+    <Content Include="Patterns\**\*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>
